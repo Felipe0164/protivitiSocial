@@ -1,0 +1,85 @@
+﻿
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+		<form id="form" class="panel panel-default" action="#">
+			<div class="panel-heading">Editar Perfil</div>
+			<div class="panel-body no-bottom">
+				<div class="form-group">
+					<label for="login">Login</label>
+					<input id="login" name="login" class="form-control upper" type="text" spellcheck="false" readonly="readonly" value="<%=usuario.login %>" />
+				</div>
+				<div class="form-group">
+					<label for="nome">Nome</label>
+					<input id="nome" name="nome" maxlength="100" class="form-control upper" type="text" spellcheck="false" value="<%=usuario.nome %>" />
+				</div>
+				<div class="divider-body"></div>
+				<p>Para alterar a senha atual, preencha todos os campos abaixo</p>
+				<div class="form-group">
+					<label for="senhaAtual">Senha atual</label>
+					<input id="senhaAtual" name="senhaAtual" maxlength="20" class="form-control" type="password" />
+				</div>
+				<div class="form-group">
+					<label for="novaSenha">Nova senha</label>
+					<input id="novaSenha" name="novaSenha" maxlength="20" class="form-control" type="password" />
+				</div>
+				<div class="form-group">
+					<label for="novaSenha2">Confirme a nova senha</label>
+					<input id="novaSenha2" name="novaSenha2" maxlength="20" class="form-control" type="password" />
+				</div>
+			</div>
+			<div class="panel-footer">
+				<input value="Salvar Alterações" class="btn btn-primary btn-lg btn-block" type="submit" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+	//<![CDATA[
+	"use strict";
+
+	$("#form").validate({
+		rules: {
+			nome: {
+				required: true,
+				minlength: 3,
+				maxlength: 100
+			},
+			senhaAtual: {
+				maxlength: 20,
+				required: {
+					depends: function (element) {
+						return !!$("#novaSenha").val();
+					}
+				}
+			},
+			novaSenha: {
+				maxlength: 20,
+				required: {
+					depends: function (element) {
+						return !!$("#senhaAtual").val();
+					}
+				}
+			},
+			novaSenha2: {
+				equalTo: "#novaSenha"
+			}
+		},
+
+		submitHandler: function (form) {
+			if (JsonWebApi.active)
+				return;
+
+			Notification.wait();
+
+			JsonWebApi.postFormData("/api/usuario/alterarPerfil", form, function (response) {
+				if (response.success)
+					Notification.success("Perfil alterado com sucesso! \uD83D\uDE04");
+				else
+					Notification.error(response.value, true);
+			});
+		}
+	});
+	//]]>
+</script>

@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title><%=((typeof titulo === "undefined" || !titulo) ? "Protiviti Social" : (titulo + " - Protiviti Social")) %></title>
+
+	<%- include("cabecalho") %>
+
+	<%- defineContent("styles") %>
+</head>
+<body>
+
+	<%- body %>
+
+	<%- include("rodape") %>
+
+	<%- defineContent("scripts") %>
+</body>
+</html>
