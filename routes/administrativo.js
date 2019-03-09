@@ -17,7 +17,7 @@ router.all("/criar", wrap((req, res) => __awaiter(this, void 0, void 0, function
         res.redirect("/acesso");
     }
     else {
-        res.render("administrativo/alterar");
+        res.render("administrativo/alterar"), { titulo: "Criar Usuário", usuario: u };
     }
 })));
 router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -31,7 +31,7 @@ router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, functi
         if (isNaN(id) || !(item = yield Usuario.obter(id)))
             res.render("shared/nao-encontrado");
         else
-            res.render("administrativo/alterar");
+            res.render("administrativo/alterar"), { titulo: "Criar Usuário", usuario: u };
     }
 })));
 router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -40,7 +40,7 @@ router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, functio
         res.redirect("/acesso");
     }
     else {
-        res.render("adminstrativo/listar");
+        res.render("adminstrativo/listar"), { titulo: "Criar Usuário", usuario: u };
     }
 })));
 module.exports = router;
