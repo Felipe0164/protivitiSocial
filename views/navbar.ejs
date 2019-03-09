@@ -31,38 +31,15 @@
 		<div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
 			<ul class="nav" id="side-menu">
 
+				
 				<li>
-					<!-- <a href="/" class="active"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a> -->
-					<a href="/"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
-				</li>
-
-				<% if (usuario.admin) { %>
-
-				<li>
-					<a href="#"><i class="fa fa-pencil fa-fw"></i>Cursos<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
-
-						<li>
-							<a href="/curso/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
-
-						<li>
-							<a href="/curso/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<% } %>
-
-				<li>
-					<a href="#"><i class="fa fa-bullhorn fa-fw"></i>Eventos<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-bullhorn fa-fw"></i>Administrativo<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<% if (usuario.admin) { %>
 
 						<li>
-							<a href="/evento/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/administrativo/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<% } %>
@@ -70,7 +47,7 @@
 						<% if (usuario.admin) { %>
 
 						<li>
-							<a href="/evento/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/administrativo/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 						<% } %>
@@ -81,135 +58,90 @@
 				<% if (usuario.admin) { %>
 
 				<li>
-					<a href="#"><i class="fa fa-cubes fa-fw"></i>Formatos<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-briefcase"></i>Carreira<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/formato/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/carreira/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/formato/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/carreira/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-industry fa-fw"></i>Indústrias<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-thumb-tack"></i>Alocação<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/industria/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/alocacao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/industria/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/alocacao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-map-marker fa-fw"></i>Locais<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-map-marker fa-fw"></i>PEC<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/local/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/pec/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/local/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/pec/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-graduation-cap fa-fw"></i>Níveis de Instrução<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-building"></i>Negócios<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/instrucao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/negocios/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/instrucao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/negocios/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-id-badge fa-fw"></i>Profissões<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-balance-scale"></i>Liderença<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/profissao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/liderenca/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/profissao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/lideranca/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-codepen fa-fw"></i>Tipos de Sessão<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-clock-o"></i>Time Out<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
-							<a href="/tipoSessao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+							<a href="/timeOut/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
 
 						<li>
-							<a href="/tipoSessao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li>
-					<a href="#"><i class="fa fa-university fa-fw"></i>Unidades<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
-
-						<li>
-							<a href="/unidade/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
-
-						<li>
-							<a href="/unidade/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li>
-					<a href="#"><i class="fa fa-user fa-fw"></i>Usuários<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
-
-						<li>
-							<a href="/usuario/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
-
-						<li>
-							<a href="/usuario/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<li>
-					<a href="#"><i class="fa fa-trello fa-fw"></i>Verticais<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
-
-						<li>
-							<a href="/vertical/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
-
-						<li>
-							<a href="/vertical/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/timeOut/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
 						</li>
 
 					</ul>
