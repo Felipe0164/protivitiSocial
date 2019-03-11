@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("adminstrativo/listar", { titulo: "Criar Administrativo", usuario:u});
+		res.render("administrativo/listar", { titulo: "Criar Administrativo", usuario:u});
 	}
 }));
 
