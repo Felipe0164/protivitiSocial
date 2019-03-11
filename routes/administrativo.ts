@@ -9,7 +9,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("administrativo/alterar"), { titulo: "Criar Usuário", usuario:u};
+		res.render("administrativo/alterar", { titulo: "Criar Administrativo", usuario:u});
 	}
 }));
 
@@ -23,7 +23,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 		if (isNaN(id) || !(item = await Usuario.obter(id)))
 			res.render("shared/nao-encontrado");
 		else
-			res.render("administrativo/alterar"), { titulo: "Criar Usuário", usuario:u};
+			res.render("administrativo/alterar", { titulo: "Criar Administrativo", usuario:u});
 	}
 }));
 
@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("adminstrativo/listar"), { titulo: "Criar Usuário", usuario:u};
+		res.render("adminstrativo/listar", { titulo: "Criar Administrativo", usuario:u});
 	}
 }));
 
