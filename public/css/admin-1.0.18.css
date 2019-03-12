@@ -67,6 +67,10 @@
 	color: #6bf;
 }
 
+#side-menu i.fa-eye {
+    color: #6bf;
+}
+
 #side-menu a:hover i, #side-menu a:focus i, #side-menu a:active i, #side-menu a.active i {
 	color: #fff;
 }
@@ -163,7 +167,7 @@
 	border-bottom: 0 !important;
 	background: #3f3f3f;
 }
-
+   
 	.sidebar .nav-second-level li a {
 		padding-left: 37px;
 	}
@@ -371,3 +375,5 @@ i.fa-nomargin {
 	.custom-map-button:hover {
 		background: #f4f4f4;
 	}
+
+

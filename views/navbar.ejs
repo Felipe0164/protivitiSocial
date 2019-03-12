@@ -31,49 +31,141 @@
 		<div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
 			<ul class="nav" id="side-menu">
 
-				
 				<li>
-					<a href="#"><i class="fa fa-bullhorn fa-fw"></i>Administrativo<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-video-camera"></i>Administrativo<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
-
-						<% if (usuario.admin) { %>
-
 						<li>
 							<a href="/administrativo/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
 						</li>
-
-						<% } %>
-
-						<% if (usuario.admin) { %>
-
 						<li>
-							<a href="/administrativo/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/administrativo/listar"><i class="fa fa-eye"></i>Visualizar</a>
 						</li>
-
-						<% } %>
-
-					</ul>
+            
+            <li>
+              <a href="#">
+                <i class="fa fa-video-camera"></i>Teste<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/administrativo/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/administrativo/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+					
+          </ul>
 				</li>
 
-				<% if (usuario.admin) { %>
-
+		
 				<li>
-					<a href="#"><i class="fa fa-briefcase"></i>Carreira<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+					<a href="#"><i class="fa fa-users"></i>Carreira<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class="fa fa-video-camera"></i>Mapa de Carreira<span class="fa arrow"></span>
+              </a>
+              
+            </li>
+          </ul>
+            <ul class="nav nav-third-level collapse">
 
-						<li>
-							<a href="/carreira/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+						  <li>
+							  <a href="/carreira/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
+						  </li>
 
-						<li>
-							<a href="/carreira/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+						  <li>
+							  <a href="/carreira/listar"><i class="fa fa-eye"></i>Visualizar</a>
+						  </li>
 
-					</ul>
+					  </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Gestão de Desempenho
+
+            </li>
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Capacitação & Treinamentos
+
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
+
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Mentoring
+
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
+
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Currículo
+
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
+
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+          
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-thumb-tack"></i>Alocação<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-address-book"></i>Alocação<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
@@ -81,14 +173,14 @@
 						</li>
 
 						<li>
-							<a href="/alocacao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/alocacao/listar"><i class="fa fa-eye"></i>Visualizar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-map-marker fa-fw"></i>PEC<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-thumbs-up"></i>PEC<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
@@ -96,29 +188,86 @@
 						</li>
 
 						<li>
-							<a href="/pec/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/pec/listar"><i class="fa fa-eye"></i>Visualizar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-building"></i>Negócios<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+					<a href="#"><i class="fa fa-briefcase"></i>Negócios<span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse">
+            <li>
 
-						<li>
-							<a href="/negocios/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+              <i class="fa fa-minus"></i>Projetos
 
-						<li>
-							<a href="/negocios/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
 
-					</ul>
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Parcerias
+
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
+
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+          <ul class="nav nav-second-level collapse">
+            <li>
+
+              <i class="fa fa-minus"></i>Indicação de Oportunidade
+
+            </li>
+          </ul>
+          <ul class="nav nav-third-level collapse">
+
+            <li>
+              <a href="/carreira/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/carreira/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+          
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-balance-scale"></i>Liderença<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-user-circle-o"></i>Liderença<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
@@ -126,14 +275,14 @@
 						</li>
 
 						<li>
-							<a href="/lideranca/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/lideranca/listar"><i class="fa fa-eye"></i>Visualizar</a>
 						</li>
 
 					</ul>
 				</li>
 
 				<li>
-					<a href="#"><i class="fa fa-clock-o"></i>Time Out<span class="fa arrow"></span></a>
+					<a href="#"><i class="fa fa-comments"></i>Time Out<span class="fa arrow"></span></a>
 					<ul class="nav nav-second-level collapse">
 
 						<li>
@@ -141,13 +290,32 @@
 						</li>
 
 						<li>
-							<a href="/timeOut/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
+							<a href="/timeOut/listar"><i class="fa fa-eye"></i>Visualizar</a>
 						</li>
 
 					</ul>
 				</li>
 
-				<% } %>
+        <li>
+          <a href="#">
+            <i class="fa fa-bullhorn"></i>Inovação<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
+
+            <li>
+              <a href="/timeOut/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+        </li>
 
 			</ul>
 		</div>
