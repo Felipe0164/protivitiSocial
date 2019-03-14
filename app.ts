@@ -90,6 +90,7 @@ app.use((req: express.Request, res: express.Response, next: NextFunction) => {
 app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
+app.use("/pec", require("./routes/pec"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 
