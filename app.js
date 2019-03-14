@@ -79,6 +79,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
+app.use("/pec", require("./routes/pec"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 // Depois de registrados todos os caminhos das rotas e seus
