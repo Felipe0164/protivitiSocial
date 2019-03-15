@@ -57,6 +57,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\administrativo\alterar.ejs" />
+    <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
     <Content Include="views\home\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
@@ -78,6 +80,7 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
@@ -118,6 +121,7 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
     <Folder Include="views\shared\" />
   </ItemGroup>
@@ -132,6 +136,7 @@
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
+    <Compile Include="routes\administrativo.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
