@@ -8,6 +8,7 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,7 +26,7 @@
     <NodejsPort>1337</NodejsPort>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
-    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
     <EnableTypeScript>true</EnableTypeScript>
     <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
@@ -57,6 +58,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\administrativo\alterar.ejs" />
+    <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
     <Content Include="views\home\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
@@ -67,8 +70,11 @@
     <Content Include="views\home\index.ejs" />
     <Content Include="views\layout-externo.ejs" />
     <Content Include="views\layout.ejs" />
+    <Content Include="views\pec\alterar.ejs" />
+    <Content Include="views\pec\listar.ejs" />
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
+    <Content Include="views\timeout\alterar.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />
@@ -78,7 +84,10 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\timeout.ts" />
+    <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
+    <TypeScriptCompile Include="routes\pec.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
@@ -118,7 +127,10 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\timeout\" />
+    <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
   </ItemGroup>
   <ItemGroup>
