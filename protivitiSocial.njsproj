@@ -85,7 +85,12 @@
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\solucoes.ts" />
+    <TypeScriptCompile Include="models\parcerias.ts" />
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\api\solucoes.ts" />
+    <TypeScriptCompile Include="routes\api\parcerias.ts" />
+    <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
