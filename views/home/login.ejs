@@ -1,12 +1,14 @@
 ﻿<form method="post" action="./">
-	<div style="max-width: 400px; margin: 5% auto; padding: 15px;">
+	<div style="max-width: 630px; margin: 5% auto;">
 		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">
-			<div class="panel-heading">
+			
+      <div class="panel-heading">
 				<div class="text-center">
-					<img alt="Logo" src="/imagens/logo.png" />
+					<img alt="Logo" src="/imagens/ICTS.SVG" height="70px" width="70px" />
 				</div>
 			</div>
-			<div class="panel-body">
+			
+      <div class="panel-body">
 				<div id="divUser" class="form-group">
 					<label for="login">Usuário</label>
 					<input name="login" type="text" id="login" class="form-control text-uppercase" spellcheck="false" />
@@ -15,13 +17,52 @@
 					<label for="senha">Senha</label>
 					<input name="senha" type="password" id="senha" class="form-control" />
 				</div>
-				<% if (mensagem) { %>
+				
+        <% if (mensagem) { %>
 				<div id="lblMessage" class="alert alert-danger no-margin-bottom"><%=mensagem %></div>
 				<% } %>
 			</div>
-			<div class="panel-footer">
+			
+      <div class="panel-footer">
 				<input type="submit" value="Login" class="btn btn-primary btn-lg btn-block" />
 			</div>
 		</div>
 	</div>
 </form>
+
+<%- contentFor=("styles") %>
+<style>
+    .form-group {
+    margin-bottom: 25px;
+    padding: 0px 180px;
+    font-family: PT Sans;
+}
+    .panel-default>.panel-heading {
+    border: none;
+    color: #333;
+    background-color: #ffffff;
+}
+    .panel-footer {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border: none;
+}
+
+    .text-center {
+    text-align: left;
+}
+
+    .btn-block {
+    display: block;
+    min-width: 37.5%;
+    max-width: 37.5%;
+}
+
+.btn-primary {
+    margin: 0 auto;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+</style>
