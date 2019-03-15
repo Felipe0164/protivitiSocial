@@ -57,8 +57,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
-    <Content Include="views\negocios\requisitos\alterar.ejs" />
-    <Content Include="views\negocios\requisitos\listar.ejs" />
+    <Content Include="views\negocios\projeto\alterar.ejs" />
+    <Content Include="views\negocios\projeto\listar.ejs" />
     <Content Include="views\negocios\solucoes\alterar.ejs" />
     <Content Include="views\negocios\solucoes\listar.ejs" />
     <Content Include="views\negocios\parcerias\alterar.ejs" />
@@ -133,7 +133,7 @@
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
-    <Folder Include="views\negocios\requisitos\" />
+    <Folder Include="views\negocios\projeto\" />
     <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\pec\" />
