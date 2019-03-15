@@ -57,6 +57,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\negocios\solucoes\alterar.ejs" />
+    <Content Include="views\negocios\solucoes\listar.ejs" />
     <Content Include="views\negocios\parcerias\alterar.ejs" />
     <Content Include="views\negocios\parcerias\listar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
@@ -71,6 +73,8 @@
     <Content Include="views\home\index.ejs" />
     <Content Include="views\layout-externo.ejs" />
     <Content Include="views\layout.ejs" />
+    <Content Include="views\pec\alterar.ejs" />
+    <Content Include="views\pec\listar.ejs" />
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
     <Content Include="Web.config" />
@@ -82,6 +86,7 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
@@ -126,7 +131,9 @@
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />
+    <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
   </ItemGroup>
   <ItemGroup>
@@ -140,7 +147,6 @@
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
-    <Compile Include="routes\administrativo.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
