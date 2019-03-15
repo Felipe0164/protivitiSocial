@@ -91,6 +91,7 @@ app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
 app.use("/pec", require("./routes/pec"));
+app.use("/negocios/projeto", require("./routes/projeto"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 

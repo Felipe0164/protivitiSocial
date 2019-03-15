@@ -88,6 +88,7 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\projeto.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
