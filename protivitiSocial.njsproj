@@ -74,7 +74,8 @@
     <Content Include="views\pec\listar.ejs" />
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
-    <Content Include="views\timeout\alterar.ejs" />
+    <Content Include="views\timeout\criar.ejs" />
+    <Content Include="views\timeout\mapa.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />

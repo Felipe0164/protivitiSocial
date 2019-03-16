@@ -4,26 +4,21 @@ import Usuario = require("../models/usuario");
 
 const router = express.Router();
 
+router.all("/mapa", wrap(async (req: express.Request, res: express.Response) => {
+	let u = await Usuario.cookie(req);
+	if (!u || !u.admin) {
+		res.redirect("/acesso");
+	} else {
+		res.render("timeout/mapa", { titulo: "Mapa de Time-out", usuario:u});
+	}
+}));
+
 router.all("/criar", wrap(async (req: express.Request, res: express.Response) => {
 	let u = await Usuario.cookie(req);
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("timeout/alterar", { titulo: "Criar Time-Out", usuario:u});
-	}
-}));
-
-router.all("/alterar", wrap(async (req: express.Request, res: express.Response) => {
-	let u = await Usuario.cookie(req);
-	if (!u || !u.admin) {
-		res.redirect("/acesso");
-	} else {
-		let id = parseInt(req.query["id"]);
-		let item: Usuario = null;
-		if (isNaN(id) || !(item = await Usuario.obter(id)))
-			res.render("shared/nao-encontrado");
-		else
-			res.render("timeout/alterar", { titulo: "Editar Time-Out", usuario:u});
+        res.render("timeout/criar", { titulo: "Criar Time-Out", usuario: u };
 	}
 }));
 
