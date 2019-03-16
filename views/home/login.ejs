@@ -1,28 +1,31 @@
 ﻿<form method="post" action="./">
 	<div style="max-width: 630px; margin: 5% auto;">
+        <div><img alt="CircleLogo" src="/imagens/icts_circle.SVG" height="auto" width="110px" style="position: absolute;margin-left: 545px;
+            margin-top: 72.5px;"/></div>
+
         <div style="text-align:center; color: white; font-size:30px; padding: 0 15%">Acesse sua área de contribuinte
         </div>
                 <div style="text-align:center; color: white; font-size:17.5px; margin-bottom:3%; padding: 0 15%">ou <b>crie uma conta</b> caso ainda não tenha se registrado.
         </div>
-		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">
-			
+		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">	
       <div class="panel-heading">
-				<div class="text-center">
-					<img alt="Logo" src="/imagens/ICTS.SVG" height="auto" width="75px" style="
-    position: relative;
-    left: 45px;
-    top: 45px;
-"/>
+				<div>
+					<img alt="Logo" src="/imagens/ICTS.SVG" height="auto" width="75px" style="position: relative;left: 45px;top: 30px;"/>
+                    <img alt="BlueCircle" src="/imagens/icts_circle_blue.SVG" height="auto" width="20px" style="position: relative; left: 43px; top: 10.5px;"/>
+                    <img alt="MyProtiviti" src="/imagens/myprotiviti.SVG" height="auto" width="200px" style="position: relative;left: 36px;top: 35px; padding: 0px 15px"/>
 				</div>
 			</div>
 			
       <div class="panel-body">
 				<div id="divUser" class="form-group" style="color:#666666">
 					<label for="login">Usuário:</label>
+                    <img alt="Login" src="/imagens/login.SVG" height="auto" width="20px" style="position: relative; left: -40px; top: 38px;"/>
 					<input name="login" type="text" id="login" class="form-control text-uppercase" spellcheck="false" />
 				</div>
+
 				<div id="divPass" class="form-group" style="color:#666666">
 					<label for="senha">Senha:</label>
+                    <img alt="Senha" src="/imagens/password.SVG" height="auto" width="18px" style="position: relative; left: -30px; top: 37px;"/>
 					<input name="senha" type="password" id="senha" class="form-control" />
 				</div>
 				
@@ -33,7 +36,7 @@
 			
       <div class="panel-footer">
 				<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" />
-            <div style="text-align: center; padding: 15px 0px 40px 0px">
+            <div style="text-align: center;  padding: 15px 0px 40px 0px">
                 <b><a style ="color: #545455" href=" ">Esqueceu sua senha?</a></b>
             </div>
 			</div>
@@ -57,7 +60,8 @@
     background-color: #ffffff;
 }
     .panel-footer {
-    padding: 25px 15px 0px 15px;
+    margin: 0px 0px;
+    padding: 25px 0px 0px 0px;
     background-color: #ffffff;
     border: none;
 }
@@ -68,12 +72,13 @@
 
     .btn-block {
     display: block;
-    min-width: 27.5%;
-    max-width: 25%;
+    min-width: 25%;
+    max-width: 27.5%;
 }
 
 .btn-primary {
     margin: 0 auto;
+    padding: 0px 0px;
     color: #fff;
     background-color: #5d7b99;
     border-color: #2e6da4;
@@ -92,7 +97,7 @@
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    height: 115px;
+    height: 105px;
     /*"DESCOBERTO" por Nicholas Menichetti tmj irmao*/
 }
 
@@ -108,7 +113,7 @@ label {
 }
 
 .form-control {
-    padding: 18px 12px;
+    padding: 18px 12px 15px 40px;
     border: 2px solid #ecedef;
     transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
     box-shadow: 0 1px 3px rgba(0,0,0,0);
@@ -140,7 +145,7 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #4f7f9b;
+    background-image: linear-gradient(to right, #4e809c, #5d7b99);
 }
 
 .panel {
