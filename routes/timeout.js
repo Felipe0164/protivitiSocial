@@ -11,27 +11,22 @@ const express = require("express");
 const wrap = require("express-async-error-wrapper");
 const Usuario = require("../models/usuario");
 const router = express.Router();
+router.all("/mapa", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
+    let u = yield Usuario.cookie(req);
+    if (!u || !u.admin) {
+        res.redirect("/acesso");
+    }
+    else {
+        res.render("timeout/mapa", { titulo: "Mapa de Time-out", usuario: u });
+    }
+})));
 router.all("/criar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
     let u = yield Usuario.cookie(req);
     if (!u || !u.admin) {
         res.redirect("/acesso");
     }
     else {
-        res.render("timeout/alterar", { titulo: "Criar Time-Out", usuario: u });
-    }
-})));
-router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
-    let u = yield Usuario.cookie(req);
-    if (!u || !u.admin) {
-        res.redirect("/acesso");
-    }
-    else {
-        let id = parseInt(req.query["id"]);
-        let item = null;
-        if (isNaN(id) || !(item = yield Usuario.obter(id)))
-            res.render("shared/nao-encontrado");
-        else
-            res.render("timeout/alterar", { titulo: "Editar Time-Out", usuario: u });
+        res.render("timeout/criar", { titulo: "Criar Time-Out", usuario: u });
     }
 })));
 router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {

@@ -19,18 +19,35 @@
 
  <script>
 
-     navigator.geolocation.getCurrentPosition(function(location) {
-         var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
-         var map = L.map('map').setView(latlng, 13);
-         L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    subdomains: ['a', 'b', 'c'],
-    center: [-23.611169, -46.696062],
-    minZoom: 10,
-    zoom: 14
-         }).addTo(map);
-         var marker = L.marker(latlng).addTo(map);
-});
+   navigator.geolocation.getCurrentPosition(function(location) {
+   var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+   var map = L.map('map').setView(latlng, 13);
+   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+   subdomains: ['a', 'b', 'c'],
+   center: [-23.611169, -46.696062],
+   minZoom: 10,
+   zoom: 14
+   }).addTo(map);
+   var marker = L.marker(latlng).addTo(map);
+
+   map.on('click',function(e){
+   lat = e.latlng.lat;
+   lon = e.latlng.lng;
+
+   var popup = L.popup()
+   .setLatLng([lat,lon])
+   .setContent('<p><a href="/timeout/criar"> Adicionar localização</a></p>')
+   .openOn(map);
+   });
+
+   });
+
+
+
+
+
+
 
 
  </script>
