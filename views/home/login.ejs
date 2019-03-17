@@ -1,9 +1,10 @@
 ﻿<form method="post" action="./">
-	<div style="max-width: 400px; margin: 5% auto; padding: 15px;">
+	<div style="max-width: 790px; margin: 5% auto; padding: 15px;">
 		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">
+			<div class="login-circle"></div>
 			<div class="panel-heading">
 				<div class="text-center">
-					<img alt="Logo" src="/imagens/logo.png" />
+					<p class="titulo">Protiviti</p>
 				</div>
 			</div>
 			<div class="panel-body">
@@ -20,19 +21,50 @@
 				<% } %>
 			</div>
 			<div class="panel-footer">
-				<input type="submit" value="Login" class="btn btn-primary btn-lg btn-block" />
+				<input type="submit" value="Entrar" class="btn btn-primary btn-login" />
 			</div>
 		</div>
 	</div>
 </form>
 
 <%- contentFor("styles") %>
-<style type="text/css">
-	.panel-default > .panel-heading {
+<style>
+	.form-group {
+		color: #507f9c;
+		font-family: PT Sans;
+		margin-bottom: 25px;
+		padding: 0px 180px;
+	}
+	.titulo {
+		color: #507f9c;
+		font-family: PT Sans;
+	}
+	.panel-default {
+		position: relative;
+	}
+	.panel-default>.panel-heading {
 		background-color: #fff;
+		border: none;
 	}
-	.panel-heading img {
-		width: 100%;
-		max-width: 300px;
+	.panel-footer {
+		background-color: #fff;
+		border: none;
+		text-align: center;
 	}
+	.btn-login {
+    	padding: 13px 10px;
+		width: 18%;
+	}
+	.login-circle {
+		background: url(https://pbs.twimg.com/profile_images/995985538556530690/7q_RKG2e_400x400.jpg);
+		background-size: cover;
+		border-radius: 50px;
+		box-shadow: 3px -3px 3px rgba(0,0,0,0.1);
+		height: 80px;
+		position: absolute;
+		right: -20px;
+		top: -20px;
+		width: 80px;
+	}
+	
 </style>
