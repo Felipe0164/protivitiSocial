@@ -17,7 +17,7 @@ router.all("/criar", wrap((req, res) => __awaiter(this, void 0, void 0, function
         res.redirect("/acesso");
     }
     else {
-        res.render("negocios/parcerias/alterar", { titulo: "Criar nova parceria", usuario: u });
+        res.render("negocios/industria/alterar", { titulo: "Criar Indústria", usuario: u });
     }
 })));
 router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -31,7 +31,7 @@ router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, functi
         if (isNaN(id) || !(item = yield Usuario.obter(id)))
             res.render("shared/nao-encontrado");
         else
-            res.render("negocios/parcerias/alterar", { titulo: "Editar Parceria", usuario: u });
+            res.render("negocios/industria/alterar", { titulo: "Editar Indústria", usuario: u });
     }
 })));
 router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
@@ -40,8 +40,8 @@ router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, functio
         res.redirect("/acesso");
     }
     else {
-        res.render("negocios/parcerias/listar", { titulo: "Visualizar Parceria", usuario: u });
+        res.render("negocios/industria/listar", { titulo: "Visualizar Indústria", usuario: u });
     }
 })));
 module.exports = router;
-//# sourceMappingURL=parcerias.js.map
+//# sourceMappingURL=industria.js.map

@@ -8,6 +8,7 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,7 +26,7 @@
     <NodejsPort>1337</NodejsPort>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
-    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
     <EnableTypeScript>true</EnableTypeScript>
     <StartWebBrowser>True</StartWebBrowser>
   </PropertyGroup>
@@ -57,8 +58,14 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
+    <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
+    <Content Include="views\negocios\industria\alterar.ejs" />
+    <Content Include="views\negocios\industria\listar.ejs" />
     <Content Include="views\negocios\projeto\alterar.ejs" />
     <Content Include="views\negocios\projeto\listar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\listar.ejs" />
     <Content Include="views\negocios\solucoes\alterar.ejs" />
     <Content Include="views\negocios\solucoes\listar.ejs" />
     <Content Include="views\negocios\parcerias\alterar.ejs" />
@@ -88,6 +95,10 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\industria.ts" />
+    <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\pursuitTeam.ts" />
+    <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
@@ -134,6 +145,9 @@
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\negocios\industria\" />
+    <Folder Include="views\negocios\indicacaoOportunidade\" />
+    <Folder Include="views\negocios\pursuitTeam\" />
     <Folder Include="views\negocios\projeto\" />
     <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />

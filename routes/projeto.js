@@ -40,7 +40,7 @@ router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, functio
         res.redirect("/acesso");
     }
     else {
-        res.render("negocios/projeto/listar", { titulo: "Gerenciar Projeto", usuario: u });
+        res.render("negocios/projeto/listar", { titulo: "Visualizar Projeto", usuario: u });
     }
 })));
 module.exports = router;

@@ -38,12 +38,15 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Visualizar Video\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-play\"></i>"; } },
-            { title: "Descrição da nova solução", render: encode, data: "solucao" },
-			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "Nome do cliente", render: encode, data: "nomeCliente" },
+            { title: "Indústria", render: encode, data: "industria" },
+			      { title: "Soluções", render: encode, data: "solucao" },
+            { title: "Pursuit Team", render: encode, data: "pursuitTeam" },
+            { title: "Problema do cliente", render: encode, data: "problemaCliente" },
+            { title: "Por que vencemos?", render: encode, data: "porqueVencemos" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
-	
-		data: [{nome:"teste",link:"www.teste.com",descricao:"Teste de descrição",id:1}]
+	data: [{nomeCliente:"ESPM Store", industria:"Bens de Consumo e Varejo", solucao:"Cultura e Comportamento Ético, Transformação digital", pursuitTeam:"Equipe 1", problemaCliente:"Dificuldades ao efetuar vendar presenciais", porqueVencemos:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat", id:1}]
 	});
 
 	var trClicada;

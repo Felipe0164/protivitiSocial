@@ -92,6 +92,12 @@ app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
+app.use("/negocios/parcerias", require("./routes/parcerias"));
+app.use("/negocios/solucoes", require("./routes/solucoes"));
+app.use("/negocios/industria", require("./routes/industria"));
+app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
+app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
+
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 

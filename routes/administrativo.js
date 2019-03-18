@@ -40,7 +40,7 @@ router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, functio
         res.redirect("/acesso");
     }
     else {
-        res.render("administrativo/listar", { titulo: "Gerenciar Administrativo", usuario: u });
+        res.render("administrativo/listar", { titulo: "Visualizar Administrativo", usuario: u });
     }
 })));
 module.exports = router;

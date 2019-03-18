@@ -38,14 +38,14 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Solução", render: encode, data: "solucao" },
+            { title: "Pursuit Team", render: encode, data: "pursuitTeam" },
 			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
 	
 		data: [
-      {solucao:"Transformação digital",id:1},
-      {solucao:"Cultura e Comportamento Ético",id:2},
-      {solucao:"LGPD/ GDPR",id:3},
+      {solucao:"Equipe 1",id:1},
+      {solucao:"Equipe 2",id:2},
+      {solucao:"Equipe 3",id:3},
     ]
 	});
 

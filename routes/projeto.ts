@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-        res.render("negocios/projeto/listar", { titulo: "Gerenciar Projeto", usuario:u});
+        res.render("negocios/projeto/listar", { titulo: "Visualizar Projeto", usuario:u});
 	}
 }));
 
