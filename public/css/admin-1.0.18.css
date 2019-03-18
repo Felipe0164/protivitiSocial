@@ -56,7 +56,7 @@
 }
 
 #side-menu > li > a > i {
-	color: rgb(112, 243, 166);
+	color: #6bf;
 }
 
 #side-menu i.fa-plus {
@@ -65,10 +65,6 @@
 
 #side-menu i.fa-tasks {
 	color: #6bf;
-}
-
-#side-menu i.fa-eye {
-    color: #6bf;
 }
 
 #side-menu a:hover i, #side-menu a:focus i, #side-menu a:active i, #side-menu a.active i {
@@ -167,7 +163,7 @@
 	border-bottom: 0 !important;
 	background: #3f3f3f;
 }
-   
+
 	.sidebar .nav-second-level li a {
 		padding-left: 37px;
 	}
@@ -375,5 +371,3 @@ i.fa-nomargin {
 	.custom-map-button:hover {
 		background: #f4f4f4;
 	}
-
-

@@ -1,70 +1,160 @@
 ﻿<form method="post" action="./">
-	<div style="max-width: 790px; margin: 5% auto; padding: 15px;">
-		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">
-			<div class="login-circle"></div>
-			<div class="panel-heading">
-				<div class="text-center">
-					<p class="titulo">Protiviti</p>
+	<div style="max-width: 630px; margin: 5% auto;">
+        <div><img alt="CircleLogo" src="/imagens/icts_circle.SVG" height="auto" width="110px" style="position: absolute;margin-left: 545px;
+            margin-top: 72.5px;"/></div>
+
+        <div style="text-align:center; color: white; font-size:30px; padding: 0 15%">Acesse sua área de contribuinte
+        </div>
+                <div style="text-align:center; color: white; font-size:17.5px; margin-bottom:3%; padding: 0 15%">ou <b>crie uma conta</b> caso ainda não tenha se registrado.
+        </div>
+		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">	
+      <div class="panel-heading">
+				<div>
+					<img alt="Logo" src="/imagens/ICTS.SVG" height="auto" width="75px" style="position: relative;left: 45px;top: 30px;"/>
+                    <img alt="BlueCircle" src="/imagens/icts_circle_blue.SVG" height="auto" width="20px" style="position: relative; left: 43px; top: 10.5px;"/>
+                    <img alt="MyProtiviti" src="/imagens/myprotiviti.SVG" height="auto" width="200px" style="position: relative;left: 36px;top: 35px; padding: 0px 15px"/>
 				</div>
 			</div>
-			<div class="panel-body">
-				<div id="divUser" class="form-group">
-					<label for="login">Usuário</label>
+			
+      <div class="panel-body">
+				<div id="divUser" class="form-group" style="color:#666666">
+					<label for="login">Usuário:</label>
+                    <img alt="Login" src="/imagens/login.SVG" height="auto" width="20px" style="position: relative; left: -40px; top: 38px;"/>
 					<input name="login" type="text" id="login" class="form-control text-uppercase" spellcheck="false" />
 				</div>
-				<div id="divPass" class="form-group">
-					<label for="senha">Senha</label>
+
+				<div id="divPass" class="form-group" style="color:#666666">
+					<label for="senha">Senha:</label>
+                    <img alt="Senha" src="/imagens/password.SVG" height="auto" width="18px" style="position: relative; left: -30px; top: 37px;"/>
 					<input name="senha" type="password" id="senha" class="form-control" />
 				</div>
-				<% if (mensagem) { %>
+				
+        <% if (mensagem) { %>
 				<div id="lblMessage" class="alert alert-danger no-margin-bottom"><%=mensagem %></div>
 				<% } %>
 			</div>
-			<div class="panel-footer">
-				<input type="submit" value="Entrar" class="btn btn-primary btn-login" />
+			
+      <div class="panel-footer">
+				<input type="submit" value="Entrar" class="btn btn-primary btn-lg btn-block" />
+            <div style="text-align: center;  padding: 15px 0px 40px 0px">
+                <b><a style ="color: #545455" href=" ">Esqueceu sua senha?</a></b>
+            </div>
 			</div>
 		</div>
 	</div>
 </form>
 
-<%- contentFor("styles") %>
+<!--"DESCOBERTO" por Mano Rapharx DJ da Mangueira
+    n sei pra q isso serve ainda
+<%- contentFor=("styles") %> 
+-->
 <style>
-	.form-group {
-		color: #507f9c;
-		font-family: PT Sans;
-		margin-bottom: 25px;
-		padding: 0px 180px;
-	}
-	.titulo {
-		color: #507f9c;
-		font-family: PT Sans;
-	}
-	.panel-default {
-		position: relative;
-	}
-	.panel-default>.panel-heading {
-		background-color: #fff;
-		border: none;
-	}
-	.panel-footer {
-		background-color: #fff;
-		border: none;
-		text-align: center;
-	}
-	.btn-login {
-    	padding: 13px 10px;
-		width: 18%;
-	}
-	.login-circle {
-		background: url(https://pbs.twimg.com/profile_images/995985538556530690/7q_RKG2e_400x400.jpg);
-		background-size: cover;
-		border-radius: 50px;
-		box-shadow: 3px -3px 3px rgba(0,0,0,0.1);
-		height: 80px;
-		position: absolute;
-		right: -20px;
-		top: -20px;
-		width: 80px;
-	}
-	
+    .form-group {
+    margin-bottom: 20px;
+    padding: 0px 22.5%;
+    font-family: PT Sans;
+}
+    .panel-default>.panel-heading {
+    border: none;
+    color: #333;
+    background-color: #ffffff;
+}
+    .panel-footer {
+    margin: 0px 0px;
+    padding: 25px 0px 0px 0px;
+    background-color: #ffffff;
+    border: none;
+}
+
+    .text-center {
+    text-align: left;
+}
+
+    .btn-block {
+    display: block;
+    min-width: 25%;
+    max-width: 27.5%;
+}
+
+.btn-primary {
+    margin: 0 auto;
+    padding: 0px 0px;
+    color: #fff;
+    background-color: #5d7b99;
+    border-color: #2e6da4;
+}
+
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.panel-heading {
+    padding: 0px 0px 0px 0px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    height: 105px;
+    /*"DESCOBERTO" por Nicholas Menichetti tmj irmao*/
+}
+
+.panel-body {
+    padding: 0px 0px 0px 0px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-control {
+    padding: 18px 12px 15px 40px;
+    border: 2px solid #ecedef;
+    transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0);
+
+}
+
+.form-control:focus{
+    border-color:#bbc1f3;
+    box-shadow: 0 1px 3px rgba(0,0,0,0);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 2px solid #bbc1f3;
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+body {
+    font-family: "PT Sans","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-image: linear-gradient(to right, #4e809c, #5d7b99);
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    box-shadow: 0 0px 107px 0px rgba(0,0,0,.2);
+}
+
 </style>
