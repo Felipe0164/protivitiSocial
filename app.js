@@ -86,6 +86,7 @@ app.use("/negocios/solucoes", require("./routes/solucoes"));
 app.use("/negocios/industria", require("./routes/industria"));
 app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
+app.use("/inovacao", require("./routes/inovacao"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 // Depois de registrados todos os caminhos das rotas e seus
