@@ -1,223 +1,414 @@
-﻿
-<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Alterar menu</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="/"><img alt="Logo" src="/imagens/logo-cabecalho.png" /></a>
-	</div>
+﻿<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Alterar menu</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      <img alt="Logo" src="/imagens/logo-cabecalho.png" />
+    </a>
+  </div>
 
-	<ul class="nav navbar-top-links navbar-right">
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-				<img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-				<li>
-					<a href="/perfil"><i class="fa fa-user fa-fw"></i>Meu Perfil</a>
-				</li>
-				<li class="divider"></li>
-				<li>
-					<a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
-				</li>
-			</ul>
-		</li>
-	</ul>
+  <ul class="nav navbar-top-links navbar-right">
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+        <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id="<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-user">
+        <li>
+          <a href="/perfil">
+            <i class="fa fa-user fa-fw"></i>Meu Perfil
+          </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="/logout">
+            <i class="fa fa-sign-out fa-fw"></i>Logout
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
 
-	<div class="navbar-default sidebar" role="navigation">
-		<div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
-			<ul class="nav" id="side-menu">
+  <div class="navbar-default sidebar" role="navigation">
+    <div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
+      <ul class="nav" id="side-menu">
 
-				<li>
-					<!-- <a href="/" class="active"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a> -->
-					<a href="/"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
-				</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-video-camera"></i>Administrativo<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="/administrativo/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+            <li>
+              <a href="/administrativo/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-				<% if (usuario.admin) { %>
+            
 
-				<li>
-					<a href="#"><i class="fa fa-pencil fa-fw"></i>Cursos<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
+        </li>
 
-						<li>
-							<a href="/curso/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
 
-						<li>
-							<a href="/curso/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-users"></i>Carreira<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Mapa de carreira<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/mapaCarreira/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/mapaCarreira/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-					</ul>
-				</li>
+          </ul>
 
-				<% } %>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Gestão de desempenho<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/gestaoDesempenho/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/gestaoDesempenho/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-bullhorn fa-fw"></i>Eventos<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
 
-						<% if (usuario.admin) { %>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Capacitação & Treinamentos<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/mentoring/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/mentoring/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Mentoring<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/mentoring/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/mentoring/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-						<li>
-							<a href="/evento/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
 
-						<% } %>
+          </ul>
 
-						<% if (usuario.admin) { %>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Currículo<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/curriculo/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/curriculo/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-						<li>
-							<a href="/evento/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
 
-						<% } %>
+          </ul>
 
-					</ul>
-				</li>
+        </li>
 
-				<% if (usuario.admin) { %>
+        <li>
+          <a href="#">
+            <i class="fa fa-address-book"></i>Alocação<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
 
-				<li>
-					<a href="#"><i class="fa fa-cubes fa-fw"></i>Formatos<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+            <li>
+              <a href="/alocacao/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
 
-						<li>
-							<a href="/formato/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+            <li>
+              <a href="/alocacao/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-						<li>
-							<a href="/formato/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+          </ul>
+        </li>
 
-					</ul>
-				</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-thumbs-up"></i>PEC<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
 
-				<li>
-					<a href="#"><i class="fa fa-industry fa-fw"></i>Indústrias<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+            <li>
+              <a href="/pec/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
 
-						<li>
-							<a href="/industria/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+            <li>
+              <a href="/pec/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-						<li>
-							<a href="/industria/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+          </ul>
+        </li>
 
-					</ul>
-				</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-briefcase"></i>Negócios<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Projetos<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/projeto/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/projeto/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-map-marker fa-fw"></i>Locais<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
 
-						<li>
-							<a href="/local/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Parcerias<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/parcerias/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/parcerias/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-						<li>
-							<a href="/local/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
 
-					</ul>
-				</li>
+          </ul>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Indicação de Oportunidade<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/indicacaoOportunidade/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/indicacaoOportunidade/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-graduation-cap fa-fw"></i>Níveis de Instrução<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
 
-						<li>
-							<a href="/instrucao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+          </ul>
 
-						<li>
-							<a href="/instrucao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Soluções<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/solucoes/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/solucoes/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-					</ul>
-				</li>
+          </ul>
 
-				<li>
-					<a href="#"><i class="fa fa-id-badge fa-fw"></i>Profissões<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Indústrias<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/industria/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/industria/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-						<li>
-							<a href="/profissao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+          </ul>
 
-						<li>
-							<a href="/profissao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Pursuit Team<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/pursuitTeam/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/pursuitTeam/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
 
-					</ul>
-				</li>
+          </ul>
 
-				<li>
-					<a href="#"><i class="fa fa-codepen fa-fw"></i>Tipos de Sessão<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+        </li>
 
-						<li>
-							<a href="/tipoSessao/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-user-circle-o"></i>Liderença<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
 
-						<li>
-							<a href="/tipoSessao/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+            <li>
+              <a href="/liderenca/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
 
-					</ul>
-				</li>
+            <li>
+              <a href="/lideranca/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-university fa-fw"></i>Unidades<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
+        </li>
 
-						<li>
-							<a href="/unidade/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-comments"></i>Time Out<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
 
-						<li>
-							<a href="/unidade/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+            <li>
+              <a href="/timeOut/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
 
-					</ul>
-				</li>
+            <li>
+              <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-user fa-fw"></i>Usuários<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
+        </li>
 
-						<li>
-							<a href="/usuario/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
+        <li>
+          <a href="#">
+            <i class="fa fa-bullhorn"></i>Inovação<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
 
-						<li>
-							<a href="/usuario/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
+            <li>
+              <a href="/timeOut/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
 
-					</ul>
-				</li>
+            <li>
+              <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
-				<li>
-					<a href="#"><i class="fa fa-trello fa-fw"></i>Verticais<span class="fa arrow"></span></a>
-					<ul class="nav nav-second-level collapse">
+          </ul>
+        </li>
 
-						<li>
-							<a href="/vertical/criar"><i class="fa fa-plus fa-fw"></i>Criar</a>
-						</li>
-
-						<li>
-							<a href="/vertical/listar"><i class="fa fa-tasks fa-fw"></i>Gerenciar</a>
-						</li>
-
-					</ul>
-				</li>
-
-				<% } %>
-
-			</ul>
-		</div>
-	</div>
+      </ul>
+    </div>
+  </div>
 </nav>

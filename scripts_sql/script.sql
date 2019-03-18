@@ -36,3 +36,5 @@ INSERT INTO usuario (login, nome, perfil, senha) VALUES
 ('BRUNA.RODRIGUES','BRUNA RODRIGUES',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
 ('RAFAEL.PIGNATARO','RAFAEL PIGNATARO',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
 ('GUILHERME.LARREA','GUILHERME LARREA',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN');
+
+-- alter user 'root'@'localhost' identified with mysql_native_password by 'root'
