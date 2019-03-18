@@ -1,18 +1,21 @@
 ﻿<form method="post" action="./">
-	<div style="max-width: 630px; margin: 5% auto;">
-        <div><img alt="CircleLogo" src="/imagens/icts_circle.SVG" height="auto" width="110px" style="position: absolute;margin-left: 545px;
-            margin-top: 72.5px;"/></div>
+	<div id="main">
+        <div id="CircleLogo"><img alt="CircleLogo" src="/imagens/icts_circle.SVG"/></div>
 
-        <div style="text-align:center; color: white; font-size:30px; padding: 0 15%">Acesse sua área de contribuinte
+        <div id="texto1">
+            Acesse sua área de contribuinte
         </div>
-                <div style="text-align:center; color: white; font-size:17.5px; margin-bottom:3%; padding: 0 15%">ou <b>crie uma conta</b> caso ainda não tenha se registrado.
+
+        <div id="texto2">
+                    ou <b>crie uma conta</b> caso ainda não tenha se registrado.
         </div>
-		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">	
+
+		<div class="panel <%= (mensagem ? 'panel' : 'panel-default' ) %>">	
       <div class="panel-heading">
-				<div>
-					<img alt="Logo" src="/imagens/ICTS.SVG" height="auto" width="75px" style="position: relative;left: 45px;top: 30px;"/>
-                    <img alt="BlueCircle" src="/imagens/icts_circle_blue.SVG" height="auto" width="20px" style="position: relative; left: 43px; top: 10.5px;"/>
-                    <img alt="MyProtiviti" src="/imagens/myprotiviti.SVG" height="auto" width="200px" style="position: relative;left: 36px;top: 37px; padding: 0px 15px"/>
+				<div id="panel-heading-img">
+					<img id="Logo" alt="Logo" src="/imagens/ICTS.SVG"/>
+                    <img id="BlueCircle" alt="BlueCircle" src="/imagens/icts_circle_blue.SVG"/>
+                    <img id="MyProtiviti" alt="MyProtiviti" src="/imagens/myprotiviti.SVG";/>
 				</div>
 			</div>
 			
@@ -30,7 +33,7 @@
 				</div>
 				
         <% if (mensagem) { %>
-				<div id="lblMessage" class="alert alert-danger no-margin-bottom"><%=mensagem %></div>
+				<div id="lblMessage" class="alert"><%=mensagem %></div>
 				<% } %>
 			</div>
 			
@@ -139,7 +142,6 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-
 body {
     font-family: "PT Sans","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
@@ -147,6 +149,37 @@ body {
     color: #333;
     background-image: linear-gradient(to right, #4e809c, #5d7b99);
 }
+
+#CircleLogo{
+    position: absolute;
+    margin-left: 545px;
+    margin-top: 72.5px;
+    height:auto; 
+    width:110px;
+}
+
+#Logo{
+position: relative;left: 45px;
+top: 30px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+height:auto;
+width:75px;
+}
+
+    #BlueCircle{
+    height:auto; 
+    width:20px; 
+    position: relative; 
+    left: 43px; 
+    top: 10.5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
 
 .panel {
     margin-bottom: 20px;
@@ -156,5 +189,120 @@ body {
     -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
     box-shadow: 0 0px 107px 0px rgba(0,0,0,.2);
 }
+
+.alert {
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+#texto1{
+    text-align:center; 
+    color: white; 
+    font-size:30px; 
+    padding: 0 15%;
+}
+
+#texto2{
+    text-align:center; 
+    color: white; 
+    font-size:17.5px; 
+    margin-bottom:10%; 
+    padding: 0 15%
+}
+
+#main{
+    max-width: 630px; 
+    margin: 5% auto;
+}
+
+#MyProtiviti{
+    position: relative;
+    left: 36px;
+    top: 37px; 
+    padding: 0px 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: auto;
+    width: 200px;
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    background-image: linear-gradient(to right, #fff, #fff);
+  }
+    #texto1 {
+        font-size: 24px;
+        padding: 10% 5% 0% 5%;
+        color:#587d9a;
+    }
+    #texto2 {
+        font-size: 14px;
+        color:#587d9a;
+        padding: 0 5%;
+    }
+    .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    }
+    
+    #CircleLogo{
+    display: none;
+    }
+
+    #Logo{
+    position: relative;
+    left: 27.5%;
+    top: 0%;
+    height: auto;
+    width: 160px;
+    }
+
+    #BlueCircle{
+    height:auto; 
+    width:45px; 
+    position: relative; 
+    left: 100px; 
+    top: -40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    #main{
+    max-width: 414px; 
+    margin: 5% auto;
+    }
+
+    #MyProtiviti{
+    position: relative;
+    left: 17.5%;
+    top: 10px; 
+    padding: 0px 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: auto;
+    width: 225px;
+    }
+
+    .panel-body{
+        padding-top: 10%;
+    }
+
+    .btn-block {
+    display: block;
+    min-width: 50.5%;
+    max-width: 50.5%;
+}
+}
+
+
 
 </style>
