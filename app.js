@@ -79,6 +79,7 @@ app.use((req, res, next) => {
 app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
+app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
 app.use("/negocios/parcerias", require("./routes/parcerias"));

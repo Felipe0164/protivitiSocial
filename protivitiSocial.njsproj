@@ -58,6 +58,8 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\inovacao\alterar.ejs" />
+    <Content Include="views\inovacao\listar.ejs" />
     <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
     <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
     <Content Include="views\negocios\industria\alterar.ejs" />
@@ -97,6 +99,7 @@
     <TypeScriptCompile Include="models\usuario.ts" />
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\inovacao.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
@@ -142,6 +145,7 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\inovacao\" />
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
