@@ -58,7 +58,7 @@ router.post("/alterar", wrap(async (req: express.Request, res: express.Response)
     u = req.body as Parcerias;
 	u.id = parseInt(req.body.id);
 	u.perfil = parseInt(req.body.perfil);
-	jsonRes(res, 400, (u && !isNaN(u.id)) ? (id === u.id ? "Um usuário não pode alterar a si próprio" : await Usuario.alterar(u)) : "Dados inválidos");
+	jsonRes(res, 400, (u && !isNaN(u.id)) ? (id === u.id ? "Um usuário não pode alterar a si próprio" : await Parcerias.alterar(u)) : "Dados inválidos");
 }));
 
 router.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
@@ -66,7 +66,7 @@ router.get("/excluir", wrap(async (req: express.Request, res: express.Response) 
 	if (!u)
 		return;
 	let id = parseInt(req.query["id"]);
-	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode excluir a si próprio" : await Usuario.excluir(id)));
+	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode excluir a si próprio" : await Parcerias.excluir(id)));
 }));
 
 router.get("/redefinirSenha", wrap(async (req: express.Request, res: express.Response) => {
@@ -74,7 +74,7 @@ router.get("/redefinirSenha", wrap(async (req: express.Request, res: express.Res
 	if (!u)
 		return;
 	let id = parseInt(req.query["id"]);
-	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode redefinir sua própria senha" : await Usuario.redefinirSenha(id)));
+	jsonRes(res, 400, isNaN(id) ? "Dados inválidos" : (id === u.id ? "Um usuário não pode redefinir sua própria senha" : await Parcerias.redefinirSenha(id)));
 }));
 
 export = router;

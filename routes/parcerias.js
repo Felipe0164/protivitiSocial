@@ -9,10 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const express = require("express");
 const wrap = require("express-async-error-wrapper");
-const Usuario = require("../models/usuario");
+const Parcerias = require("../models/parcerias");
 const router = express.Router();
 router.all("/criar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
-    let u = yield Usuario.cookie(req);
+    let u = yield Parcerias.cookie(req);
     if (!u || !u.admin) {
         res.redirect("/acesso");
     }
@@ -21,21 +21,21 @@ router.all("/criar", wrap((req, res) => __awaiter(this, void 0, void 0, function
     }
 })));
 router.all("/alterar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
-    let u = yield Usuario.cookie(req);
+    let u = yield Parcerias.cookie(req);
     if (!u || !u.admin) {
         res.redirect("/acesso");
     }
     else {
         let id = parseInt(req.query["id"]);
         let item = null;
-        if (isNaN(id) || !(item = yield Usuario.obter(id)))
+        if (isNaN(id) || !(item = yield Parcerias.obter(id)))
             res.render("shared/nao-encontrado");
         else
             res.render("negocios/parcerias/alterar", { titulo: "Editar Parceria", usuario: u });
     }
 })));
 router.get("/listar", wrap((req, res) => __awaiter(this, void 0, void 0, function* () {
-    let u = yield Usuario.cookie(req);
+    let u = yield Parcerias.cookie(req);
     if (!u || !u.admin) {
         res.redirect("/acesso");
     }
