@@ -14,7 +14,8 @@
   <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id="<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.SVG" width="30" height="30" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <!-- <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i> -->
       </a>
       <ul class="dropdown-menu dropdown-user">
         <li>
@@ -32,7 +33,8 @@
     </li>
   </ul>
 
-  <div class="navbar-default sidebar" role="navigation">
+  <div class="sidebar-fake-bg"></div>
+  <div class="navbar-default sidebar" id="sidebar" role="navigation">
     <div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
       <ul class="nav" id="side-menu">
 
@@ -412,120 +414,3 @@
     </div>
   </div>
 </nav>
-
-<style>
-    body{
-        /*background-color: #fff;*/
-    }
-
-    .navbar-brand {
-    padding: 0px 0px;
-}
-
-    .navbar-default {
-        background-color: #4080a4;
-    }
-
-    .navbar {
-        min-height: 48px;
-    }
-
-    .logos{
-        display:inline-block;
-        margin: 10px 0px;
-        height:20px;
-    }
-
-    .navbar-top-links li:last-child {
-    margin-right: 0px;
-}
-
-    .navbar-top-links li a {
-        min-height: 48px;
-        padding: 10px;
-        padding-top: 13px;
-    }
-
-    .navbar-top-links.nav>li>a:hover{
-        background-color:#346a88;
-    }
-
-    .navbar-top-links.nav>li>a:focus{
-        background-color:#2a5a75;
-    }
-
-    .sidebar {
-            background-color: #31373c;
-        }
-
-    /*ALTERAÇÕES DENTRO DO MENU DA SIDEBAR*/
-        .sidebar ul li {
-        border-bottom: none;
-        }
-
-        .nav>li>a:hover{
-            color: #fff;
-            background-color: #282d31;
-        }
-
-        .nav>li>a:focus{
-            background-color: #1a1d20;
-        }
-
-        .nav-second-level li a{
-            background-color: #1a1d20;
-        }
-
-        .nav-third-level li a {
-            background-color:#212528;
-        }
-
-        #side-menu > li > a > i {
-            color: #fff;
-        }
-
-        #side-menu i.fa-plus {
-            color: #37b1f5;
-        }
-    /*FIM DAS ALTERAÇÕES DO MENU DA SIDEBAR*/
-
-    @media (min-width: 768px) {
-       /* .navbar-toggle {
-            display: inline-block;
-            position: relative;
-            float: left;
-            padding: 8px 10px 8px 10px;
-            margin: 10px 0px 0px 10px;
-            background-color: transparent;
-            background-image: none;
-            border: none;
-            border-radius: 0px;
-        }
-           */
-
-        .sidebar {
-            z-index: 1;
-            position: absolute;
-            width: 210px;
-            margin-top: 48px;
-            background-color: #31373c;
-            height: 93.4vh; /*VH = VIEWPORT HEIGHT*/
-        }
-        /*
-        .sidebar-nav.navbar-collapse {
-            padding-right: 0;
-            padding-left: 0;
-            background-color: #31373c;
-            width:48px;
-        }
-
-        .navbar-collapse.in{
-            width: 200px;
-        }
-
-        .collapsing{
-            width: 0px;
-        }
-            */
-    }
-</style>
