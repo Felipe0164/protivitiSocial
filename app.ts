@@ -98,7 +98,7 @@ app.use("/negocios/solucoes", require("./routes/solucoes"));
 app.use("/negocios/industria", require("./routes/industria"));
 app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
-app.use("/timeout", require("./routes/timeout"));
+
 
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));

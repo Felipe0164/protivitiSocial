@@ -1,19 +1,10 @@
-html {
-    height: 100%;
-}
-
-@media(min-width:768px) {
-    body {
-        min-height: 100%;
-    }
-}
-
 #wrapper {
 	width: 100%;
 }
 
 #page-wrapper {
 	padding: 0 15px;
+	min-height: 568px;
 }
 
 .navbar-right {
@@ -65,11 +56,11 @@ html {
 }
 
 #side-menu > li > a > i {
-	color: #fff;
+	color: #6bf;
 }
 
 #side-menu i.fa-plus {
-    color: #37b1f5;
+	color: #5f5;
 }
 
 #side-menu i.fa-tasks {
@@ -89,20 +80,13 @@ html {
 	}
 
 		.navbar-top-links li:last-child {
-			margin-right: 0;
+			margin-right: 15px;
 		}
 
 		.navbar-top-links li a {
-			padding: 10px 5px;
+			padding: 5px;
 			min-height: 50px;
 		}
-
-    .navbar-top-links.nav > li > a:hover {
-        background-color: #346a88;
-    }
-    .navbar-top-links.nav > li > a:focus {
-        background-color: #2a5a75;
-    }
 
 .profile-img {
 	border: 0;
@@ -145,9 +129,9 @@ html {
 	padding-left: 0;
 }
 
-/*.sidebar ul li {
+.sidebar ul li {
 	border-bottom: 1px solid #555;
-}*/
+}
 
 	.sidebar ul li:last-child {
 		border-bottom-width: 0;
@@ -180,37 +164,21 @@ html {
 	background: #3f3f3f;
 }
 
-    .sidebar .nav-second-level li a {
-        padding-left: 37px;
-        background-color: #1a1d20;
-    }
-
-    .sidebar .nav-third-level li a {
-        padding-left: 52px;
-        background-color: #212528;
-    }
-
-.sidebar-fake-bg {
-    display: none;
-}
-
-@media(min-width:768px) {
-    .sidebar {
-		z-index: 1;
-		position: absolute;
-		width: 210px;
-		margin-top: 50px;
+	.sidebar .nav-second-level li a {
+		padding-left: 37px;
 	}
 
-    .sidebar-fake-bg {
-        display: block;
-        z-index: 0;
-        position: fixed;
-        top: 50px;
-        bottom: 0;
-        width: 210px;
-        left: 0;
-    }
+	.sidebar .nav-third-level li a {
+		padding-left: 52px;
+	}
+
+@media(min-width:768px) {
+	.sidebar {
+		z-index: 1;
+		position: absolute;
+		width: 250px;
+		margin-top: 50px;
+	}
 }
 
 .huge {
@@ -315,7 +283,7 @@ i.fa-nomargin {
 }
 
 .navbar-brand {
-	padding: 0px;
+	padding: 0px 10px;
 	border: 0px none transparent;
 }
 
@@ -323,32 +291,9 @@ i.fa-nomargin {
 		height: 50px;
 	}
 
-.navbar-default {
-    background-color: #4080a4;
-}
-
-.nav > li > a:hover {
-    color: #fff;
-    background-color: #282d31;
-}
-
-.nav > li > a:focus {
-    background-color: #1a1d20;
-}
-
-.sidebar, .sidebar-fake-bg {
-    background-color: #31373c;
-}
-
-.logos {
-    display: inline-block;
-    margin: 10px 0px;
-    height: 20px;
-}
-
 .last-search-row {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 15px;
 }
 
 .fullscreen-iframe {

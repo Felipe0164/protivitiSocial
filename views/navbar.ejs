@@ -6,16 +6,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-        <img class="logos" src="/imagens/ICTS_WHITE.SVG" alt="ICTS" style="margin:0px 0px 0px 10px"/>
-        <img class="logos" src="/imagens/icts_circle_white.SVG" alt="WHITE CIRCLE" />
-        <img class="logos" src="/imagens/myprotiviti_white.SVG" alt="MYPROTIVITI" style="height:23px; margin-top: 12px;" />
+    <a class="navbar-brand" href="/">
+      <img alt="Logo" src="/imagens/logo-cabecalho.png" />
+    </a>
   </div>
 
   <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.SVG" width="30" height="30" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
-        <!-- <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i> -->
+        <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id="<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
       </a>
       <ul class="dropdown-menu dropdown-user">
         <li>
@@ -33,14 +32,13 @@
     </li>
   </ul>
 
-  <div class="sidebar-fake-bg"></div>
-  <div class="navbar-default sidebar" id="sidebar" role="navigation">
+  <div class="navbar-default sidebar" role="navigation">
     <div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
       <ul class="nav" id="side-menu">
 
         <li>
           <a href="#">
-            <i class="fa fa-file-video-o"></i>Administrativo<span class="fa arrow"></span>
+            <i class="fa fa-video-camera"></i>Administrativo<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -62,7 +60,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-vcard-o"></i>Carreira<span class="fa arrow"></span>
+            <i class="fa fa-users"></i>Carreira<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -174,7 +172,7 @@
 
         <li>
           <a href="#">
-            <i class="fa  fa-sitemap"></i>Alocação<span class="fa arrow"></span>
+            <i class="fa fa-address-book"></i>Alocação<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -195,7 +193,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-book"></i>PEC<span class="fa arrow"></span>
+            <i class="fa fa-thumbs-up"></i>PEC<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -216,7 +214,7 @@
 
         <li>
           <a href="#">
-            <i class="fa  fa-suitcase"></i>Negócios<span class="fa arrow"></span>
+            <i class="fa fa-briefcase"></i>Negócios<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -349,7 +347,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-users"></i>Liderença<span class="fa arrow"></span>
+            <i class="fa fa-user-circle-o"></i>Liderença<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -370,24 +368,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-cutlery"></i>Time Out<span class="fa arrow"></span>
-          </a>
-          <ul class="nav nav-second-level collapse">
-
-            <li>
-              <a href="/timeOut/mapa">
-                <i class="fa fa-globe "></i>Mapa
-              </a>
-            </li>
-
-            
-
-          </ul>
-        </li>
-
-        <li>
-          <a href="#">
-            <i class="fa fa-lightbulb-o"></i>Inovação<span class="fa arrow"></span>
+            <i class="fa fa-comments"></i>Time Out<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -399,6 +380,27 @@
 
             <li>
               <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="fa fa-bullhorn"></i>Inovacao<span class="fa arrow"></span>
+          </a>
+          <ul class="nav nav-second-level collapse">
+
+            <li>
+              <a href="/inovacao/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/inovacao/listar">
                 <i class="fa fa-eye"></i>Visualizar
               </a>
             </li>
