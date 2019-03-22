@@ -37,16 +37,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="models\usuario.js.map" />
     <Content Include="public\css\admin-1.0.18.css" />
     <Content Include="public\imagens\loading-grey-t.gif" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
-    <Content Include="routes\administrativo.js.map" />
-    <Content Include="routes\api\usuario.js.map" />
-    <Content Include="routes\home.js.map" />
-    <Content Include="routes\pec.js.map" />
-    <Content Include="routes\usuario.js.map" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
     <Content Include="public\favicon.ico" />
@@ -64,6 +58,20 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\inovacao\alterar.ejs" />
+    <Content Include="views\inovacao\listar.ejs" />
+    <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
+    <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
+    <Content Include="views\negocios\industria\alterar.ejs" />
+    <Content Include="views\negocios\industria\listar.ejs" />
+    <Content Include="views\negocios\projeto\alterar.ejs" />
+    <Content Include="views\negocios\projeto\listar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\listar.ejs" />
+    <Content Include="views\negocios\solucoes\alterar.ejs" />
+    <Content Include="views\negocios\solucoes\listar.ejs" />
+    <Content Include="views\negocios\parcerias\alterar.ejs" />
+    <Content Include="views\negocios\parcerias\listar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
@@ -89,9 +97,15 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\industria.ts" />
+    <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\inovacao.ts" />
+    <TypeScriptCompile Include="routes\pursuitTeam.ts" />
+    <TypeScriptCompile Include="routes\solucoes.ts" />
+    <TypeScriptCompile Include="routes\projeto.ts" />
+    <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
-    <TypeScriptCompile Include="routes\pec.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
@@ -131,13 +145,20 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\inovacao\" />
+    <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
+    <Folder Include="views\negocios\industria\" />
+    <Folder Include="views\negocios\indicacaoOportunidade\" />
+    <Folder Include="views\negocios\pursuitTeam\" />
+    <Folder Include="views\negocios\projeto\" />
+    <Folder Include="views\negocios\solucoes\" />
+    <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="models\usuario.js" />
     <Compile Include="public\js\admin-1.0.3.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="public\lib\bootstrap-datepicker\js\bootstrap-datepicker-1.0.0.min.js" />
@@ -148,11 +169,6 @@
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
-    <Compile Include="routes\administrativo.js" />
-    <Compile Include="routes\api\usuario.js" />
-    <Compile Include="routes\home.js" />
-    <Compile Include="routes\pec.js" />
-    <Compile Include="routes\usuario.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
