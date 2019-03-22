@@ -4,11 +4,11 @@ export = class Sql {
 	// https://www.npmjs.com/package/mysql
 	private static readonly pool = mysql.createPool({
 		connectionLimit: 30,
-		host: "localhost",
+        host: "myprotiviti.c1hpz28jfdku.us-east-2.rds.amazonaws.com",
 		port: 3306,
-		user: "root",
-		password: "root",
-		database: "protivitisocial"
+		user: "myprotiviti",
+		password: "myfafinha",
+        database: "myprotiviti"
 	});
 
 	private connection;

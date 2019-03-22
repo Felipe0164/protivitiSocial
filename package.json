@@ -1,33 +1,36 @@
 {
-	"name": "protiviti_social",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"start": "node app"
-	},
-	"description": "Protiviti Social",
-	"author": {
-		"name": ""
-	},
-	"main": "app.js",
-	"dependencies": {
-		"cookie-parser": "1.4.3",
-		"debug": "4.1.0",
-		"ejs": "2.6.1",
-		"express": "4.16.4",
-		"express-async-error-wrapper": "^1.0.3",
-		"express-ejs-layouts": "2.5.0",
-		"leaflet": "^1.4.0",
-		"lru-cache": "4.1.3",
-		"moment": "^2.24.0",
-		"mysql": "^2.16.0"
-	},
-	"devDependencies": {
-		"@types/debug": "0.0.30",
-		"@types/express": "^4.16.1",
-		"@types/express-serve-static-core": "^4.16.2",
-		"@types/mime": "^1.3.1",
-		"@types/node": "^8.10.44",
-		"@types/serve-static": "^1.7.32"
-	}
+  "name": "protiviti_social",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "Protiviti Social",
+  "author": {
+    "name": ""
+  },
+  "main": "app.js",
+  "dependencies": {
+    "cookie-parser": "1.4.3",
+    "debug": "4.1.0",
+    "ejs": "2.6.1",
+    "express": "4.16.4",
+    "express-async-error-wrapper": "^1.0.3",
+    "express-ejs-layouts": "2.5.0",
+    "leaflet": "^1.4.0",
+    "lru-cache": "4.1.3",
+    "moment": "^2.24.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.30",
+    "@types/express": "^4.16.1",
+    "@types/express-serve-static-core": "^4.16.2",
+    "@types/mime": "^1.3.1",
+    "@types/node": "^10.12.30",
+    "@types/serve-static": "^1.7.32"
+  },
+  "engines": {
+    "node": "^10.14.1"
+  }
 }

@@ -18,7 +18,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-        res.render("timeout/criar", { titulo: "Criar Time-Out", usuario: u };
+        res.render("timeout/criar", { titulo: "Criar Time-Out", usuario: u });
 	}
 }));
 
