@@ -17,6 +17,7 @@
 		"express": "4.16.4",
 		"express-async-error-wrapper": "^1.0.3",
 		"express-ejs-layouts": "2.5.0",
+		"leaflet": "^1.4.0",
 		"lru-cache": "4.1.3",
 		"moment": "^2.24.0",
 		"mysql": "^2.16.0"
