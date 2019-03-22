@@ -1,18 +1,21 @@
 ﻿<form method="post" action="./">
-	<div style="max-width: 630px; margin: 5% auto;">
-        <div><img alt="CircleLogo" src="/imagens/icts_circle.SVG" height="auto" width="110px" style="position: absolute;margin-left: 545px;
-            margin-top: 72.5px;"/></div>
+	<div id="main">
+        <div id="CircleLogo"><img alt="CircleLogo" src="/imagens/icts_circle.SVG"/></div>
 
-        <div style="text-align:center; color: white; font-size:30px; padding: 0 15%">Acesse sua área de contribuinte
+        <div id="texto1">
+            Acesse sua área de contribuinte
         </div>
-                <div style="text-align:center; color: white; font-size:17.5px; margin-bottom:3%; padding: 0 15%">ou <b>crie uma conta</b> caso ainda não tenha se registrado.
+
+        <div id="texto2">
+                    ou <b>crie uma conta</b> caso ainda não tenha se registrado.
         </div>
-		<div class="panel <%= (mensagem ? 'panel-danger' : 'panel-default' ) %>">	
+
+		<div class="panel <%= (mensagem ? 'panel' : 'panel-default' ) %>">	
       <div class="panel-heading">
-				<div>
-					<img alt="Logo" src="/imagens/ICTS.SVG" height="auto" width="75px" style="position: relative;left: 45px;top: 30px;"/>
-                    <img alt="BlueCircle" src="/imagens/icts_circle_blue.SVG" height="auto" width="20px" style="position: relative; left: 43px; top: 10.5px;"/>
-                    <img alt="MyProtiviti" src="/imagens/myprotiviti.SVG" height="auto" width="200px" style="position: relative;left: 36px;top: 35px; padding: 0px 15px"/>
+				<div id="panel-heading-img">
+					<img id="Logo" alt="Logo" src="/imagens/ICTS.SVG"/>
+                    <img id="BlueCircle" alt="BlueCircle" src="/imagens/icts_circle_blue.SVG"/>
+                    <img id="MyProtiviti" alt="MyProtiviti" src="/imagens/myprotiviti.SVG";/>
 				</div>
 			</div>
 			
@@ -30,7 +33,7 @@
 				</div>
 				
         <% if (mensagem) { %>
-				<div id="lblMessage" class="alert alert-danger no-margin-bottom"><%=mensagem %></div>
+				<div id="lblMessage" class="alert"><%=mensagem %></div>
 				<% } %>
 			</div>
 			
@@ -48,113 +51,517 @@
     n sei pra q isso serve ainda
 <%- contentFor=("styles") %> 
 -->
+<!--------------------------------------------------------------->
 <style>
-    .form-group {
-    margin-bottom: 20px;
-    padding: 0px 22.5%;
-    font-family: PT Sans;
-}
-    .panel-default>.panel-heading {
-    border: none;
-    color: #333;
-    background-color: #ffffff;
-}
-    .panel-footer {
-    margin: 0px 0px;
-    padding: 25px 0px 0px 0px;
-    background-color: #ffffff;
-    border: none;
-}
+    body {
+        background-image: linear-gradient(to right, #4e809c, #5d7b99);
+        color: #333;
+        font-family: "PT Sans","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+    }
 
-    .text-center {
-    text-align: left;
-}
+    #main {
+        margin: 2.5% auto;
+        max-width: 630px;
+    }
+
+    #CircleLogo {
+        height: auto;
+        margin-left: 545px;
+        margin-top: 72.5px;
+        position: absolute;
+        width: 110px;
+    }
+
+    #texto1 {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #texto2 {
+        color: white;
+        font-size: 17.5px;
+        margin-bottom: 5%;
+        padding: 0 15%;
+        text-align: center;
+    }
+
+    .panel-default > .panel-heading {
+        background-color: #ffffff;
+        border: none;
+        color: #333;
+    }
+
+    .panel {
+        background-color: #fff;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0px 107px 0px rgba(0,0,0,.2);
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+
+    .panel-heading {
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        height: 105px;
+        padding: 0px 0px 0px 0px;
+        /*"DESCOBERTO" por Nicholas Menichetti tmj irmao*/
+    }
+
+    #Logo {
+        height: auto;
+        left: 45px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        top: 30px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 75px;
+    }
+
+    #BlueCircle {
+        height: auto;
+        left: 43px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        top: 10.5px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 20px;
+    }
+
+    .panel-body {
+        padding: 0px 0px 0px 0px;
+    }
+
+    .form-group {
+        font-family: PT Sans;
+        margin-bottom: 20px;
+        padding: 0px 22.5%;
+    }
+
+    label {
+        display: inline-block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .form-control {
+        border: 2px solid #ecedef;
+        box-shadow: 0 1px 3px rgba(0,0,0,0);
+        padding: 18px 12px 15px 40px;
+        transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
+    }
+
+    .form-control:focus {
+        border-color: #bbc1f3;
+        box-shadow: 0 1px 3px rgba(0,0,0,0);
+    }
+
+    .panel-footer {
+        background-color: #ffffff;
+        border: none;
+        margin: 0px 0px;
+        padding: 25px 0px 0px 0px;
+    }
+
+    .alert {
+        margin-bottom: 0px;
+        padding: 0px;
+    }
 
     .btn-block {
-    display: block;
-    min-width: 25%;
-    max-width: 27.5%;
-}
+        display: block;
+        max-width: 27.5%;
+        min-width: 25%;
+    }
 
-.btn-primary {
-    margin: 0 auto;
-    padding: 0px 0px;
-    color: #fff;
-    background-color: #5d7b99;
-    border-color: #2e6da4;
-}
+    .btn-primary {
+        background-color: #5d7b99;
+        border-color: #2e6da4;
+        color: #fff;
+        margin: 0 auto;
+        padding: 0px 0px;
+    }
 
-.btn-lg {
-    padding: 10px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.3333333;
-    border-radius: 6px;
-}
+    .btn-lg {
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.3333333;
+        padding: 10px 16px;
+    }
 
-.panel-heading {
-    padding: 0px 0px 0px 0px;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    height: 105px;
-    /*"DESCOBERTO" por Nicholas Menichetti tmj irmao*/
-}
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        border: 2px solid #bbc1f3;
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: black;
+    }
 
-.panel-body {
-    padding: 0px 0px 0px 0px;
-}
+    #MyProtiviti {
+        height: auto;
+        left: 36px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        padding: 0px 15px;
+        position: relative;
+        top: 37px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 200px;
+    }
 
-label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
+    @media only screen and (max-width: 800px) {
+        body {
+            background-image: linear-gradient(to right, #fff, #fff);
+        }
 
-.form-control {
-    padding: 18px 12px 15px 40px;
-    border: 2px solid #ecedef;
-    transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0);
+        #texto1 {
+            color: #587d9a;
+            font-size: 24px;
+            padding: 10% 5% 0% 5%;
+        }
 
-}
+        #texto2 {
+            color: #587d9a;
+            font-size: 14px;
+            margin-bottom: 15%;
+            padding: 0 5%;
+        }
 
-.form-control:focus{
-    border-color:#bbc1f3;
-    box-shadow: 0 1px 3px rgba(0,0,0,0);
-}
+        .panel {
+            background-color: #fff;
+            border: 5px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: none;
+            margin-bottom: 20px;
+            -webkit-box-shadow: none;
+        }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  border: 2px solid #bbc1f3;
-  -webkit-text-fill-color: black;
-  transition: background-color 5000s ease-in-out 0s;
-}
+        #CircleLogo {
+            display: none;
+        }
+
+        #Logo {
+            height: auto;
+            left: 27.5%;
+            position: relative;
+            top: 0%;
+            width: 160px;
+        }
+
+        #BlueCircle {
+            height: auto;
+            margin-left: 16.5%;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+            top: -40px;
+            user-select: none;
+            -webkit-user-select: none;
+            width: 45px;
+        }
+
+        #main {
+            margin: 5% auto;
+            max-width: 414px;
+        }
+
+        #MyProtiviti {
+            height: auto;
+            position: relative;
+            left: 17.5%;
+            top: 10px;
+            padding: 0px 15px;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-user-select: none;
+            width: 225px;
+        }
+
+        .panel-body {
+            padding-top: 10%;
+        }
+
+        .btn-block {
+            display: block;
+            max-width: 50.5%;
+            min-width: 50.5%;
+        }
+    }
 
 
-body {
-    font-family: "PT Sans","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #333;
-    background-image: linear-gradient(to right, #4e809c, #5d7b99);
-}
+    .panel-default > .panel-heading {
+        background-color: #ffffff;
+        border: none;
+        color: #333;
+    }
 
-.panel {
-    margin-bottom: 20px;
-    background-color: #fff;
-    border: 5px solid #ffffff;
-    border-radius: 10px;
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
-    box-shadow: 0 0px 107px 0px rgba(0,0,0,.2);
-}
+    .panel-heading {
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        height: 105px;
+        padding: 0px 0px 0px 0px;
+        /*"DESCOBERTO" por Nicholas Menichetti tmj irmao*/
+    }
 
+    .form-group {
+        font-family: PT Sans;
+        margin-bottom: 20px;
+        padding: 0px 22.5%;
+    }
+
+    .panel-footer {
+        background-color: #ffffff;
+        border: none;
+        margin: 0px 0px;
+        padding: 25px 0px 0px 0px;
+    }
+
+    .text-center {
+        text-align: left;
+    }
+
+    .btn-block {
+        display: block;
+        max-width: 27.5%;
+        min-width: 25%;
+    }
+
+    .btn-primary {
+        background-color: #5d7b99;
+        border-color: #2e6da4;
+        color: #fff;
+        margin: 0 auto;
+        padding: 0px 0px;
+    }
+
+    .btn-lg {
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.3333333;
+        padding: 10px 16px;
+    }
+
+
+    .panel-body {
+        padding: 0px 0px 0px 0px;
+    }
+
+    label {
+        display: inline-block;
+        font-weight: 600;
+        margin-bottom: 10px;
+        max-width: 100%;
+    }
+
+    .form-control {
+        border: 2px solid #ecedef;
+        box-shadow: 0 1px 3px rgba(0,0,0,0);
+        padding: 18px 12px 15px 40px;
+        transition: border-color ease-in-out .2s,box-shadow ease-in-out .2s;
+    }
+
+    .form-control:focus {
+        border-color: #bbc1f3;
+        box-shadow: 0 1px 3px rgba(0,0,0,0);
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        border: 2px solid #bbc1f3;
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: black;
+    }
+
+    body {
+        background-image: linear-gradient(to right, #4e809c, #5d7b99);
+        color: #333;
+        font-family: "PT Sans","Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+    }
+
+    #CircleLogo {
+        height: auto;
+        margin-left: 545px;
+        margin-top: 72.5px;
+        position: absolute;
+        width: 110px;
+    }
+
+    #Logo {
+        height: auto;
+        left: 45px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        top: 30px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 75px;
+    }
+
+    #BlueCircle {
+        height: auto;
+        left: 43px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        position: relative;
+        top: 10.5px;
+        user-select: none;
+        -webkit-user-select: none;
+        width: 20px;
+    }
+
+    .panel {
+        background-color: #fff;
+        border: 5px solid #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0px 107px 0px rgba(0,0,0,.2);
+        margin-bottom: 20px;
+        -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+
+    .alert {
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    #texto1 {
+        color: white;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    #texto2 {
+        color: white;
+        font-size: 17.5px;
+        margin-bottom: 5%;
+        padding: 0 15%;
+        text-align: center;
+    }
+
+    #main {
+        margin: 2.5% auto;
+        max-width: 630px;
+    }
+
+    #MyProtiviti {
+        height: auto;
+        left: 36px;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        padding: 0px 15px;
+        position: relative;
+        top: 37px;
+        user-select: none;
+        width: 200px;
+        -webkit-user-select: none;
+    }
+
+    @media only screen and (max-width: 800px) {
+        body {
+            background-image: linear-gradient(to right, #fff, #fff);
+        }
+
+        #main {
+            margin: 5% auto;
+            max-width: 414px;
+        }
+
+        #texto1 {
+            color: #587d9a;
+            font-size: 24px;
+            padding: 10% 5% 0% 5%;
+        }
+
+        #texto2 {
+            color: #587d9a;
+            font-size: 14px;
+            margin-bottom: 15%;
+            padding: 0 5%;
+        }
+
+        .panel {
+            background-color: #fff;
+            border: 5px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: none;
+            margin-bottom: 20px;
+            -webkit-box-shadow: none;
+        }
+
+        .panel-body {
+            padding-top: 10%;
+        }
+
+        #CircleLogo {
+            display: none;
+        }
+
+        #Logo {
+            height: auto;
+            left: 27.5%;
+            position: relative;
+            top: 0%;
+            width: 160px;
+        }
+
+        #BlueCircle {
+            height: auto;
+            margin-left: 16.5%;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            position: relative;
+            top: -40px;
+            user-select: none;
+            -webkit-user-select: none;
+            width: 45px;
+        }
+
+        #MyProtiviti {
+            height: auto;
+            left: 17.5%;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            padding: 0px 15px;
+            position: relative;
+            top: 10px;
+            user-select: none;
+            -webkit-user-select: none;
+            width: 225px;
+        }
+
+        .btn-block {
+            display: block;
+            max-width: 50.5%;
+            min-width: 50.5%;
+        }
+    }
 </style>
