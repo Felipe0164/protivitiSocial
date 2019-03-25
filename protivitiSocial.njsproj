@@ -6,7 +6,7 @@
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
   </PropertyGroup>
@@ -37,8 +37,21 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="myprotiviti - Web Deploy.pubxml" />
+    <None Include="myprotiviti - FTP.pubxml" />
     <Content Include="public\css\admin-1.0.18.css" />
+    <Content Include="public\imagens\D4wM500.png" />
+    <Content Include="public\imagens\ICTS.svg" />
+    <Content Include="public\imagens\icts_circle.svg" />
+    <Content Include="public\imagens\icts_circle_blue.svg" />
+    <Content Include="public\imagens\icts_circle_white.svg" />
+    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
+    <Content Include="public\imagens\login.svg" />
+    <Content Include="public\imagens\myprotiviti.svg" />
+    <Content Include="public\imagens\myprotiviti_white.svg" />
+    <Content Include="public\imagens\password.svg" />
+    <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
@@ -100,12 +113,14 @@
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
+    <TypeScriptCompile Include="routes\pec.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
+    <TypeScriptCompile Include="routes\timeout.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
@@ -157,6 +172,7 @@
     <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
+    <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="public\js\admin-1.0.3.js" />
