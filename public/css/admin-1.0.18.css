@@ -200,13 +200,14 @@ html {
 		position: absolute;
 		width: 210px;
 		margin-top: 50px;
+		min-height: 200px;
 	}
 
     .sidebar-fake-bg {
         display: block;
         z-index: 0;
         position: fixed;
-        top: 50px;
+        top: 125px;
         bottom: 0;
         width: 210px;
         left: 0;
