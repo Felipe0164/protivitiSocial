@@ -54,6 +54,9 @@
     <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
     <Content Include="public\lib\leaflet\css\leaflet.css" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon-2x.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-shadow.png" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
@@ -134,6 +137,7 @@
     <Folder Include="infra\" />
     <Folder Include="public\lib\leaflet\js\" />
     <Folder Include="public\lib\leaflet\css\" />
+    <Folder Include="public\lib\leaflet\js\images\" />
     <Folder Include="public\lib\metis-menu\" />
     <Folder Include="public\lib\metis-menu\css\" />
     <Folder Include="public\lib\metis-menu\js\" />
