@@ -52,7 +52,7 @@
     <Content Include="public\imagens\myprotiviti_white.svg" />
     <Content Include="public\imagens\password.svg" />
     <Content Include="public\imagens\white_circle.svg" />
-    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
+    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
     <Content Include="public\lib\leaflet\css\leaflet.css" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
