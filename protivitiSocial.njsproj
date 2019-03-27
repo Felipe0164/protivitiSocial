@@ -8,7 +8,7 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
-    <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
+    <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -39,7 +39,7 @@
   <ItemGroup>
     <None Include="myprotiviti - Web Deploy.pubxml" />
     <None Include="myprotiviti - FTP.pubxml" />
-    <Content Include="public\css\admin-1.0.18.css" />
+    <Content Include="public\css\admin-1.0.23.css" />
     <Content Include="public\imagens\D4wM500.png" />
     <Content Include="public\imagens\ICTS.svg" />
     <Content Include="public\imagens\icts_circle.svg" />
@@ -112,6 +112,7 @@
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\arquivo.ts" />
     <TypeScriptCompile Include="infra\fs.ts" />
+    <TypeScriptCompile Include="infra\sqlPool.ts" />
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -185,7 +186,7 @@
     <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="public\js\admin-1.0.3.js" />
+    <Compile Include="public\js\admin-1.0.5.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="public\lib\bootstrap-datepicker\js\bootstrap-datepicker-1.0.0.min.js" />
     <Compile Include="public\lib\bootstrap\js\bootstrap-1.0.0.min.js" />
