@@ -6,7 +6,7 @@
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
   </PropertyGroup>
@@ -37,9 +37,26 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="myprotiviti - Web Deploy.pubxml" />
+    <None Include="myprotiviti - FTP.pubxml" />
     <Content Include="public\css\admin-1.0.18.css" />
+    <Content Include="public\imagens\D4wM500.png" />
+    <Content Include="public\imagens\ICTS.svg" />
+    <Content Include="public\imagens\icts_circle.svg" />
+    <Content Include="public\imagens\icts_circle_blue.svg" />
+    <Content Include="public\imagens\icts_circle_white.svg" />
+    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
-    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
+    <Content Include="public\imagens\login.svg" />
+    <Content Include="public\imagens\myprotiviti.svg" />
+    <Content Include="public\imagens\myprotiviti_white.svg" />
+    <Content Include="public\imagens\password.svg" />
+    <Content Include="public\imagens\white_circle.svg" />
+    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
+    <Content Include="public\lib\leaflet\css\leaflet.css" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon-2x.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-shadow.png" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
@@ -88,6 +105,8 @@
     <Content Include="views\pec\listar.ejs" />
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
+    <Content Include="views\timeout\criar.ejs" />
+    <Content Include="views\timeout\mapa.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />
@@ -100,12 +119,14 @@
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
+    <TypeScriptCompile Include="routes\pec.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
+    <TypeScriptCompile Include="routes\timeout.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
@@ -114,9 +135,13 @@
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="infra\" />
+    <Folder Include="public\lib\leaflet\js\" />
+    <Folder Include="public\lib\leaflet\css\" />
+    <Folder Include="public\lib\leaflet\js\images\" />
     <Folder Include="public\lib\metis-menu\" />
     <Folder Include="public\lib\metis-menu\css\" />
     <Folder Include="public\lib\metis-menu\js\" />
+    <Folder Include="public\lib\leaflet\" />
     <Folder Include="scripts_sql\" />
     <Folder Include="utils\" />
     <Folder Include="public\" />
@@ -157,6 +182,7 @@
     <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
+    <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="public\js\admin-1.0.3.js" />
@@ -168,6 +194,7 @@
     <Compile Include="public\lib\jquery-validate\js\jquery-validate-1.0.0.min.js" />
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
+    <Compile Include="public\lib\leaflet\js\leaflet.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
