@@ -39,7 +39,7 @@
   <ItemGroup>
     <None Include="myprotiviti - Web Deploy.pubxml" />
     <None Include="myprotiviti - FTP.pubxml" />
-    <Content Include="public\css\admin-1.0.18.css" />
+    <Content Include="public\css\admin-1.0.23.css" />
     <Content Include="public\imagens\D4wM500.png" />
     <Content Include="public\imagens\ICTS.svg" />
     <Content Include="public\imagens\icts_circle.svg" />
@@ -176,7 +176,7 @@
     <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="public\js\admin-1.0.3.js" />
+    <Compile Include="public\js\admin-1.0.5.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="public\lib\bootstrap-datepicker\js\bootstrap-datepicker-1.0.0.min.js" />
     <Compile Include="public\lib\bootstrap\js\bootstrap-1.0.0.min.js" />
