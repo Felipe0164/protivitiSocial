@@ -8,7 +8,7 @@
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
-    <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
+    <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -106,6 +106,7 @@
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\arquivo.ts" />
     <TypeScriptCompile Include="infra\fs.ts" />
+    <TypeScriptCompile Include="infra\sqlPool.ts" />
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
