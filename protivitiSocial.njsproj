@@ -44,12 +44,9 @@
     <Content Include="public\imagens\ICTS.svg" />
     <Content Include="public\imagens\icts_circle.svg" />
     <Content Include="public\imagens\icts_circle_blue.svg" />
-    <Content Include="public\imagens\icts_circle_white.svg" />
-    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
     <Content Include="public\imagens\login.svg" />
     <Content Include="public\imagens\myprotiviti.svg" />
-    <Content Include="public\imagens\myprotiviti_white.svg" />
     <Content Include="public\imagens\password.svg" />
     <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
@@ -120,7 +117,20 @@
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="infra\upload.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\administrativo.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\enums\tipoTutorial.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\tutorial.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\api\administrativo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
@@ -142,6 +152,7 @@
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="infra\" />
+    <Folder Include="models\enums\" />
     <Folder Include="public\lib\leaflet\js\" />
     <Folder Include="public\lib\leaflet\css\" />
     <Folder Include="public\lib\leaflet\js\images\" />
