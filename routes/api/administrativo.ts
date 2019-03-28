@@ -1,4 +1,5 @@
 ﻿import express = require("express");
+import multer = require("multer");
 import wrap = require("express-async-error-wrapper");
 import jsonRes = require("../../utils/jsonRes");
 import Usuario = require("../../models/usuario");
@@ -23,12 +24,12 @@ router.get("/obter", wrap(async (req: express.Request, res: express.Response) =>
 	res.json(isNaN(id) ? null : await Administrativo.obter(id));
 }));
 
-router.post("/criar", wrap(async (req: express.Request, res: express.Response) => {
+router.post("/criar", multer().single("arquivo"), wrap(async (req: express.Request, res: express.Response) => {
 	let u = await Usuario.cookie(req, res, true);
 	if (!u)
 		return;
 	let a = req.body as Administrativo;
-	jsonRes(res, 400, a ? await Administrativo.criar(a, req, res, "arquivo") : "Dados inválidos!");
+	jsonRes(res, 400, a && req["file"] && req["file"].buffer && req["file"].size ? await Administrativo.criar(a, req["file"]) : "Dados inválidos!");
 }));
 
 router.post("/alterar", wrap(async (req: express.Request, res: express.Response) => {

@@ -1,5 +1,6 @@
 ﻿import express = require("express");
 import multer = require("multer");
+import fs = require("fs");
 import FS = require("./fs");
 
 export = class Upload {
@@ -42,6 +43,25 @@ export = class Upload {
 				}
 
 				resolve();
+			});
+		});
+	}
+
+	public static async gravarArquivo(arquivo: any, caminhoRelativoPasta: string, nomeArquivo: string): Promise<void> {
+		return new Promise<void>((resolve, reject) => {
+			let caminhoAbsolutoArquivo;
+			try {
+				caminhoAbsolutoArquivo = FS.gerarCaminhoAbsolutoArquivo(caminhoRelativoPasta, nomeArquivo);
+			} catch (e) {
+				reject("Caminho inválido!");
+				return;
+			}
+
+			fs.writeFile(caminhoAbsolutoArquivo, arquivo.buffer, (err) => {
+				if (err)
+					reject(err);
+				else
+					resolve();
 			});
 		});
 	}

@@ -42,6 +42,12 @@ export = class FS {
 		return path.join(FS.appPath, FS.ajustarCaminhoRelativo(caminhoRelativo, true));
 	}
 
+	public static gerarCaminhoAbsolutoArquivo(caminhoRelativo: string, nomeArquivo: string): string {
+		if (!(nomeArquivo = FS.validarNomeDeArquivo(nomeArquivo)))
+			throw new Error("Nome de arquivo inválido");
+		return path.join(FS.appPath, FS.ajustarCaminhoRelativo(caminhoRelativo, true), nomeArquivo);
+	}
+
 	public static validarNomeDeArquivo(nome: string): string {
 		return ((!nome ||
 			!(nome = nome.trim().toLowerCase()) ||

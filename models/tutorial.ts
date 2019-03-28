@@ -1,5 +1,4 @@
-﻿import express = require("express");
-import TipoTutorial = require("./enums/tipoTutorial");
+﻿import TipoTutorial = require("./enums/tipoTutorial");
 import Sql = require("../infra/sql");
 import FS = require("../infra/fs");
 import Upload = require("../infra/upload");
@@ -62,7 +61,7 @@ abstract class Tutorial {
 		return ((lista && lista[0]) || null);
 	}
 
-	protected static async criarPorTipo(tabela: string, tipo: TipoTutorial, t: Tutorial, expressRequest: express.Request, expressResponse: express.Response, campoArquivoNoForm: string, extensaoArquivo: string): Promise<string> {
+	protected static async criarPorTipo(tabela: string, tipo: TipoTutorial, t: Tutorial, arquivo: any, extensaoArquivo: string): Promise<string> {
 		let res: string;
 		if ((res = Tutorial.validarPorTipo(t)))
 			return res;
@@ -80,7 +79,7 @@ abstract class Tutorial {
 			// arquivo não funcionar, uma exceção ocorrerá, e a transação será
 			// desfeita, já que o método commit() não executará, e nossa classe
 			// Sql já executa um rollback() por nós nesses casos.
-			await Upload.gravarArquivoDeForm(expressRequest, expressResponse, Tutorial.caminhoRelativoPastaPorTipo(tipo), t.id + extensaoArquivo, Tutorial.tamanhoMaximoArquivoEmBytes, campoArquivoNoForm);
+			await Upload.gravarArquivo(arquivo, Tutorial.caminhoRelativoPastaPorTipo(tipo), t.id + "." + extensaoArquivo);
 
 			await sql.commit();
 		});

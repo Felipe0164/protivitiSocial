@@ -1,5 +1,4 @@
-﻿import express = require("express");
-import TipoTutorial = require("./enums/tipoTutorial");
+﻿import TipoTutorial = require("./enums/tipoTutorial");
 import Tutorial = require("./tutorial");
 
 export = class Administrativo extends Tutorial {
@@ -39,8 +38,8 @@ export = class Administrativo extends Tutorial {
 		return await Tutorial.obterPorTipo(Administrativo.tabela, id) as Administrativo;
 	}
 
-	public static async criar(a: Administrativo, expressRequest: express.Request, expressResponse: express.Response, campoArquivoNoForm: string): Promise<string> {
-		return await Tutorial.criarPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, a, expressRequest, expressResponse, campoArquivoNoForm, Administrativo.extensaoArquivo);
+	public static async criar(a: Administrativo, arquivo: any): Promise<string> {
+		return await Tutorial.criarPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, a, arquivo, Administrativo.extensaoArquivo);
 	}
 
 	public static async alterar(a: Administrativo): Promise<string> {
