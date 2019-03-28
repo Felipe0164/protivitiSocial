@@ -32,7 +32,7 @@ abstract class Tutorial {
 
 		t.link = (t.link || "").trim();
 		let l = t.link.toLowerCase();
-		if (!l.startsWith("http://") || !l.startsWith("https://") || t.link.length > 100)
+		if ((!l.startsWith("http://") && !l.startsWith("https://")) || t.link.length > 100)
 			return "Link inválido";
 
 		t.descricao = (t.descricao || "").trim();

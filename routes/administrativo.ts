@@ -10,7 +10,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("administrativo/alterar", { titulo: "Criar Administrativo", usuario: u });
+		res.render("administrativo/alterar", { titulo: "Criar Tutorial Administrativo", usuario: u, item: null });
 	}
 }));
 
@@ -20,11 +20,11 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 		res.redirect("/acesso");
 	} else {
 		let id = parseInt(req.query["id"]);
-		let item: Usuario = null;
-		if (isNaN(id) || !(item = await Usuario.obter(id)))
+		let item: Administrativo = null;
+		if (isNaN(id) || !(item = await Administrativo.obter(id)))
 			res.render("shared/nao-encontrado");
 		else
-			res.render("administrativo/alterar", { titulo: "Editar Administrativo", usuario: u });
+			res.render("administrativo/alterar", { titulo: "Editar Tutorial Administrativo", usuario: u, item: item });
 	}
 }));
 
@@ -33,7 +33,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("administrativo/listar", { titulo: "Visualizar Administrativo", usuario: u });
+		res.render("administrativo/listar", { titulo: "Visualizar Tutoriais Administrativos", usuario: u, lista: JSON.stringify(await Administrativo.listar()) });
 	}
 }));
 

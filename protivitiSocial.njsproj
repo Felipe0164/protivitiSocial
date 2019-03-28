@@ -44,9 +44,12 @@
     <Content Include="public\imagens\ICTS.svg" />
     <Content Include="public\imagens\icts_circle.svg" />
     <Content Include="public\imagens\icts_circle_blue.svg" />
+    <Content Include="public\imagens\icts_circle_white.svg" />
+    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
     <Content Include="public\imagens\login.svg" />
     <Content Include="public\imagens\myprotiviti.svg" />
+    <Content Include="public\imagens\myprotiviti_white.svg" />
     <Content Include="public\imagens\password.svg" />
     <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
@@ -93,7 +96,7 @@
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
-    <Content Include="views\home\nao-encontrado.ejs" />
+    <Content Include="views\shared\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
     <Content Include="views\layout-vazio.ejs" />
     <Content Include="views\navbar.ejs" />

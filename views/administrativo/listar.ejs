@@ -18,7 +18,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					Tem certeza que deseja excluir o formato <span id="lblNome"></span>? Essa operação NÃO pode ser desfeita!
+					Tem certeza que deseja excluir o item <span id="lblNome"></span>? Essa operação NÃO pode ser desfeita!
 				</p>
 			</div>
 			<div class="modal-footer">
@@ -42,19 +42,9 @@
             { title: "Nome", render: encode, data: "nome" },
             { title: "Link", render: encode, data: "link", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Link" href="' + v + '">' + v + '</a>'; }},
             { title: "Descrição", render: encode, data: "descricao" },
-			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/administrativo/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
-	
-		data: [
-    {nome:"Comunicação interna",link:"https://ictsglobal.sharepoint.com/sites/conexao/Paginas/default.aspx",descricao:"Vídeo tutorial explicando o Conexão",id:1},
-		{nome:"Comunicação Protiviti",link:"https://mis.protiviti.com/home/Pages/mf-home.aspx",descricao:"Vídeo tutorial explicando o iShare",id:2},
-		{nome:"Viagens",link:"https://www.wtscorporate.com.br/wtscorporate/login/",descricao:"Vídeo tutorial explicando o CT Travel",id:3},
-		{nome:"Expenses",link:"-",descricao:"Vídeo tutorial explicando app de Expenses e a política de expenses",id:4},
-		{nome:"Portal do RH",link:" - ",descricao:"Vídeo tutorial explicando o Portal do RH (solicitação de férias e segunda via do holerite)",id:5},
-		{nome:"Abertura de Chamados",link:"https://portal.icts.com.br/otrs/customer.pl",descricao:"Vídeo tutorial explicando o Portal de Chamados (abertura de chamados de TI, Facilities e outros)",id:6},
-		{nome:"Vagas e Indicações",link:"https://app.kenoby.com/#/login",descricao:"Vídeo tutorial explicando a política de Bring Your Friends",id:7},
-    
-    ]
+		data: <%- lista %>
 	});
 
 	var trClicada;
@@ -81,19 +71,19 @@
 
 		$("#modalExcluir").modal("hide");
 
-		var formato = tabela.row(trClicada).data();
+		var item = tabela.row(trClicada).data();
 
 		Notification.wait();
 
-		JsonWebApi.get("/api/formato/excluir", function (response) {
+		JsonWebApi.get("/api/administrativo/excluir", function (response) {
 			if (response.success) {
-				Notification.success("Formato excluído com sucesso! \uD83D\uDE04");
+				Notification.success("Item excluído com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();
 			} else {
 				Notification.error(response.value, true);
 			}
 			trClicada = null;
-		}, "id", formato.id);
+		}, "id", item.id);
 	}
 
 	//]]>
