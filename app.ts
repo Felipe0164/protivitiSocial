@@ -28,6 +28,7 @@ import path = require("path");
 import ejs = require("ejs");
 import lru = require("lru-cache");
 import { NextFunction } from "express";
+
 ejs.cache = lru(200);
 
 const app = express();
@@ -95,6 +96,8 @@ app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
 app.use("/negocios/parcerias", require("./routes/parcerias"));
 app.use("/negocios/solucoes", require("./routes/solucoes"));
+app.use("/negocios/cliente", require("./routes/cliente"));
+app.use("/negocios/empresa", require("./routes/empresa"));
 app.use("/negocios/industria", require("./routes/industria"));
 app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));

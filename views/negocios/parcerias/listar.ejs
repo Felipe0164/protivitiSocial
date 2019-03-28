@@ -38,14 +38,14 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Visualizar Video\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-play\"></i>"; } },
-            { title: "Descrição da nova solução", render: encode, data: "solucao" },
-			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "Nome da empresa parceira", render: encode, data: "nomeEmpresa" },
+			      { title: "Soluções", render: encode, data: "solucao" },
+            { title: "Time responsável pela parceria", render: encode, data: "pursuitTeam" },
+            { title: "Valor agregado ao negócio", render: encode, data: "valorAgregado" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
-	
-		data: [{nome:"teste",link:"www.teste.com",descricao:"Teste de descrição",id:1}]
+	data: [{nomeEmpresa:"ESPM Store", solucao:"Cultura e Comportamento Ético, Transformação digital", pursuitTeam:"Equipe 1", valorAgregado:"-", id:1}]
 	});
-
 	var trClicada;
 
 	$("#tabela").on("click", "tbody button", function () {

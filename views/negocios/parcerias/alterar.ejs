@@ -2,32 +2,47 @@
 <div class="row">
 	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
 		<form id="form" class="panel panel-default" action="#">
-			<div class="panel-heading">Criar nova parceria</div>
+			<div class="panel-heading">Criar Nova Parceria</div>
 			<div class="panel-body no-bottom">
 				
 				<div class="form-group">
-					<label for="nome">Nome da empresa parceira</label>
-					<input id="nome" name="nome" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+					<label for="nomeEmpresa">Nome da empresa parceira</label>
+          <select id="nomeEmpresa" name="nomeEmpresa" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Empresa 1</option>
+            <option value="">Empresa 2</option>
+            <option value="">Empresa 3</option>
+          </select>
 				</div>
-        
-				<div class="form-group">
-					<label for="time">Time responsável pela pareceria</label>
-					<input id="time" name="time" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
-				</div>
-				
-				<div class="form-group">
-					<label for="solucao">Soluções</label>
-					<input id="solucao" name="solucao" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
-				</div>
+
+        <div class="form-group">
+          <label for="solucao">Soluções</label>
+          <select id="solucao" name="solucao" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Transformação digital</option>
+            <option value="">Cultura e Comportamento Ético</option>
+            <option value="">LGPD/ GDPR</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pursuitTeam">Time responsável pela parceria</label>
+          <select id="pursuitTeam" name="pursuitTeam" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Equipe 1</option>
+            <option value="">Equipe 2</option>
+            <option value="">Equipe 3</option>
+          </select>
+        </div>
         
         <div class="form-group">
           <label for="valorAgregado">Valor agregado ao negócio</label>
-          <input id="valorAgregado" name="valorAgregado" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+          <textarea class="form-control" rows="5"  id="porqueVencemos" name="porqueVencemos" spellcheck="true"></textarea>
         </div>
 
       </div>
 			<div class="panel-footer">
-				<input value="Criar parcerias" class="btn btn-primary btn-lg btn-block" type="submit" />
+				<input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
 			</div>
 
 		</form>
