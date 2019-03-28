@@ -53,6 +53,10 @@
     <Content Include="public\imagens\password.svg" />
     <Content Include="public\imagens\white_circle.svg" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
+    <Content Include="public\lib\leaflet\css\leaflet.css" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon-2x.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-shadow.png" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
@@ -138,9 +142,13 @@
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="infra\" />
+    <Folder Include="public\lib\leaflet\js\" />
+    <Folder Include="public\lib\leaflet\css\" />
+    <Folder Include="public\lib\leaflet\js\images\" />
     <Folder Include="public\lib\metis-menu\" />
     <Folder Include="public\lib\metis-menu\css\" />
     <Folder Include="public\lib\metis-menu\js\" />
+    <Folder Include="public\lib\leaflet\" />
     <Folder Include="scripts_sql\" />
     <Folder Include="utils\" />
     <Folder Include="public\" />
@@ -195,6 +203,7 @@
     <Compile Include="public\lib\jquery-validate\js\jquery-validate-1.0.0.min.js" />
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
+    <Compile Include="public\lib\leaflet\js\leaflet.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
