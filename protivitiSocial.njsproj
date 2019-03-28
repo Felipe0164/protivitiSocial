@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
-    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
@@ -75,6 +75,12 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\carreira\mentoring\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\listar.ejs" />
+    <Content Include="views\carreira\mentoring\mentorado\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\mentorado\listar.ejs" />
+    <Content Include="views\carreira\mentoring\mentor\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\mentor\listar.ejs" />
     <Content Include="views\inovacao\alterar.ejs" />
     <Content Include="views\inovacao\listar.ejs" />
     <Content Include="views\negocios\cliente\alterar.ejs" />
@@ -138,7 +144,10 @@
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
+    <TypeScriptCompile Include="routes\mentorado.ts" />
+    <TypeScriptCompile Include="routes\mentor.ts" />
     <TypeScriptCompile Include="routes\pec.ts" />
+    <TypeScriptCompile Include="routes\mentoring.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\empresa.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
@@ -191,6 +200,9 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\carreira\mentoring\" />
+    <Folder Include="views\carreira\mentoring\mentor\" />
+    <Folder Include="views\carreira\mentoring\mentorado\" />
     <Folder Include="views\inovacao\" />
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
@@ -203,6 +215,7 @@
     <Folder Include="views\negocios\projeto\" />
     <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />
+    <Folder Include="views\carreira\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
     <Folder Include="views\timeout\" />

@@ -102,6 +102,9 @@ app.use("/negocios/industria", require("./routes/industria"));
 app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
 app.use("/timeout", require("./routes/timeout"));
+app.use("/carreira/mentoring", require("./routes/mentoring"));
+app.use("/carreira/mentoring/mentor", require("./routes/mentor"));
+app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
 
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
