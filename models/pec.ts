@@ -1,27 +1,27 @@
 ﻿import TipoTutorial = require("./enums/tipoTutorial");
 import Tutorial = require("./tutorial");
 
-export = class Administrativo extends Tutorial {
-	public static readonly tabela = "administrativo";
+export = class Pec extends Tutorial {
+	public static readonly tabela = "pec";
 	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
-		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Administrativo);
+		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Pec);
 	}
 
 	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Pec, id, Pec.extensaoArquivo);
 	}
 
 	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Pec, id, Pec.extensaoArquivo);
 	}
 
-	public static validar(a: Administrativo): string {
+	public static validar(a: Pec): string {
 		return Tutorial.validarPorTipo(a);
 	}
 
-	public static async listar(): Promise<Administrativo[]> {
+	public static async listar(): Promise<Pec[]> {
 		// ******************************************************************************
 		// Essa técnica só funciona porque os objetos não têm métodos de instância.
 		//
@@ -34,23 +34,23 @@ export = class Administrativo extends Tutorial {
 		// precisaríamos instanciar objeto por objeto, em vez de simplesmente repassar
 		// a lista retornada por sql.query().
 		// ******************************************************************************
-		return await Tutorial.listarPorTipo(Administrativo.tabela) as Administrativo[];
+		return await Tutorial.listarPorTipo(Pec.tabela) as Pec[];
 	}
 
-	public static async obter(id: number): Promise<Administrativo> {
+	public static async obter(id: number): Promise<Pec> {
 		// Ver comentário em listar();
-		return await Tutorial.obterPorTipo(Administrativo.tabela, id) as Administrativo;
+		return await Tutorial.obterPorTipo(Pec.tabela, id) as Pec;
 	}
 
-	public static async criar(a: Administrativo, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, a, arquivo, Administrativo.extensaoArquivo);
+	public static async criar(a: Pec, arquivo: any): Promise<string> {
+		return await Tutorial.criarPorTipo(Pec.tabela, TipoTutorial.Pec, a, arquivo, Pec.extensaoArquivo);
 	}
 
-	public static async alterar(a: Administrativo): Promise<string> {
-		return await Tutorial.alterarPorTipo(Administrativo.tabela, a);
+	public static async alterar(a: Pec): Promise<string> {
+		return await Tutorial.alterarPorTipo(Pec.tabela, a);
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(Pec.tabela, TipoTutorial.Pec, id, Pec.extensaoArquivo);
 	}
 }
