@@ -109,6 +109,7 @@ app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
+app.use("/api/inovacao", require("./routes/api/inovacao"));
 
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
