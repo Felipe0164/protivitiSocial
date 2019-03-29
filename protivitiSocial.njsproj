@@ -6,9 +6,9 @@
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>Local</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
-    <ToolsVersionPromptShown>3.0</ToolsVersionPromptShown>
+    <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -37,9 +37,26 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="public\css\admin-1.0.18.css" />
+    <None Include="myprotiviti - Web Deploy.pubxml" />
+    <None Include="myprotiviti - FTP.pubxml" />
+    <Content Include="public\css\admin-1.0.23.css" />
+    <Content Include="public\imagens\D4wM500.png" />
+    <Content Include="public\imagens\ICTS.svg" />
+    <Content Include="public\imagens\icts_circle.svg" />
+    <Content Include="public\imagens\icts_circle_blue.svg" />
+    <Content Include="public\imagens\icts_circle_white.svg" />
+    <Content Include="public\imagens\ICTS_WHITE.svg" />
     <Content Include="public\imagens\loading-grey-t.gif" />
-    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
+    <Content Include="public\imagens\login.svg" />
+    <Content Include="public\imagens\myprotiviti.svg" />
+    <Content Include="public\imagens\myprotiviti_white.svg" />
+    <Content Include="public\imagens\password.svg" />
+    <Content Include="public\imagens\white_circle.svg" />
+    <Content Include="public\lib\bootstrap\css\bootstrap-1.0.18.min.css" />
+    <Content Include="public\lib\leaflet\css\leaflet.css" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon-2x.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-icon.png" />
+    <Content Include="public\lib\leaflet\js\images\marker-shadow.png" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
@@ -58,10 +75,34 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\carreira\mentoring\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\listar.ejs" />
+    <Content Include="views\carreira\mentoring\mentorado\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\mentorado\listar.ejs" />
+    <Content Include="views\carreira\mentoring\mentor\alterar.ejs" />
+    <Content Include="views\carreira\mentoring\mentor\listar.ejs" />
+    <Content Include="views\inovacao\alterar.ejs" />
+    <Content Include="views\inovacao\listar.ejs" />
+    <Content Include="views\negocios\cliente\alterar.ejs" />
+    <Content Include="views\negocios\cliente\listar.ejs" />
+    <Content Include="views\negocios\empresa\alterar.ejs" />
+    <Content Include="views\negocios\empresa\listar.ejs" />
+    <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
+    <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
+    <Content Include="views\negocios\industria\alterar.ejs" />
+    <Content Include="views\negocios\industria\listar.ejs" />
+    <Content Include="views\negocios\parcerias\listar.ejs" />
+    <Content Include="views\negocios\projeto\alterar.ejs" />
+    <Content Include="views\negocios\projeto\listar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
+    <Content Include="views\negocios\pursuitTeam\listar.ejs" />
+    <Content Include="views\negocios\solucoes\alterar.ejs" />
+    <Content Include="views\negocios\solucoes\listar.ejs" />
+    <Content Include="views\negocios\parcerias\alterar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
-    <Content Include="views\home\nao-encontrado.ejs" />
+    <Content Include="views\shared\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
     <Content Include="views\layout-vazio.ejs" />
     <Content Include="views\navbar.ejs" />
@@ -76,19 +117,47 @@
     <Content Include="views\shared\erro.ejs" />
     <Content Include="views\timeout\criar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
+    <Content Include="views\tutorial\alterar.ejs" />
+    <Content Include="views\tutorial\listar.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\arquivo.ts" />
     <TypeScriptCompile Include="infra\fs.ts" />
+    <TypeScriptCompile Include="infra\sqlPool.ts" />
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="infra\upload.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\administrativo.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\enums\tipoTutorial.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\tutorial.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
-    <TypeScriptCompile Include="routes\timeout.ts" />
+    <TypeScriptCompile Include="routes\api\administrativo.ts" />
+    <TypeScriptCompile Include="routes\cliente.ts" />
+    <TypeScriptCompile Include="routes\industria.ts" />
+    <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\inovacao.ts" />
+    <TypeScriptCompile Include="routes\mentorado.ts" />
+    <TypeScriptCompile Include="routes\mentor.ts" />
+    <TypeScriptCompile Include="routes\pec.ts" />
+    <TypeScriptCompile Include="routes\mentoring.ts" />
+    <TypeScriptCompile Include="routes\pursuitTeam.ts" />
+    <TypeScriptCompile Include="routes\empresa.ts" />
+    <TypeScriptCompile Include="routes\solucoes.ts" />
+    <TypeScriptCompile Include="routes\projeto.ts" />
+    <TypeScriptCompile Include="routes\parcerias.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
-    <TypeScriptCompile Include="routes\pec.ts" />
+    <TypeScriptCompile Include="routes\timeout.ts" />
     <TypeScriptCompile Include="routes\usuario.ts" />
     <TypeScriptCompile Include="routes\home.ts" />
     <Content Include="tsconfig.json" />
@@ -97,9 +166,14 @@
   <ItemGroup>
     <Folder Include="models\" />
     <Folder Include="infra\" />
+    <Folder Include="models\enums\" />
+    <Folder Include="public\lib\leaflet\js\" />
+    <Folder Include="public\lib\leaflet\css\" />
+    <Folder Include="public\lib\leaflet\js\images\" />
     <Folder Include="public\lib\metis-menu\" />
     <Folder Include="public\lib\metis-menu\css\" />
     <Folder Include="public\lib\metis-menu\js\" />
+    <Folder Include="public\lib\leaflet\" />
     <Folder Include="scripts_sql\" />
     <Folder Include="utils\" />
     <Folder Include="public\" />
@@ -128,14 +202,29 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\carreira\mentoring\" />
+    <Folder Include="views\carreira\mentoring\mentor\" />
+    <Folder Include="views\carreira\mentoring\mentorado\" />
+    <Folder Include="views\inovacao\" />
+    <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
-    <Folder Include="views\timeout\" />
+    <Folder Include="views\negocios\industria\" />
+    <Folder Include="views\negocios\indicacaoOportunidade\" />
+    <Folder Include="views\negocios\cliente\" />
+    <Folder Include="views\negocios\empresa\" />
+    <Folder Include="views\negocios\pursuitTeam\" />
+    <Folder Include="views\negocios\projeto\" />
+    <Folder Include="views\negocios\solucoes\" />
+    <Folder Include="views\negocios\parcerias\" />
+    <Folder Include="views\carreira\" />
+    <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
+    <Folder Include="views\timeout\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="public\js\admin-1.0.3.js" />
+    <Compile Include="public\js\admin-1.0.5.js" />
     <Compile Include="public\js\main.js" />
     <Compile Include="public\lib\bootstrap-datepicker\js\bootstrap-datepicker-1.0.0.min.js" />
     <Compile Include="public\lib\bootstrap\js\bootstrap-1.0.0.min.js" />
@@ -144,6 +233,7 @@
     <Compile Include="public\lib\jquery-validate\js\jquery-validate-1.0.0.min.js" />
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
+    <Compile Include="public\lib\leaflet\js\leaflet.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

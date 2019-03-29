@@ -28,6 +28,7 @@ import path = require("path");
 import ejs = require("ejs");
 import lru = require("lru-cache");
 import { NextFunction } from "express";
+
 ejs.cache = lru(200);
 
 const app = express();
@@ -90,10 +91,24 @@ app.use((req: express.Request, res: express.Response, next: NextFunction) => {
 app.use("/", require("./routes/home"));
 app.use("/usuario", require("./routes/usuario"));
 app.use("/administrativo", require("./routes/administrativo"));
+app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
+app.use("/negocios/projeto", require("./routes/projeto"));
+app.use("/negocios/parcerias", require("./routes/parcerias"));
+app.use("/negocios/solucoes", require("./routes/solucoes"));
+app.use("/negocios/cliente", require("./routes/cliente"));
+app.use("/negocios/empresa", require("./routes/empresa"));
+app.use("/negocios/industria", require("./routes/industria"));
+app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
+app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
 app.use("/timeout", require("./routes/timeout"));
+app.use("/carreira/mentoring", require("./routes/mentoring"));
+app.use("/carreira/mentoring/mentor", require("./routes/mentor"));
+app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
+
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
+app.use("/api/administrativo", require("./routes/api/administrativo"));
 
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
