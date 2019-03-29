@@ -1,4 +1,5 @@
 ﻿import mysql = require("mysql");
+import SqlPool = require("./sqlPool");
 
 export = class Sql {
 	// https://www.npmjs.com/package/mysql
@@ -8,7 +9,7 @@ export = class Sql {
 		port: 3306,
 		user: "root",
 		password: "root",
-		database: "protivitiSocial"
+		database: "protivitisocial"
 	});
 
 	private connection;
@@ -17,7 +18,7 @@ export = class Sql {
 
 	public static async conectar(callback: (sql: Sql) => Promise<void>): Promise<void> {
 		return new Promise<void>((resolve, reject) => {
-			Sql.pool.getConnection((error, connection) => {
+			SqlPool.pool.getConnection((error, connection) => {
 				if (error) {
 					reject(error);
 					return;
