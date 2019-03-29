@@ -1,0 +1,92 @@
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-body dataTable_wrapper">
+				<table class="table table-striped table-hover" id="tabela"></table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modalExcluir">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Oops...</h4>
+			</div>
+			<div class="modal-body">
+				<p>
+					Tem certeza que deseja excluir o formato <span id="lblNome"></span>? Essa operação NÃO pode ser desfeita!
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" onclick="excluir()"><i class="fa fa-check"></i> Excluir</button>
+				<button type="button" class="btn btn-outline btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Cancelar</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+	//<![CDATA[
+	"use strict";
+
+	var tabela = prepareDataTable("#tabela", {
+		order: [[0, "asc"]],
+		deferRender: true,
+		columns: [
+            { title: "Mentorado", render: encode, data: "mentorado" },
+			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+		],
+	
+		data: [
+      {mentorado:"Jorge Heleno Caixias",id:1},
+      {mentorado:"Mônica Souza Pires",id:2},
+      {mentorado:"Cléber Mota",id:3},
+    ]
+	});
+
+	var trClicada;
+
+	$("#tabela").on("click", "tbody button", function () {
+		if (JsonWebApi.active)
+			return;
+
+		var formato = tabela.row(trClicada = this.parentNode.parentNode).data();
+
+		if (this.getAttribute("data-excluir")) {
+			$("#lblNome").text(formato.nome);
+
+			$("#modalExcluir").modal({
+				backdrop: "static",
+				keyboard: true
+			});
+		}
+	});
+
+	function excluir() {
+		if (JsonWebApi.active || !trClicada)
+			return;
+
+		$("#modalExcluir").modal("hide");
+
+		var formato = tabela.row(trClicada).data();
+
+		Notification.wait();
+
+		JsonWebApi.get("/api/formato/excluir", function (response) {
+			if (response.success) {
+				Notification.success("Formato excluído com sucesso! \uD83D\uDE04");
+				tabela.row(trClicada).remove().draw();
+			} else {
+				Notification.error(response.value, true);
+			}
+			trClicada = null;
+		}, "id", formato.id);
+	}
+
+	//]]>
+</script>

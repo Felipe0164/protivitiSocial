@@ -9,7 +9,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("pec/alterar", { titulo: "Criar Pec", usuario:u});
+		res.render("pec/alterar", { titulo: "Criar P.E.C", usuario:u});
 	}
 }));
 
@@ -23,7 +23,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 		if (isNaN(id) || !(item = await Usuario.obter(id)))
 			res.render("shared/nao-encontrado");
 		else
-			res.render("pec/alterar", { titulo: "Editar Pec", usuario:u});
+			res.render("pec/alterar", { titulo: "Editar P.E.C", usuario:u});
 	}
 }));
 
@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("pec/listar", { titulo: "Gerenciar Pec", usuario:u});
+		res.render("pec/listar", { titulo: "Gerenciar P.E.C", usuario:u});
 	}
 }));
 
