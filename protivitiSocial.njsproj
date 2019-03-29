@@ -117,7 +117,6 @@
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
     <Content Include="views\timeout\criar.ejs" />
-    <Content Include="views\timeout\listar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
     <Content Include="views\tutorial\alterar.ejs" />
     <Content Include="views\tutorial\listar.ejs" />
@@ -136,14 +135,25 @@
     <TypeScriptCompile Include="models\administrativo.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\alocacao.ts" />
+    <TypeScriptCompile Include="models\carreiraCapacitacaoTreinamentos.ts" />
+    <TypeScriptCompile Include="models\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="models\enums\tipoTutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\inovacao.ts" />
     <TypeScriptCompile Include="models\tutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\alocacao.ts" />
     <TypeScriptCompile Include="routes\api\administrativo.ts" />
+    <TypeScriptCompile Include="routes\api\alocacao.ts" />
+    <TypeScriptCompile Include="routes\api\carreiraCapacitacaoTreinamentos.ts" />
+    <TypeScriptCompile Include="routes\api\carreiraCurriculo.ts" />
+    <TypeScriptCompile Include="routes\api\inovacao.ts" />
+    <TypeScriptCompile Include="routes\carreiraCapacitacaoTreinamentos.ts" />
+    <TypeScriptCompile Include="routes\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />

@@ -28,6 +28,7 @@ import path = require("path");
 import ejs = require("ejs");
 import lru = require("lru-cache");
 import { NextFunction } from "express";
+import { AddressInfo } from "net";
 
 ejs.cache = lru(200);
 
@@ -112,7 +113,9 @@ app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinament
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
 app.use("/api/alocacao", require("./routes/api/alocacao"));
+app.use("/api/carreiraCapacitacaoTreinamentos", require("./routes/api/carreiraCapacitacaoTreinamentos"));
 app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
+app.use("/api/inovacao", require("./routes/api/inovacao"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
@@ -160,5 +163,5 @@ app.use(function (req: express.Request, res: express.Response, next) {
 app.set("port", process.env.PORT || 3000);
 
 const server = app.listen(app.get("port"), function () {
-	debug("Express server listening on port " + server.address().port);
+    debug("Express server listening on port " + server.address()["port"]);
 });
