@@ -454,7 +454,9 @@ window.trimValue = function (input) {
 
 				// Configura a requisição para enviar dados JSON através do corpo
 				// da mensagem (por onde será enviado o objeto pessoa)
-				req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				var formDataPuro = (!window.$ || formData.constructor == FormData);
+				if (!formDataPuro)
+					req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 				// Pede para o servidor devolver dados em JSON
 				req.setRequestHeader("Accept", "application/json");
@@ -469,7 +471,7 @@ window.trimValue = function (input) {
 				}
 
 				// Envia a requisição assincronamente
-				req.send((window.$ && formData.constructor != FormData) ? $(formData).serialize() : formData);
+				req.send(formDataPuro ? formData : $(formData).serialize());
 			} catch (ex) {
 				done = true;
 				JsonWebApi.active--;
