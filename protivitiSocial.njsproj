@@ -41,6 +41,7 @@
     <None Include="myprotiviti - FTP.pubxml" />
     <None Include="myprotiviti - Local File.pubxml" />
     <Content Include="public\css\admin-1.0.23.css" />
+    <Content Include="public\imagens\assinaturas.png" />
     <Content Include="public\imagens\D4wM500.png" />
     <Content Include="public\imagens\ICTS.svg" />
     <Content Include="public\imagens\icts_circle.svg" />
