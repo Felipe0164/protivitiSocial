@@ -13,19 +13,19 @@ abstract class Tutorial {
 	public descricao: string;
 
 	protected static caminhoRelativoPastaPorTipo(tipo: TipoTutorial): string {
-		return `public/app_data/tutoriais/${tipo}`;
+		return `public/dados/tutoriais/${tipo}`;
 	}
 
 	protected static caminhoAbsolutoPastaExternoPorTipo(tipo: TipoTutorial): string {
-		return `/app_data/tutoriais/${tipo}`;
+        return `/dados/tutoriais/${tipo}`;
 	}
 
 	protected static caminhoRelativoArquivoPorTipo(tipo: TipoTutorial, id: number, extensaoArquivo: string): string {
-		return `public/app_data/tutoriais/${tipo}/${id}.${extensaoArquivo}`;
+        return `public/dados/tutoriais/${tipo}/${id}.${extensaoArquivo}`;
 	}
 
 	protected static caminhoAbsolutoArquivoExternoPorTipo(tipo: TipoTutorial, id: number, extensaoArquivo: string): string {
-		return `/app_data/tutoriais/${tipo}/${id}.${extensaoArquivo}`;
+        return `/dados/tutoriais/${tipo}/${id}.${extensaoArquivo}`;
 	}
 
 	protected static validarPorTipo(t: Tutorial): string {

@@ -105,12 +105,14 @@ app.use("/timeout", require("./routes/timeout"));
 app.use("/carreira/mentoring", require("./routes/mentoring"));
 app.use("/carreira/mentoring/mentor", require("./routes/mentor"));
 app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
-
+app.use("/alocacao", require("./routes/alocacao"));
+app.use("/carreira/curriculo", require("./routes/carreiraCurriculo"));
+app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinamentos"));
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
-app.use("/api/inovacao", require("./routes/api/inovacao"));
-
+app.use("/api/alocacao", require("./routes/api/alocacao"));
+app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma

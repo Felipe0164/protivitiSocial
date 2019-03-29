@@ -47,3 +47,48 @@ CREATE TABLE administrativo (
   PRIMARY KEY (id),
   INDEX administrativo_nome_IX (nome ASC)
 );
+
+CREATE TABLE alocacao (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX alocacao_nome_IX (nome ASC)
+);
+
+CREATE TABLE inovacao (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX inovacao_nome_IX (nome ASC)
+);
+
+CREATE TABLE pec (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX pec_nome_IX (nome ASC)
+);
+
+CREATE TABLE carreiraCurriculo (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX carreiraCurriculo_nome_IX (nome ASC)
+);
+
+CREATE TABLE carreiraCapacitacaoTreinamentos (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX carreiraCapacitacaoTreinamentos_nome_IX (nome ASC)
+);
