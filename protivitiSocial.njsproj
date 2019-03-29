@@ -117,6 +117,8 @@
     <Content Include="views\shared\erro.ejs" />
     <Content Include="views\timeout\criar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
+    <Content Include="views\tutorial\alterar.ejs" />
+    <Content Include="views\tutorial\listar.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
     <TypeScriptCompile Include="app.ts" />
@@ -216,6 +218,7 @@
     <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\carreira\" />
+    <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
     <Folder Include="views\timeout\" />

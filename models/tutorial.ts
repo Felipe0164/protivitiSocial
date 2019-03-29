@@ -16,6 +16,10 @@ abstract class Tutorial {
 		return `public/app_data/tutoriais/${tipo}`;
 	}
 
+	protected static caminhoAbsolutoPastaExternoPorTipo(tipo: TipoTutorial): string {
+		return `/app_data/tutoriais/${tipo}`;
+	}
+
 	protected static caminhoRelativoArquivoPorTipo(tipo: TipoTutorial, id: number, extensaoArquivo: string): string {
 		return `public/app_data/tutoriais/${tipo}/${id}.${extensaoArquivo}`;
 	}

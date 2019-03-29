@@ -38,11 +38,11 @@
 		order: [[1, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Vídeo", "class": "col-min text-center", searchable: false, orderable: false, searchable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Video" href="<%= caminhoAbsolutoPastaExterno %>/' + row.id + '.<%= extensaoArquivo %>" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-play"></i>'; } },
+            { title: "Vídeo", "class": "col-min text-center", searchable: false, orderable: false, searchable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Video" href="<%- caminhoAbsolutoPastaExterno %>/' + row.id + '.<%- extensaoArquivo %>" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-play"></i>'; } },
             { title: "Nome", render: encode, data: "nome" },
             { title: "Link", "class": "col-min text-center", render: encode, orderable: false, searchable: false, data: "link", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Link" class="btn btn-outline btn-primary" href="' + v + '"><i class="fa fa-nomargin fa-external-link"></i></a>'; }},
             { title: "Descrição", render: encode, data: "descricao" },
-			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Editar" href="/administrativo/alterar?id=' + row.id + '" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-edit"></i></a> <button title="Excluir" type="button" data-excluir="1" class="btn btn-outline btn-danger"><i class="fa fa-nomargin fa-times"></i></button>'; } },
+			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Editar" href="/<%- rota %>/alterar?id=' + row.id + '" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-edit"></i></a> <button title="Excluir" type="button" data-excluir="1" class="btn btn-outline btn-danger"><i class="fa fa-nomargin fa-times"></i></button>'; } },
 		],
 		data: <%- lista %>
 	});
@@ -75,7 +75,7 @@
 
 		Notification.wait();
 
-		JsonWebApi.get("/api/administrativo/excluir", function (response) {
+		JsonWebApi.get("/api/<%- rota %>/excluir", function (response) {
 			if (response.success) {
 				Notification.success("Item excluído com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();

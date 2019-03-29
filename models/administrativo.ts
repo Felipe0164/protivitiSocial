@@ -2,8 +2,12 @@
 import Tutorial = require("./tutorial");
 
 export = class Administrativo extends Tutorial {
-	private static readonly tabela = "administrativo";
-	private static readonly extensaoArquivo = "mp4";
+	public static readonly tabela = "administrativo";
+	public static readonly extensaoArquivo = "mp4";
+
+	public static caminhoAbsolutoPastaExterno(): string {
+		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Administrativo);
+	}
 
 	public static caminhoRelativoArquivo(id: number): string {
 		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
