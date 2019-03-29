@@ -1,6 +1,8 @@
 CREATE DATABASE IF NOT EXISTS protivitiSocial;
 USE protivitiSocial;
 
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'
+
 -- DROP TABLE IF EXISTS perfil;
 CREATE TABLE perfil (
 	id int NOT NULL AUTO_INCREMENT,
@@ -37,4 +39,11 @@ INSERT INTO usuario (login, nome, perfil, senha) VALUES
 ('RAFAEL.PIGNATARO','RAFAEL PIGNATARO',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN'),
 ('GUILHERME.LARREA','GUILHERME LARREA',1,'peTcC99vkvvLqGQL7mdhGuJZIvL2iMEqvCNvZw3475PJ:JVyo1Pg2HyDyw9aSOd3gNPT30KdEyiUYCjs7RUzSoYGN');
 
--- alter user 'root'@'localhost' identified with mysql_native_password by 'root'
+CREATE TABLE administrativo (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  descricao VARCHAR(150) NOT NULL,
+  PRIMARY KEY (id),
+  INDEX administrativo_nome_IX (nome ASC)
+);

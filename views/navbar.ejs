@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
+﻿<div id="sidebar-fake-bg" class="sidebar-fake-bg"></div>
+<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="sr-only">Alterar menu</span>
@@ -14,7 +15,8 @@
   <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id="<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.SVG" width="30" height="30" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <!-- <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i> -->
       </a>
       <ul class="dropdown-menu dropdown-user">
         <li>
@@ -32,13 +34,13 @@
     </li>
   </ul>
 
-  <div class="navbar-default sidebar" role="navigation">
+  <div class="navbar-default sidebar" id="sidebar" role="navigation">
     <div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
       <ul class="nav" id="side-menu">
 
         <li>
           <a href="#">
-            <i class="fa fa-video-camera"></i>Administrativo<span class="fa arrow"></span>
+            <i class="fa fa-file-video-o"></i>Administrativo<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -60,9 +62,9 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-users"></i>Carreira<span class="fa arrow"></span>
+            <i class="fa fa-vcard-o"></i>Carreira<span class="fa arrow"></span>
           </a>
-          <ul class="nav nav-second-level collapse">
+          <!--<ul class="nav nav-second-level collapse">
             <li>
               <a href="#">
                 <i class=""></i>Mapa de carreira<span class="fa arrow"></span>
@@ -102,7 +104,7 @@
               </ul>
             </li>
 
-          </ul>
+          </ul>-->
 
           <ul class="nav nav-second-level collapse">
             <li>
@@ -131,13 +133,37 @@
               </a>
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/mentoring/criar">
-                    <i class="fa fa-plus fa-fw"></i>Criar
+                  <a href="/carreira/mentoring/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar Mentoring
                   </a>
                 </li>
                 <li>
-                  <a href="/mentoring/listar">
-                    <i class="fa fa-eye"></i>Visualizar
+                  <a href="/carreira/mentoring/listar">
+                    <i class="fa fa-eye"></i>Visualizar Mentoring
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/carreira/mentoring/mentor/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar Mentor
+                  </a>
+                </li>
+                <li>
+                  <a href="/carreira/mentoring/mentor/listar">
+                    <i class="fa fa-eye"></i>Visualizar Mentor
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/carreira/mentoring/mentorado/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar Mentorado
+                  </a>
+                </li>
+                <li>
+                  <a href="/carreira/mentoring/mentorado/listar">
+                    <i class="fa fa-eye"></i>Visualizar Mentorado
                   </a>
                 </li>
               </ul>
@@ -172,7 +198,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-address-book"></i>Alocação<span class="fa arrow"></span>
+            <i class="fa  fa-sitemap"></i>Alocação<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -193,7 +219,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-thumbs-up"></i>PEC<span class="fa arrow"></span>
+            <i class="fa fa-book"></i>PEC<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -214,7 +240,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-briefcase"></i>Negócios<span class="fa arrow"></span>
+            <i class="fa  fa-suitcase"></i>Negócios<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -304,6 +330,48 @@
           <ul class="nav nav-second-level collapse">
             <li>
               <a href="#">
+                <i class=""></i>Empresa<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/empresa/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/empresa/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Cliente<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/cliente/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/cliente/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
                 <i class=""></i>Indústrias<span class="fa arrow"></span>
               </a>
               <ul class="nav nav-third-level collapse">
@@ -347,7 +415,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-user-circle-o"></i>Liderença<span class="fa arrow"></span>
+            <i class="fa fa-users"></i>Liderença<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -368,7 +436,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-comments"></i>Time Out<span class="fa arrow"></span>
+            <i class="fa fa-cutlery"></i>Time Out<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -379,17 +447,19 @@
             </li>
 
             <li>
-              <a href="/timeOut/listar">
-                <i class="fa fa-eye"></i>Visualizar
+              <a href="/timeOut/mapa">
+                <i class="fa fa-globe "></i>Mapa
               </a>
             </li>
+
+            
 
           </ul>
         </li>
 
         <li>
           <a href="#">
-            <i class="fa fa-bullhorn"></i>Inovacao<span class="fa arrow"></span>
+            <i class="fa fa-lightbulb-o"></i>Inovação<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -412,111 +482,3 @@
     </div>
   </div>
 </nav>
-
-<style>
-
-
-    body{
-        /*background-color: #fff;*/
-    }
-
-    .navbar-brand {
-    padding: 0px 0px;
-}
-
-    .navbar-default {
-        background-color: #4080a4;
-    }
-
-    .navbar {
-        height: 48px;
-        min-height: 48px;
-    }
-
-    .logos{
-        display:inline-block;
-        margin: 10px 0px;
-        height:20px;
-    }
-
-    .navbar-top-links li a {
-        min-height: 48px;
-        padding: 10px;
-    }
-
-    .sidebar {
-            background-color: #31373c;
-        }
-
-    /*ALTERAÇÕES DENTRO DO MENU DA SIDEBAR*/
-        .sidebar ul li {
-        border-bottom: none;
-        }
-
-        .nav>li>a:hover{
-            color: #fff;
-            background-color: #282d31;
-        }
-
-        .nav>li>a:focus{
-            background-color: #1a1d20;
-        }
-
-        .nav-second-level li a{
-            background-color: #1a1d20;
-        }
-
-        .nav-third-level li a {
-            background-color:#212528;
-        }
-
-        #side-menu > li > a > i {
-            color: #fff;
-        }
-
-        #side-menu i.fa-plus {
-            color: #4080a4;
-        }
-    /*FIM DAS ALTERAÇÕES DO MENU DA SIDEBAR*/
-
-    @media (min-width: 768px) {
-       /* .navbar-toggle {
-            display: inline-block;
-            position: relative;
-            float: left;
-            padding: 8px 10px 8px 10px;
-            margin: 10px 0px 0px 10px;
-            background-color: transparent;
-            background-image: none;
-            border: none;
-            border-radius: 0px;
-        }
-           */
-
-        .sidebar {
-            z-index: 1;
-            position: absolute;
-            width: 210px;
-            margin-top: 48px;
-            background-color: #31373c;
-            height: 93.4vh; /*VH = VIEWPORT HEIGHT*/
-        }
-        /*
-        .sidebar-nav.navbar-collapse {
-            padding-right: 0;
-            padding-left: 0;
-            background-color: #31373c;
-            width:48px;
-        }
-
-        .navbar-collapse.in{
-            width: 200px;
-        }
-
-        .collapsing{
-            width: 0px;
-        }
-            */
-    }
-
-</style>
