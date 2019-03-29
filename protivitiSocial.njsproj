@@ -134,6 +134,7 @@
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
     <Content Include="views\timeout\criar.ejs" />
+    <Content Include="views\timeout\listar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
     <Content Include="views\tutorial\alterar.ejs" />
     <Content Include="views\tutorial\listar.ejs" />
