@@ -331,4 +331,6 @@ ASALocalRun/
 .DS_Store
 
 app.js
+config.js
 *.js.map
+deploy/
