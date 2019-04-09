@@ -332,3 +332,4 @@ ASALocalRun/
 
 app.js
 *.js.map
+deploy/

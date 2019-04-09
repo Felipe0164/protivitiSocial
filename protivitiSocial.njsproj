@@ -5,8 +5,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
-    <NameOfLastUsedPublishProfile>myprotiviti - Web Deploy</NameOfLastUsedPublishProfile>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <NameOfLastUsedPublishProfile>deployLocal</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
   </PropertyGroup>
@@ -37,9 +37,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="myprotiviti - Web Deploy.pubxml" />
-    <None Include="myprotiviti - FTP.pubxml" />
-    <None Include="myprotiviti - Local File.pubxml" />
+    <None Include="deployLocal.pubxml" />
     <Content Include="public\android-icon-192x192.png" />
     <Content Include="public\apple-icon-114x114.png" />
     <Content Include="public\apple-icon-120x120.png" />
