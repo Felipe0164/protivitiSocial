@@ -160,6 +160,9 @@ app.use(function (req: express.Request, res: express.Response, next) {
 //	});
 //});
 
-const server = app.listen(config.port, config.host, function () {
+// Vamos utilizar o NGINX para servir pela porta 80 externa, como proxy reverso.
+// Então, deixa o Node atrelado ao localhost, mesmo...
+//const server = app.listen(config.port, config.host, function () {
+const server = app.listen(config.port, function () {
     debug("Express server listening on port " + server.address()["port"]);
 });
