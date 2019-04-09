@@ -138,6 +138,7 @@
     <Content Include="views\tutorial\listar.ejs" />
     <Content Include="Web.config" />
     <None Include="Web.Debug.config" />
+    <TypeScriptCompile Include="config.ts" />
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="infra\arquivo.ts" />
     <TypeScriptCompile Include="infra\fs.ts" />
