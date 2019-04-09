@@ -28,7 +28,6 @@ import path = require("path");
 import ejs = require("ejs");
 import lru = require("lru-cache");
 import { NextFunction } from "express";
-import { AddressInfo } from "net";
 
 ejs.cache = lru(200);
 
