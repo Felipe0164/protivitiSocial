@@ -75,22 +75,22 @@ CREATE TABLE pec (
   INDEX pec_nome_IX (nome ASC)
 );
 
-CREATE TABLE carreiraCurriculo (
+CREATE TABLE carreira_curriculo (
   id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(50) NOT NULL,
   link VARCHAR(100) NOT NULL,
   descricao VARCHAR(150) NOT NULL,
   PRIMARY KEY (id),
-  INDEX carreiraCurriculo_nome_IX (nome ASC)
+  INDEX carreira_curriculo_nome_IX (nome ASC)
 );
 
-CREATE TABLE carreiraCapacitacaoTreinamentos (
+CREATE TABLE carreira_capacitacao_treinamentos (
   id INT NOT NULL AUTO_INCREMENT,
   nome VARCHAR(50) NOT NULL,
   link VARCHAR(100) NOT NULL,
   descricao VARCHAR(150) NOT NULL,
   PRIMARY KEY (id),
-  INDEX carreiraCapacitacaoTreinamentos_nome_IX (nome ASC)
+  INDEX carreira_capacitacao_treinamentos_nome_IX (nome ASC)
 );
 
 CREATE TABLE Mentor (
