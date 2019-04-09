@@ -447,7 +447,7 @@ i.fa-nomargin {
 
 .stars1, .cash, .stars2, .stars3, .stars4 {
     border: none;
-    float: left;
+    display: table-cell;
 }
 
     .stars1 > input, .stars2 > input, .stars3 > input, .stars4 > input, .cash > input {
