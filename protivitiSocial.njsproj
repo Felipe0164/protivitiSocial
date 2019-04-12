@@ -41,6 +41,7 @@
     <Content Include="public\imagens\loading-grey-t.gif" />
     <Content Include="public\lib\bootstrap\css\bootstrap-1.0.15.min.css" />
     <Content Include="public\lib\metis-menu\css\metis-menu-1.0.0.min.css" />
+    <Content Include="routes\capacitacaoTreinamentos.js.map" />
     <Content Include="scripts_sql\script.sql" />
     <Content Include="utils\geradorHash.ts" />
     <Content Include="public\favicon.ico" />
@@ -58,6 +59,10 @@
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff" />
     <Content Include="public\lib\font-awesome\fonts\fontawesome-webfont.woff2" />
     <Content Include="utils\jsonRes.ts" />
+    <Content Include="views\carreira\capacitacaoTreinamentos\alterar.ejs" />
+    <Content Include="views\carreira\capacitacaoTreinamentos\listar.ejs" />
+    <Content Include="views\carreira\curriculo\alterar.ejs" />
+    <Content Include="views\carreira\curriculo\listar.ejs" />
     <Content Include="views\inovacao\alterar.ejs" />
     <Content Include="views\inovacao\listar.ejs" />
     <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
@@ -97,6 +102,8 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\usuario.ts" />
+    <TypeScriptCompile Include="routes\curriculo.ts" />
+    <TypeScriptCompile Include="routes\capacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
@@ -145,6 +152,9 @@
     <Folder Include="routes\" />
     <Folder Include="routes\api\" />
     <Folder Include="views\" />
+    <Folder Include="views\carreira\" />
+    <Folder Include="views\carreira\capacitacaoTreinamentos\" />
+    <Folder Include="views\carreira\curriculo\" />
     <Folder Include="views\inovacao\" />
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
@@ -169,6 +179,7 @@
     <Compile Include="public\lib\jquery-validate\js\messages_pt_BR.min.js" />
     <Compile Include="public\lib\jquery\jquery-1.0.0.min.js" />
     <Compile Include="public\lib\metis-menu\js\metis-menu-1.0.0.min.js" />
+    <Compile Include="routes\capacitacaoTreinamentos.js" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
