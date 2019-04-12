@@ -9,7 +9,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-        res.render("negocios/parcerias/alterar", { titulo: "Criar nova parceria", usuario:u});
+        res.render("negocios/parcerias/alterar", { titulo: "Criar Nova Parceria", usuario:u});
 	}
 }));
 

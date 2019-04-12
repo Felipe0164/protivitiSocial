@@ -1,0 +1,206 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <form id="form" class="panel panel-default" action="#">
+            <div class="panel-heading">Informações Básicas da Localização</div>
+            <div class="panel-body no-bottom">
+                <input type="hidden" id="id" name="id" value="<%=(item ? item.id : 0) %>" />
+                <input type="hidden" id="lat" name="lat" value="<%=(lat || 0) %>" />
+                <input type="hidden" id="lng" name="lng" value="<%=(lng || 0) %>" />
+                <div class="form-group">
+                    <label for="nome">Nome do local</label>
+                    <input id="nome" name="nome" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+                </div>
+                <div class="form-group">
+                    <label>Dias de Funcionamento</label><br />
+                    <label>Seg <input name="segunda" id="segunda" type="checkbox" checked="checked" /></label>
+                    <label>Ter<input name="terca" id="terca" type="checkbox" value="terca" checked="checked" /></label>
+                    <label>Qua<input name="quarta" id="quarta" type="checkbox" value="quarta" checked="checked" /></label>
+                    <label>Qui<input name="quinta" id="quinta" type="checkbox" value="quinta" checked="checked" /></label>
+                    <label>Sex<input name="sexta" id="sexta" type="checkbox" value="sexta" checked="checked" /></label>
+                    <label>Sab<input name="sabado" id="sabado" type="checkbox" value="sabado" checked="checked" /></label>
+                    <label>Dom<input name="domingo" id="domingo" type="checkbox" value="domingo" checked="checked" /></label>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="abertura">Horario de abertura</label>
+                            <input id="abertura" name="abertura" maxlength="5" placeholder="00:00" class="form-control upper" type="text" spellcheck="false" value="" />
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="abertura">Horario de fechamento</label>
+                            <input id="fechamento" name="fechamento" maxlength="5" placeholder="00:00" class="form-control upper" type="text" spellcheck="false" value="" />
+                        </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label for="preco">Preço</label>
+                        <div class="cash">
+                            <input type="radio" id="cash5" name="rating" value="5" />
+                            <label class="full" for="cash5"></label>
+                            <input type="radio" id="cash4half" name="rating" value="4.5" />
+                            <label class="half" for="cash4half"></label>
+                            <input type="radio" id="cash4" name="rating" value="4" />
+                            <label class="full" for="cash4"></label>
+                            <input type="radio" id="cash3half" name="rating" value="3.5" />
+                            <label class="half" for="cash3half"></label>
+                            <input type="radio" id="cash3" name="rating" value="3" />
+                            <label class="full" for="cash3"></label>
+                            <input type="radio" id="cash2half" name="rating" value="2.5" />
+                            <label class="half" for="cash2half"></label>
+                            <input type="radio" id="cash2" name="rating" value="2" />
+                            <label class="full" for="cash2"></label>
+                            <input type="radio" id="cash1half" name="rating" value="1.5" />
+                            <label class="half" for="cash1half"></label>
+                            <input type="radio" id="cash1" name="rating" value="1" />
+                            <label class="full" for="cash1"></label>
+                            <input type="radio" id="cashhalf" name="rating" value="0.5" />
+                            <label class="half" for="cashhalf"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ambiente">Ambiente</label>
+                        <div class="stars1">
+                            <input type="radio" id="star15" name="rating1" value="5" />
+                            <label class="full" for="star15"></label>
+                            <input type="radio" id="star14half" name="rating1" value="4.5" />
+                            <label class="half" for="star14half"></label>
+                            <input type="radio" id="star14" name="rating1" value="4" />
+                            <label class="full" for="star14"></label>
+                            <input type="radio" id="star13half" name="rating1" value="3.5" />
+                            <label class="half" for="star13half"></label>
+                            <input type="radio" id="star13" name="rating1" value="3" />
+                            <label class="full" for="star13"></label>
+                            <input type="radio" id="star12half" name="rating1" value="2.5" />
+                            <label class="half" for="star12half"></label>
+                            <input type="radio" id="star12" name="rating1" value="2" />
+                            <label class="full" for="star12"></label>
+                            <input type="radio" id="star11half" name="rating1" value="1.5" />
+                            <label class="half" for="star11half"></label>
+                            <input type="radio" id="star11" name="rating1" value="1" />
+                            <label class="full" for="star11"></label>
+                            <input type="radio" id="star1half" name="rating1" value="0.5" />
+                            <label class="half" for="star1half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="atendimento">Atendimento</label>
+                        <div class="stars2">
+                            <input type="radio" id="star25" name="rating2" value="5" />
+                            <label class="full" for="star25"></label>
+                            <input type="radio" id="star24half" name="rating2" value="4.5" />
+                            <label class="half" for="star24half"></label>
+                            <input type="radio" id="star24" name="rating2" value="4" />
+                            <label class="full" for="star24"></label>
+                            <input type="radio" id="star23half" name="rating2" value="3.5" />
+                            <label class="half" for="star23half"></label>
+                            <input type="radio" id="star23" name="rating2" value="3" />
+                            <label class="full" for="star23"></label>
+                            <input type="radio" id="star22half" name="rating2" value="2.5" />
+                            <label class="half" for="star22half"></label>
+                            <input type="radio" id="star22" name="rating2" value="2" />
+                            <label class="full" for="star22"></label>
+                            <input type="radio" id="star21half" name="rating2" value="1.5" />
+                            <label class="half" for="star21half"></label>
+                            <input type="radio" id="star21" name="rating2" value="1" />
+                            <label class="full" for="star21"></label>
+                            <input type="radio" id="star2half" name="rating2" value="0.5" />
+                            <label class="half" for="star2half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bebidas">Bebidas</label>
+                        <div class="stars3">
+                            <input type="radio" id="star35" name="rating3" value="5" />
+                            <label class="full" for="star35"></label>
+                            <input type="radio" id="star34half" name="rating3" value="4.5" />
+                            <label class="half" for="star34half"></label>
+                            <input type="radio" id="star34" name="rating3" value="4" />
+                            <label class="full" for="star34"></label>
+                            <input type="radio" id="star33half" name="rating3" value="3.5" />
+                            <label class="half" for="star33half"></label>
+                            <input type="radio" id="star33" name="rating3" value="3" />
+                            <label class="full" for="star33"></label>
+                            <input type="radio" id="star32half" name="rating3" value="2.5" />
+                            <label class="half" for="star32half"></label>
+                            <input type="radio" id="star32" name="rating3" value="2" />
+                            <label class="full" for="star32"></label>
+                            <input type="radio" id="star31half" name="rating3" value="1.5" />
+                            <label class="half" for="star31half"></label>
+                            <input type="radio" id="star31" name="rating3" value="1" />
+                            <label class="full" for="star31"></label>
+                            <input type="radio" id="star3half" name="rating3" value="0.5" />
+                            <label class="half" for="star3half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tiragosto">Tira gosto</label>
+                        <div class="stars4">
+                            <input type="radio" id="star45" name="rating4" value="5" />
+                            <label class="full" for="star45"></label>
+                            <input type="radio" id="star44half" name="rating4" value="4.5" />
+                            <label class="half" for="star44half"></label>
+                            <input type="radio" id="star44" name="rating4" value="4" />
+                            <label class="full" for="star44"></label>
+                            <input type="radio" id="star43half" name="rating4" value="4.5" />
+                            <label class="half" for="star43half"></label>
+                            <input type="radio" id="star43" name="rating4" value="3" />
+                            <label class="full" for="star43"></label>
+                            <input type="radio" id="star42half" name="rating4" value="2.5" />
+                            <label class="half" for="star42half"></label>
+                            <input type="radio" id="star42" name="rating4" value="2" />
+                            <label class="full" for="star42"></label>
+                            <input type="radio" id="star41half" name="rating4" value="1.5" />
+                            <label class="half" for="star41half"></label>
+                            <input type="radio" id="star41" name="rating4" value="1" />
+                            <label class="full" for="star41"></label>
+                            <input type="radio" id="star4half" name="rating4" value="0.5" />
+                            <label class="half" for="star4half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentario">Comentário</label>
+                        <textarea class="form-control" rows="5" id="porqueVencemos" name="porqueVencemos" spellcheck="true"></textarea>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input value="<%=(item ? 'Salvar Alterações' : 'Criar') %>" class="btn btn-primary btn-lg btn-block" type="submit" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+    $("#abertura, #fechamento").mask("00:00");
+    $.validator.addMethod("horario", function(value, element) {
+      return this.optional(element) || /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/.test(value);
+    }, "Por favor forneça um horário válido!");
+    $("#form").validate({
+        rules: {
+            nome: {
+                required: true,
+				minlength: 3,
+				maxlength: 50
+            },
+            rating: {
+                required:true
+            },
+            rating1: {
+                required:true
+            },
+            rating2: {
+                required:true
+            },
+            rating3: {
+                required:true
+            },
+            rating4: {
+                required:true
+            }
+            
+        }
+    });
+</script>
