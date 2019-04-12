@@ -444,3 +444,87 @@ i.fa-nomargin {
 	.custom-map-button:hover {
 		background: #f4f4f4;
 	}
+
+.stars1, .cash, .stars2, .stars3, .stars4 {
+    border: none;
+    display: table-cell;
+}
+
+    .stars1 > input, .stars2 > input, .stars3 > input, .stars4 > input, .cash > input {
+        display: none;
+    }
+
+    .stars1 > label:before, .stars2 > label:before, .stars3 > label:before, .stars4 > label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f005";
+    }
+
+    .cash > label:before {
+        margin: 5px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f155";
+    }
+
+
+    .stars1 > .half:before, .stars2 > .half:before, .stars3 > .half:before, .stars4 > .half:before {
+        content: "\f089";
+        position: absolute;
+    }
+
+    .cash > .half:before {
+        content: "\f155";
+        position: absolute;
+    }
+
+
+    .stars1 > label, .stars2 > label, .stars3 > label, .stars4 > label, .cash > label {
+        color: #ddd;
+        float: right;
+    }
+
+    .stars1 > input:checked ~ label,
+    .stars1:not(:checked) > label:hover,
+    .stars1:not(:checked) > label:hover ~ label,
+    .stars2 > input:checked ~ label,
+    .stars2:not(:checked) > label:hover,
+    .stars2:not(:checked) > label:hover ~ label,
+    .stars3 > input:checked ~ label,
+    .stars3:not(:checked) > label:hover,
+    .stars3:not(:checked) > label:hover ~ label,
+    .stars4 > input:checked ~ label,
+    .stars4:not(:checked) > label:hover,
+    .stars4:not(:checked) > label:hover ~ label,
+    .cash > input:checked ~ label,
+    .cash:not(:checked) > label:hover,
+    .cash:not(:checked) > label:hover ~ label {
+        color: #FFD700;
+    }
+
+
+        .stars1 > input:checked + label:hover,
+        .stars1 > input:checked ~ label:hover,
+        .stars1 > label:hover ~ input:checked ~ label,
+        .stars1 > input:checked ~ label:hover ~ label,
+        .stars2 > input:checked + label:hover,
+        .stars2 > input:checked ~ label:hover,
+        .stars2 > label:hover ~ input:checked ~ label,
+        .stars2 > input:checked ~ label:hover ~ label,
+        .stars3 > input:checked + label:hover,
+        .stars3 > input:checked ~ label:hover,
+        .stars3 > label:hover ~ input:checked ~ label,
+        .stars3 > input:checked ~ label:hover ~ label,
+        .stars4 > input:checked + label:hover,
+        .stars4 > input:checked ~ label:hover,
+        .stars4 > label:hover ~ input:checked ~ label,
+        .stars4 > input:checked ~ label:hover ~ label,
+        .cash > input:checked + label:hover,
+        .cash > input:checked ~ label:hover,
+        .cash > label:hover ~ input:checked ~ label,
+        .cash > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }

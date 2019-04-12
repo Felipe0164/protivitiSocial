@@ -7,15 +7,16 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <img class="logos" src="/imagens/ICTS_WHITE.SVG" alt="ICTS" style="margin:0px 0px 0px 10px" />
-    <img class="logos" src="/imagens/icts_circle_white.SVG" alt="WHITE CIRCLE" />
-    <img class="logos" src="/imagens/myprotiviti_white.SVG" alt="MYPROTIVITI" style="height:23px; margin-top: 12px;" />
+      <a href="/">
+    <img class="logos" src="/imagens/ICTS_WHITE.svg" alt="ICTS" style="margin:0px 0px 0px 10px" href="/" />
+    <img class="logos" src="/imagens/icts_circle_white.svg" alt="WHITE CIRCLE"  />
+    <img class="logos" src="/imagens/myprotiviti_white.svg" alt="MYPROTIVITI" style="height:23px; margin-top: 12px;" /></a>
   </div>
 
   <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.SVG" width="30"
+        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.svg" width="30"
           height="30" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
         <!-- <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i> -->
       </a>
@@ -114,12 +115,12 @@
               </a>
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/mentoring/criar">
+                  <a href="/carreira/capacitacaoTreinamentos/criar">
                     <i class="fa fa-plus fa-fw"></i>Criar
                   </a>
                 </li>
                 <li>
-                  <a href="/mentoring/listar">
+                  <a href="/carreira/capacitacaoTreinamentos/listar">
                     <i class="fa fa-eye"></i>Visualizar
                   </a>
                 </li>
@@ -425,12 +426,12 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-users"></i>Liderença<span class="fa arrow"></span>
+            <i class="fa fa-users"></i>Liderança<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
             <li>
-              <a href="/liderenca/criar">
+              <a href="/lideranca/criar">
                 <i class="fa fa-plus fa-fw"></i>Criar
               </a>
             </li>
@@ -459,6 +460,12 @@
             <li>
               <a href="/timeOut/mapa">
                 <i class="fa fa-globe "></i>Mapa
+              </a>
+            </li>
+
+            <li>
+              <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
               </a>
             </li>
 
