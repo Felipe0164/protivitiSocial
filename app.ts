@@ -112,15 +112,12 @@ app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinament
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
-<<<<<<< HEAD
 app.use("/api/pec", require("./routes/api/pec"));
 
-=======
 app.use("/api/alocacao", require("./routes/api/alocacao"));
 app.use("/api/carreiraCapacitacaoTreinamentos", require("./routes/api/carreiraCapacitacaoTreinamentos"));
 app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 app.use("/api/inovacao", require("./routes/api/inovacao"));
->>>>>>> master
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
