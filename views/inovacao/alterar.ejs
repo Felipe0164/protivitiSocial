@@ -1,0 +1,98 @@
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+		<form id="form" class="panel panel-default" action="#">
+			<div class="panel-heading">Informações Básicas do Tutorial</div>
+			<div class="panel-body no-bottom">
+				<input type="hidden" id="id" name="id" value="<%=(item ? item.id : 0) %>" />
+				<div class="form-group">
+					<label for="nome">Nome</label>
+					<input id="nome" name="nome" maxlength="50" class="form-control" type="text" value="<%=(item ? item.nome : '') %>" />
+				</div>
+				<div class="form-group">
+					<label for="link">Link</label>
+					<input id="link" name="link" maxlength="100" class="form-control" type="url" spellcheck="false" value="<%=(item ? item.link : '') %>" />
+				</div>
+				<div class="form-group">
+					<label for="descricao">Descrição</label>
+					<input id="descricao" name="descricao" maxlength="150" class="form-control" type="text" value="<%=(item ? item.descricao : '') %>" />
+				</div>
+				<% if (!item) { %>
+				<div class="form-group">
+					<label for="link">Vídeo</label>
+					<input id="arquivo" name="arquivo" class="form-control" type="file" accept="video/mp4" />
+				</div>
+				<% } %>
+			</div>
+			<div class="panel-footer">
+				<input value="<%=(item ? 'Salvar Alterações' : 'Criar') %>" class="btn btn-primary btn-lg btn-block" type="submit" />
+			</div>
+		</form>
+	</div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+	//<![CDATA[
+	"use strict";
+
+	$("#form").validate({
+		rules: {
+			nome: {
+				required: true,
+				minlength: 3,
+				maxlength: 50
+			},
+
+			link: {
+				required: true,
+				minlength: 10,
+				maxlength: 100,
+				url: true
+			},
+
+			descricao: {
+				maxlength: 150
+			},
+
+			//<% if (!item) { %>
+			arquivo: {
+				required: true
+			},
+			//<% } %>
+		},
+
+		submitHandler: function (form) {
+			if (JsonWebApi.active)
+				return;
+
+			Notification.wait();
+
+			//<% if (item) { %>
+
+			JsonWebApi.postFormData("/api/inovacao/alterar", form, function (response) {
+				if (response.success)
+					Notification.success("Tutorial alterado com sucesso! \uD83D\uDE04");
+				else
+					Notification.error(response.value, true);
+			});
+
+			//<% } else { %>
+
+			// Instancia um FormData porque precisamos enviar o arquivo, senão, poderia passar
+			// apenas o form, como é o caso do alterar.
+			JsonWebApi.postFormData("/api/inovacao/criar", new FormData(form), function (response) {
+				if (response.success) {
+					form.reset();
+					$("#form").validate().resetForm();
+					Notification.success("Tutorial criado com sucesso! \uD83D\uDE04");
+				} else {
+					Notification.error(response.value, true);
+				}
+			});
+
+			//<% } %>
+		}
+	});
+	//]]>
+</script>

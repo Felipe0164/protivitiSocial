@@ -1,4 +1,5 @@
-﻿<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
+﻿<div id="sidebar-fake-bg" class="sidebar-fake-bg"></div>
+<nav class="navbar navbar-default navbar-static-top nav-shadow " role="navigation" style="margin-bottom: 0">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="sr-only">Alterar menu</span>
@@ -6,15 +7,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">
-      <img alt="Logo" src="/imagens/logo-cabecalho.png" />
-    </a>
+      <a href="/">
+    <img class="logos" src="/imagens/ICTS_WHITE.svg" alt="ICTS" style="margin:0px 0px 0px 10px" href="/" />
+    <img class="logos" src="/imagens/icts_circle_white.svg" alt="WHITE CIRCLE"  />
+    <img class="logos" src="/imagens/myprotiviti_white.svg" alt="MYPROTIVITI" style="height:23px; margin-top: 12px;" /></a>
   </div>
 
   <ul class="nav navbar-top-links navbar-right">
     <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-        <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id="<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <img class="profile-img" alt="Perfil" src="/imagens/icts_circle_white.svg" width="30"
+          height="30" /><%=usuario.login %> <i class="fa fa-caret-down"></i>
+        <!-- <img class="profile-img" alt="Perfil" src="/api/UserProfile/Picture?id=<%=usuario.id %>" width="40" height="40" /><%=usuario.login %> <i class="fa fa-caret-down"></i> -->
       </a>
       <ul class="dropdown-menu dropdown-user">
         <li>
@@ -32,13 +36,13 @@
     </li>
   </ul>
 
-  <div class="navbar-default sidebar" role="navigation">
+  <div class="navbar-default sidebar" id="sidebar" role="navigation">
     <div id="navbar-collapse" class="sidebar-nav navbar-collapse collapse">
       <ul class="nav" id="side-menu">
 
         <li>
           <a href="#">
-            <i class="fa fa-video-camera"></i>Administrativo<span class="fa arrow"></span>
+            <i class="fa fa-file-video-o"></i>Administrativo<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -52,7 +56,7 @@
               </a>
             </li>
 
-            
+
 
           </ul>
         </li>
@@ -60,9 +64,9 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-users"></i>Carreira<span class="fa arrow"></span>
+            <i class="fa fa-vcard-o"></i>Carreira<span class="fa arrow"></span>
           </a>
-          <ul class="nav nav-second-level collapse">
+          <!--<ul class="nav nav-second-level collapse">
             <li>
               <a href="#">
                 <i class=""></i>Mapa de carreira<span class="fa arrow"></span>
@@ -102,6 +106,26 @@
               </ul>
             </li>
 
+          </ul>-->
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Capacitação & Treinamentos<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/carreira/capacitacaoTreinamentos/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/carreira/capacitacaoTreinamentos/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
           </ul>
 
           <ul class="nav nav-second-level collapse">
@@ -109,21 +133,58 @@
               <a href="#">
                 <i class=""></i>Mentoring<span class="fa arrow"></span>
               </a>
+
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/mentoring/criar">
+                  <a href="/carreira/mentoring/criar">
                     <i class="fa fa-plus fa-fw"></i>Criar
                   </a>
                 </li>
                 <li>
-                  <a href="/mentoring/listar">
+                  <a href="/carreira/mentoring/listar">
                     <i class="fa fa-eye"></i>Visualizar
                   </a>
                 </li>
               </ul>
+  
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="#">
+                    <i class=""></i>Mentor<span class="fa arrow"></span>
+                  </a>
+                  <ul class="nav nav-fourth-level collapse">
+                    <li>
+                      <a href="/carreira/mentoring/mentor/criar">
+                        <i class="fa fa-plus fa-fw"></i>Criar
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/carreira/mentoring/mentor/listar">
+                        <i class="fa fa-eye"></i>Visualizar
+                      </a>
+                    </li>
+                  </ul>
+              </ul>
+
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="#">
+                    <i class=""></i>Mentorado<span class="fa arrow"></span>
+                  </a>
+                  <ul class="nav nav-fourth-level collapse">
+                    <li>
+                      <a href="/carreira/mentoring/mentor/criar">
+                        <i class="fa fa-plus fa-fw"></i>Criar
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/carreira/mentoring/mentor/listar">
+                        <i class="fa fa-eye"></i>Visualizar
+                      </a>
+                    </li>
+                  </ul>
+              </ul>
             </li>
-
-
           </ul>
 
           <ul class="nav nav-second-level collapse">
@@ -144,15 +205,13 @@
                 </li>
               </ul>
             </li>
-
-
           </ul>
 
         </li>
 
         <li>
           <a href="#">
-            <i class="fa fa-address-book"></i>Alocação<span class="fa arrow"></span>
+            <i class="fa  fa-sitemap"></i>Alocação<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -173,7 +232,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-thumbs-up"></i>PEC<span class="fa arrow"></span>
+            <i class="fa fa-book"></i>PEC<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
@@ -194,7 +253,7 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-briefcase"></i>Negócios<span class="fa arrow"></span>
+            <i class="fa  fa-suitcase"></i>Negócios<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
             <li>
@@ -203,18 +262,17 @@
               </a>
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/projetos/criar">
+                  <a href="/negocios/projeto/criar">
                     <i class="fa fa-plus fa-fw"></i>Criar
                   </a>
                 </li>
                 <li>
-                  <a href="/projetos/listar">
+                  <a href="/negocios/projeto/listar">
                     <i class="fa fa-eye"></i>Visualizar
                   </a>
                 </li>
               </ul>
             </li>
-
           </ul>
 
           <ul class="nav nav-second-level collapse">
@@ -224,20 +282,19 @@
               </a>
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/parcerias/criar">
+                  <a href="/negocios/parcerias/criar">
                     <i class="fa fa-plus fa-fw"></i>Criar
                   </a>
                 </li>
                 <li>
-                  <a href="/parcerias/listar">
+                  <a href="/negocios/parcerias/listar">
                     <i class="fa fa-eye"></i>Visualizar
                   </a>
                 </li>
               </ul>
             </li>
-
-
           </ul>
+
           <ul class="nav nav-second-level collapse">
             <li>
               <a href="#">
@@ -245,12 +302,12 @@
               </a>
               <ul class="nav nav-third-level collapse">
                 <li>
-                  <a href="/indicacaoOportunidade/criar">
+                  <a href="/negocios/indicacaoOportunidade/criar">
                     <i class="fa fa-plus fa-fw"></i>Criar
                   </a>
                 </li>
                 <li>
-                  <a href="/indicacaoOportunidade/listar">
+                  <a href="/negocios/indicacaoOportunidade/listar">
                     <i class="fa fa-eye"></i>Visualizar
                   </a>
                 </li>
@@ -260,16 +317,121 @@
 
           </ul>
 
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Soluções<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/solucoes/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/solucoes/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Empresa<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/empresa/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/empresa/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Cliente<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/cliente/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/cliente/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Indústrias<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/industria/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/industria/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <ul class="nav nav-second-level collapse">
+            <li>
+              <a href="#">
+                <i class=""></i>Pursuit Team<span class="fa arrow"></span>
+              </a>
+              <ul class="nav nav-third-level collapse">
+                <li>
+                  <a href="/negocios/pursuitTeam/criar">
+                    <i class="fa fa-plus fa-fw"></i>Criar
+                  </a>
+                </li>
+                <li>
+                  <a href="/negocios/pursuitTeam/listar">
+                    <i class="fa fa-eye"></i>Visualizar
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+
         </li>
 
         <li>
           <a href="#">
-            <i class="fa fa-user-circle-o"></i>Liderença<span class="fa arrow"></span>
+            <i class="fa fa-users"></i>Liderança<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
             <li>
-              <a href="/liderenca/criar">
+              <a href="/lideranca/criar">
                 <i class="fa fa-plus fa-fw"></i>Criar
               </a>
             </li>
@@ -285,13 +447,25 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-comments"></i>Time Out<span class="fa arrow"></span>
+            <i class="fa fa-cutlery"></i>Time Out<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
             <li>
-              <a href="/timeout/mapa">
-                <i class="fa fa-plus fa-fw"></i>Mapa
+              <a href="/timeOut/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/timeOut/mapa">
+                <i class="fa fa-globe "></i>Mapa
+              </a>
+            </li>
+
+            <li>
+              <a href="/timeOut/listar">
+                <i class="fa fa-eye"></i>Visualizar
               </a>
             </li>
 
@@ -302,10 +476,21 @@
 
         <li>
           <a href="#">
-            <i class="fa fa-bullhorn"></i>Inovação<span class="fa arrow"></span>
+            <i class="fa fa-lightbulb-o"></i>Inovação<span class="fa arrow"></span>
           </a>
           <ul class="nav nav-second-level collapse">
 
+            <li>
+              <a href="/inovacao/criar">
+                <i class="fa fa-plus fa-fw"></i>Criar
+              </a>
+            </li>
+
+            <li>
+              <a href="/inovacao/listar">
+                <i class="fa fa-eye"></i>Visualizar
+              </a>
+            </li>
 
           </ul>
         </li>

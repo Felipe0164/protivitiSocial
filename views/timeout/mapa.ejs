@@ -1,53 +1,38 @@
 <div class="row">
-	 <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
+    <% if (msg) { %>
+    <div class="alert alert-danger"><%=msg %></div>
+    <% } %>
+    <div id="map" style="height: 440px; border: 1px solid #AAA;"></div>
 </div>
 
 <%- contentFor("styles") %>
-<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<link rel="stylesheet" type="text/css" href="/lib/leaflet/css/leaflet.css" />
 
 <style type="text/css">
 
 </style>
 
 <%- contentFor("scripts") %>
- <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
- <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
- <script type='text/javascript' src='maps/markers.json'></script>
- <script type='text/javascript' src='maps/leaf-demo.js'></script>
- <script src="https://d3js.org/d3.v3.min.js"></script>
- <script src="https://d3js.org/topojson.v0.min.js"></script>
+<script type='text/javascript' src='/lib/leaflet/js/leaflet.js'></script>
 
- <script>
+<script type='text/javascript'>
+    navigator.geolocation.getCurrentPosition(function (location) {
+        var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
+        var map = L.map('map').setView(latlng, 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            subdomains: ['a', 'b', 'c'],
+            center: [latlng],
+            minZoom: 10,
+            zoom: 14
+        }).addTo(map);
+        var marker = L.marker(latlng).addTo(map);
 
-   navigator.geolocation.getCurrentPosition(function(location) {
-   var latlng = new L.LatLng(location.coords.latitude, location.coords.longitude);
-   var map = L.map('map').setView(latlng, 13);
-   L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-   subdomains: ['a', 'b', 'c'],
-   center: [-23.611169, -46.696062],
-   minZoom: 10,
-   zoom: 14
-   }).addTo(map);
-   var marker = L.marker(latlng).addTo(map);
-
-   map.on('click',function(e){
-   lat = e.latlng.lat;
-   lon = e.latlng.lng;
-
-   var popup = L.popup()
-   .setLatLng([lat,lon])
-   .setContent('<p><a href="/timeout/criar"> Adicionar localização</a></p>')
-   .openOn(map);
-   });
-
-   });
-
-
-
-
-
-
-
-
- </script>
+        map.on('click', function (e) {
+            var popup = L.popup()
+                .setLatLng([e.latlng.lat, e.latlng.lng])
+                .setContent('<p><a href="/timeout/criar?lat=' + encodeURIComponent(e.latlng.lat) + '&lng=' + encodeURIComponent(e.latlng.lng) + '">Adicionar localização</a></p>')
+                .openOn(map);
+        });
+    });
+</script>
