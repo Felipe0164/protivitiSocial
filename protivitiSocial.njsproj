@@ -101,6 +101,7 @@
     <TypeScriptCompile Include="infra\sql.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="infra\sqlPool.ts" />
     <TypeScriptCompile Include="models\usuario.ts" />
     <TypeScriptCompile Include="routes\curriculo.ts" />
     <TypeScriptCompile Include="routes\capacitacaoTreinamentos.ts" />
