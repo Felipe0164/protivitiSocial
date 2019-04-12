@@ -68,14 +68,7 @@ html {
 	color: #fff;
 }
 
-#side-menu i.fa-plus {
-	color: #37b1f5;
-}
-
-#side-menu i.fa-eye{
-	color: #37b1f5;
-}
-#side-menu i.fa-globe{
+#side-menu i.fa-plus, #side-menu i.fa-eye, #side-menu i.fa-globe {
 	color: #37b1f5;
 }
 
