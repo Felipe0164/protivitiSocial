@@ -361,6 +361,35 @@ i.fa-nomargin {
 	border-bottom: 1px solid #ddd;
 	margin-bottom: 15px;
 }
+/* index */
+.index-wrapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.index-header{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: 15px;
+}
+
+.index-content{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 25px 25px;
+}
+
+.index-content-row{
+	flex-direction: row;
+}
+
+.index-footer{
+	display: flex;
+	justify-content: center;
+}
+
 
 .fullscreen-iframe {
 	border: 0;
