@@ -103,18 +103,18 @@
     <Content Include="views\negocios\cliente\listar.ejs" />
     <Content Include="views\negocios\empresa\alterar.ejs" />
     <Content Include="views\negocios\empresa\listar.ejs" />
-    <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
-    <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
+    <Content Include="views\negocios\oportunidade\alterar.ejs" />
+    <Content Include="views\negocios\oportunidade\listar.ejs" />
     <Content Include="views\negocios\industria\alterar.ejs" />
     <Content Include="views\negocios\industria\listar.ejs" />
-    <Content Include="views\negocios\parcerias\listar.ejs" />
+    <Content Include="views\negocios\parceria\listar.ejs" />
     <Content Include="views\negocios\projeto\alterar.ejs" />
     <Content Include="views\negocios\projeto\listar.ejs" />
     <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
     <Content Include="views\negocios\pursuitTeam\listar.ejs" />
     <Content Include="views\negocios\solucoes\alterar.ejs" />
     <Content Include="views\negocios\solucoes\listar.ejs" />
-    <Content Include="views\negocios\parcerias\alterar.ejs" />
+    <Content Include="views\negocios\parceria\alterar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
@@ -159,6 +159,12 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\inovacao.ts" />
+    <TypeScriptCompile Include="models\oportunidade.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\parceria.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\tutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -169,11 +175,17 @@
     <TypeScriptCompile Include="routes\api\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\api\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\api\inovacao.ts" />
+    <TypeScriptCompile Include="routes\api\oportunidade.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\api\parceria.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />
     <TypeScriptCompile Include="routes\industria.ts" />
-    <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\oportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
     <TypeScriptCompile Include="routes\mentorado.ts" />
     <TypeScriptCompile Include="routes\mentor.ts" />
@@ -183,7 +195,7 @@
     <TypeScriptCompile Include="routes\empresa.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
-    <TypeScriptCompile Include="routes\parcerias.ts" />
+    <TypeScriptCompile Include="routes\parceria.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
     <TypeScriptCompile Include="routes\timeout.ts" />
@@ -239,13 +251,13 @@
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
     <Folder Include="views\negocios\industria\" />
-    <Folder Include="views\negocios\indicacaoOportunidade\" />
+    <Folder Include="views\negocios\oportunidade\" />
     <Folder Include="views\negocios\cliente\" />
     <Folder Include="views\negocios\empresa\" />
     <Folder Include="views\negocios\pursuitTeam\" />
     <Folder Include="views\negocios\projeto\" />
     <Folder Include="views\negocios\solucoes\" />
-    <Folder Include="views\negocios\parcerias\" />
+    <Folder Include="views\negocios\parceria\" />
     <Folder Include="views\carreira\" />
     <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />

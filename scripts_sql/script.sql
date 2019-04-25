@@ -125,6 +125,10 @@ CREATE TABLE pursuit_team (
   INDEX pursuit_team_nome_pursuit_team_IX (nome_pursuit_team ASC)
 );
 
+insert into pursuit_team(nome_pursuit_team) values('Equipe 1');
+
+select * from pursuit_team;
+
 CREATE TABLE industria (
   id_industria INT NOT NULL AUTO_INCREMENT,
   nome_industria VARCHAR(255) NOT NULL,
@@ -146,6 +150,10 @@ CREATE TABLE empresa (
   INDEX empresa_nome_empresa_IX (nome_empresa ASC)
 );
 
+insert into empresa(nome_empresa) values ('Empresa 1');
+
+select*from empresa;
+
 CREATE TABLE solucao (
   id_solucao INT NOT NULL AUTO_INCREMENT,
   nome_solucao VARCHAR(255) NOT NULL,
@@ -163,6 +171,15 @@ CREATE TABLE oportunidade (
   descricao_oportunidade VARCHAR(250) NULL,
   PRIMARY KEY (id_oportunidade)
 );
+
+insert into oportunidade (empresa_oportunidade, contato_oportunidade, tel_oportunidade, 
+						email_oportunidade, id_solucao, descricao_oportunidade)
+                        values ('Teste', 'Nome', '11 9 43435465', 'teste@gmail.com', 
+                        1, 'Testando.');
+
+select * from oportunidade;
+
+insert into solucao (nome_solucao) values ('Transformação digital');
 
 ALTER TABLE oportunidade ADD CONSTRAINT fk_oportunidade_id_solucao FOREIGN KEY (id_solucao) REFERENCES solucao (id_solucao);
 
@@ -185,12 +202,19 @@ ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_pursuit_team FOREIGN KEY (id_pu
 CREATE TABLE parceria (
   id_parceria INT NOT NULL AUTO_INCREMENT,
   id_empresa INT NOT NULL,
+  id_solucao INT NULL,
   id_pursuit_team INT NULL,
   valor_agregado_parceria VARCHAR(250) NULL,
   PRIMARY KEY (id_parceria)
 );
 
+insert into parceria (id_empresa, id_solucao, id_pursuit_team, valor_agregado_parceria)
+values (1, 1, 1, 'Teste') ;
+
+select * from parceria;
+
 ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_empresa FOREIGN KEY (id_empresa) REFERENCES empresa (id_empresa);
+ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_solucao FOREIGN KEY (id_solucao) REFERENCES solucao (id_solucao);
 ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_pursuit_team FOREIGN KEY (id_pursuit_team) REFERENCES pursuit_team (id_pursuit_team);
 
 

@@ -95,13 +95,13 @@ app.use("/administrativo", require("./routes/administrativo"));
 app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
-app.use("/negocios/parcerias", require("./routes/parcerias"));
+app.use("/negocios/parceria", require("./routes/parceria"));
 app.use("/negocios/solucoes", require("./routes/solucoes"));
 app.use("/negocios/cliente", require("./routes/cliente"));
 app.use("/negocios/empresa", require("./routes/empresa"));
 app.use("/negocios/industria", require("./routes/industria"));
 app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
-app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
+app.use("/negocios/oportunidade", require("./routes/oportunidade"));
 app.use("/timeout", require("./routes/timeout"));
 app.use("/carreira/mentoring", require("./routes/mentoring"));
 app.use("/carreira/mentoring/mentor", require("./routes/mentor"));
@@ -109,6 +109,7 @@ app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
 app.use("/alocacao", require("./routes/alocacao"));
 app.use("/carreira/curriculo", require("./routes/carreiraCurriculo"));
 app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinamentos"));
+
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
@@ -116,6 +117,8 @@ app.use("/api/alocacao", require("./routes/api/alocacao"));
 app.use("/api/carreiraCapacitacaoTreinamentos", require("./routes/api/carreiraCapacitacaoTreinamentos"));
 app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 app.use("/api/inovacao", require("./routes/api/inovacao"));
+app.use("/api/oportunidade", require("./routes/api/oportunidade"));
+app.use("/api/parceria", require("./routes/api/parceria"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
