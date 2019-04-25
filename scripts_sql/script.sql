@@ -185,12 +185,14 @@ ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_pursuit_team FOREIGN KEY (id_pu
 CREATE TABLE parceria (
   id_parceria INT NOT NULL AUTO_INCREMENT,
   id_empresa INT NOT NULL,
+  id_solucao INT NOT NULL,
   id_pursuit_team INT NULL,
   valor_agregado_parceria VARCHAR(250) NULL,
   PRIMARY KEY (id_parceria)
 );
 
 ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_empresa FOREIGN KEY (id_empresa) REFERENCES empresa (id_empresa);
+ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_solucao FOREIGN KEY (id_solucao) REFERENCES solucao (id_solucao);
 ALTER TABLE parceria ADD CONSTRAINT fk_parceria_id_pursuit_team FOREIGN KEY (id_pursuit_team) REFERENCES pursuit_team (id_pursuit_team);
 
 

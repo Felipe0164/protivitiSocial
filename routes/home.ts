@@ -14,12 +14,12 @@ router.all("/", wrap(async (req: express.Request, res: express.Response) => {
 			if (mensagem)
 				res.render("home/login", { layout: "layout-externo", mensagem: mensagem });
 			else
-				res.render("home/index", { usuario: u });
+				res.render("home/index", { layout: "layout-index", usuario: u });
 		} else {
 			res.render("home/login", { layout: "layout-externo", mensagem: null });
 		}
 	} else {
-		res.render("home/index", { usuario: u });
+		res.render("home/index", { layout: "layout-index", usuario: u });
 	}
 }));
 
