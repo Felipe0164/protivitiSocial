@@ -99,6 +99,7 @@
     <Content Include="views\carreira\mentoring\mentor\listar.ejs" />
     <Content Include="views\inovacao\alterar.ejs" />
     <Content Include="views\inovacao\listar.ejs" />
+    <Content Include="views\layout-index.ejs" />
     <Content Include="views\negocios\cliente\alterar.ejs" />
     <Content Include="views\negocios\cliente\listar.ejs" />
     <Content Include="views\negocios\empresa\alterar.ejs" />
@@ -234,6 +235,7 @@
     <Folder Include="views\carreira\mentoring\" />
     <Folder Include="views\carreira\mentoring\mentor\" />
     <Folder Include="views\carreira\mentoring\mentorado\" />
+    <Folder Include="views\controle\tipoLocal\" />
     <Folder Include="views\inovacao\" />
     <Folder Include="views\negocios\" />
     <Folder Include="views\administrativo\" />
@@ -247,6 +249,7 @@
     <Folder Include="views\negocios\solucoes\" />
     <Folder Include="views\negocios\parcerias\" />
     <Folder Include="views\carreira\" />
+    <Folder Include="views\controle\" />
     <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
