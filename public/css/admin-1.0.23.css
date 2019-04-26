@@ -2,7 +2,7 @@ html {
 	height: 100%;
 }
 
-@media(min-width:768px) {
+@media(min-width:768px) {   
 	body {
 		min-height: 100%;
 	}
@@ -13,7 +13,7 @@ html {
 }
 
 #page-wrapper {
-	padding: 0 15px;
+	padding: 0;
 }
 
 .navbar-right {
@@ -23,8 +23,8 @@ html {
 @media(min-width:768px) {
 	#page-wrapper {
 		position: inherit;
-		margin: 0 0 0 250px;
-		padding: 0 30px;
+		margin: 0 0 0 210px;
+		padding: 0;
 	}
 
 	#side-menu {
@@ -56,6 +56,10 @@ html {
 			margin: 0 auto;
 			max-width: 1300px;
 		}
+}
+
+.index-content-column i.fa {
+    margin: auto;
 }
 
 #side-menu i {
@@ -104,6 +108,7 @@ html {
 	.navbar-top-links.nav > li > a:focus {
 		background-color: #2a5a75;
 	}
+
 
 .profile-img {
 	border: 0;
@@ -344,7 +349,7 @@ i.fa-nomargin {
 }
 
 .nav > li > a:focus {
-	background-color: #1a1d20;
+    background-color: #282d31;
 }
 
 .sidebar, .sidebar-fake-bg {
@@ -365,29 +370,66 @@ i.fa-nomargin {
 .index-wrapper{
 	display: flex;
 	flex-direction: column;
+    height: calc(100vh - 100px);
 }
 
 .index-header{
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	margin-top: 15px;
 }
 
-.index-content{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin: 25px 25px;
+#BlueCircleDashboard{
+    height: 35px;
+    fill: #4080a4;
 }
 
-.index-content-row{
-	flex-direction: row;
+#MyProtivitiDashboard {
+    height:50px;
+}
+
+.index-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 25px;
+}
+
+.index-content-column{
+    display:flex;
+	flex-direction: column;
+}
+
+.dashboard-icon-container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin:10px;
+}
+
+.dashboard-icon {
+    font-size: 60px;
+    margin-right: 0;
+}
+
+.dashboard-title {
+    font-size: 16px;
+    font-weight:600;
+    text-align: center;
 }
 
 .index-footer{
-	display: flex;
-	justify-content: center;
+}
+
+#cidade {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    position:absolute;
+    z-index:-1;
 }
 
 
@@ -550,3 +592,23 @@ i.fa-nomargin {
         .cash > input:checked ~ label:hover ~ label {
             color: #FFED85;
         }
+
+@media(min-width:801px) {
+    .index-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 50px);
+        position: relative;
+    }
+}
+
+
+@media(min-width:768px) {
+
+    .index-header {
+        margin: 15px calc(25% - 210px) 0 0;
+    }
+    .index-content {
+        margin: 25px calc(25% - 210px) 25px 0;
+    }
+}
