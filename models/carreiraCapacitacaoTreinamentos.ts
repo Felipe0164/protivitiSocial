@@ -3,19 +3,25 @@ import Tutorial = require("./tutorial");
 
 export = class CarreiraCapacitacaoTreinamentos extends Tutorial {
 	public static readonly tabela = "carreira_capacitacao_treinamentos";
-	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
 		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos);
 	}
 
-	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, CarreiraCapacitacaoTreinamentos.extensaoArquivo);
+	public static caminhoRelativoMiniatura(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, Tutorial.extensaoMiniatura);
 	}
 
+	public static caminhoAbsolutoMiniaturaExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, Tutorial.extensaoMiniatura);
+	}
 
-	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, CarreiraCapacitacaoTreinamentos.extensaoArquivo);
+	public static caminhoRelativoVideo(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, Tutorial.extensaoVideo);
+	}
+
+	public static caminhoAbsolutoVideoExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, Tutorial.extensaoVideo);
 	}
 
 	public static validar(a: CarreiraCapacitacaoTreinamentos): string {
@@ -44,7 +50,11 @@ export = class CarreiraCapacitacaoTreinamentos extends Tutorial {
 	}
 
 	public static async criar(a: CarreiraCapacitacaoTreinamentos, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(CarreiraCapacitacaoTreinamentos.tabela, TipoTutorial.Alocacao, a, arquivo, CarreiraCapacitacaoTreinamentos.extensaoArquivo);
+		return await Tutorial.criarPorTipo(CarreiraCapacitacaoTreinamentos.tabela, TipoTutorial.CarreiraCapacitacaoTreinamentos, a, arquivo);
+	}
+
+	public static async uploadVideo(id: number, arquivo: any): Promise<string> {
+		return await Tutorial.uploadVideoPorTipo(TipoTutorial.CarreiraCapacitacaoTreinamentos, id, arquivo);
 	}
 
 	public static async alterar(a: CarreiraCapacitacaoTreinamentos): Promise<string> {
@@ -52,6 +62,6 @@ export = class CarreiraCapacitacaoTreinamentos extends Tutorial {
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(CarreiraCapacitacaoTreinamentos.tabela, TipoTutorial.Alocacao, id, CarreiraCapacitacaoTreinamentos.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(CarreiraCapacitacaoTreinamentos.tabela, TipoTutorial.CarreiraCapacitacaoTreinamentos, id);
 	}
 }

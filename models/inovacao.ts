@@ -3,18 +3,25 @@ import Tutorial = require("./tutorial");
 
 export = class Inovacao extends Tutorial {
 	public static readonly tabela = "inovacao";
-	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
 		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Inovacao);
 	}
 
-	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Inovacao, id, Inovacao.extensaoArquivo);
+	public static caminhoRelativoMiniatura(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Inovacao, id, Tutorial.extensaoMiniatura);
 	}
 
-	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Inovacao, id, Inovacao.extensaoArquivo);
+	public static caminhoAbsolutoMiniaturaExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Inovacao, id, Tutorial.extensaoMiniatura);
+	}
+
+	public static caminhoRelativoVideo(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Inovacao, id, Tutorial.extensaoVideo);
+	}
+
+	public static caminhoAbsolutoVideoExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Inovacao, id, Tutorial.extensaoVideo);
 	}
 
 	public static validar(a: Inovacao): string {
@@ -43,7 +50,11 @@ export = class Inovacao extends Tutorial {
 	}
 
 	public static async criar(a: Inovacao, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(Inovacao.tabela, TipoTutorial.Inovacao, a, arquivo, Inovacao.extensaoArquivo);
+		return await Tutorial.criarPorTipo(Inovacao.tabela, TipoTutorial.Inovacao, a, arquivo);
+	}
+
+	public static async uploadVideo(id: number, arquivo: any): Promise<string> {
+		return await Tutorial.uploadVideoPorTipo(TipoTutorial.Inovacao, id, arquivo);
 	}
 
 	public static async alterar(a: Inovacao): Promise<string> {
@@ -51,6 +62,6 @@ export = class Inovacao extends Tutorial {
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(Inovacao.tabela, TipoTutorial.Inovacao, id, Inovacao.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(Inovacao.tabela, TipoTutorial.Inovacao, id);
 	}
 }

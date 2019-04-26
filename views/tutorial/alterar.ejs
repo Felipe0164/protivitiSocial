@@ -19,11 +19,12 @@
 				</div>
 				<% if (!item) { %>
 				<div class="form-group">
-					<label for="link">Vídeo</label>
-					<input id="arquivo" name="arquivo" class="form-control" type="file" accept="video/mp4" />
-					<div>
-					<i> O arquivo deve ter no máximo 10 MiB</i>
+					<label for="miniatura">Foto Miniatura</label>
+					<input id="miniatura" name="miniatura" class="form-control" type="file" accept="image/jpeg" />
 				</div>
+				<div class="form-group">
+					<label for="video">Vídeo</label>
+					<input id="video" name="video" class="form-control" type="file" accept="video/mp4" />
 				</div>
 				<% } %>
 			</div>
@@ -38,6 +39,34 @@
 <script type="text/javascript">
 	//<![CDATA[
 	"use strict";
+
+	//<% if (!item) { %>
+
+	// Métodos de validação especial para arquivos
+	$.validator.addMethod("suporteArquivoAvancado", function (value, element, param) {
+		return (window.File && window.FileReader && window.FormData);
+	}, $.validator.format("O browser não suporta tratamento avançado de arquivos (você deve utilizar o Firefox 13+ ou Google Chrome 21+)"));
+
+	$.validator.addMethod("tamanhoArquivoMinimoByte", function (value, element, param) {
+		if (!element.files)
+			return false;
+		return (!value.length || !element.files.length || !element.files[0] || element.files[0].size >= param);
+	}, $.validator.format("O arquivo deve ter pelo menos {0} bytes"));
+
+	$.validator.addMethod("tamanhoArquivoMaximoKiB", function (value, element, param) {
+		if (!element.files)
+			return false;
+		return (!value.length || !element.files.length || !element.files[0] || element.files[0].size <= (param << 10));
+	}, $.validator.format("O arquivo deve ter no máximo {0} KiB"));
+
+	$.validator.addMethod("extensaoArquivo", function (value, element, param) {
+		if (!element.files)
+			return false;
+		// Não estamos utilizando str.endsWith() porque tem browsers que não suportam...
+		return (!value.length || !element.files.length || !element.files[0] || endsWith(element.files[0].name.toLowerCase(), param));
+	}, $.validator.format("O arquivo deve ter a extensão {0}"));
+
+	//<% } %>
 
 	$("#form").validate({
 		rules: {
@@ -55,12 +84,24 @@
 			},
 
 			descricao: {
+				required: true,
 				maxlength: 150
 			},
 
 			//<% if (!item) { %>
-			arquivo: {
-				required: true
+			miniatura: {
+				required: true,
+				tamanhoArquivoMinimoByte: 128,
+				tamanhoArquivoMaximoKiB: 256,
+				extensaoArquivo: ".jpg"
+			},
+
+			video: {
+				required: true,
+				suporteArquivoAvancado: true,
+				tamanhoArquivoMinimoByte: 128,
+				tamanhoArquivoMaximoKiB: 128 << 10, // 128 x 2^10 KiB = 128 MiB
+				extensaoArquivo: ".mp4"
 			},
 			//<% } %>
 		},
@@ -84,11 +125,49 @@
 
 			// Instancia um FormData porque precisamos enviar o arquivo, senão, poderia passar
 			// apenas o form, como é o caso do alterar.
-			JsonWebApi.postFormData("/api/<%- rota %>/criar", new FormData(form), function (response) {
+			//
+			// O vídeo não pode ser enviado agora, por isso, tira ele do form quando cria o FormData
+			var video = document.getElementById("video");
+			var divPai = video.parentNode;
+			divPai.removeChild(video);
+			var formData = new FormData(form);
+			divPai.appendChild(video);
+
+			JsonWebApi.postFormData("/api/<%- rota %>/criar", formData, function (response) {
 				if (response.success) {
-					form.reset();
-					$("#form").validate().resetForm();
-					Notification.success("Tutorial criado com sucesso! \uD83D\uDE04");
+					// Obtém o id do tutorial recém criado
+					var id = parseInt(response.value);
+
+					// Faz o upload do vídeo, em blocos de 256 KiB
+					var arquivoVideo = video.files[0], ultimaPosicaoEnviada = 0, tamanhoBloco = 256 << 10;
+
+					function enviarProximoBloco() {
+						Notification.wait("Realizando o upload do vídeo... (" + (ultimaPosicaoEnviada >> 10) + " / " + (arquivoVideo.size >> 10) + " KiB)");
+
+						var posicaoFinal = ultimaPosicaoEnviada + tamanhoBloco;
+						if (posicaoFinal > arquivoVideo.size)
+							posicaoFinal = arquivoVideo.size;
+
+						var formDataVideo = new FormData();
+						formDataVideo.append("video", arquivoVideo.slice(ultimaPosicaoEnviada, posicaoFinal));
+						ultimaPosicaoEnviada = posicaoFinal;
+
+						JsonWebApi.postFormData("/api/<%- rota %>/uploadVideo?id=" + id, formDataVideo, function (response) {
+							if (response.success) {
+								if (ultimaPosicaoEnviada >= arquivoVideo.size) {
+									form.reset();
+									$("#form").validate().resetForm();
+									Notification.success("Tutorial criado com sucesso! \uD83D\uDE04");
+								} else {
+									enviarProximoBloco();
+								}
+							} else {
+								Notification.error("Ocorreu um erro ao enviar o vídeo. Por favor, exclua o tutorial e crie novamente.", true);
+							}
+						});
+					}
+
+					enviarProximoBloco();
 				} else {
 					Notification.error(response.value, true);
 				}
