@@ -367,10 +367,14 @@ i.fa-nomargin {
 	margin-bottom: 15px;
 }
 /* index */
-.index-wrapper{
-	display: flex;
-	flex-direction: column;
+.index-wrapper {
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - 100px);
+    background-image: url('/imagens/skyline.svg');
+    background-position: bottom left;
+    background-repeat: repeat-x;
+    background-size: 70vw;
 }
 
 .index-header{
@@ -595,20 +599,6 @@ i.fa-nomargin {
 
 @media(min-width:801px) {
     .index-wrapper {
-        display: flex;
-        flex-direction: column;
         height: calc(100vh - 50px);
-        position: relative;
-    }
-}
-
-
-@media(min-width:768px) {
-
-    .index-header {
-        margin: 15px calc(25% - 210px) 0 0;
-    }
-    .index-content {
-        margin: 25px calc(25% - 210px) 25px 0;
     }
 }
