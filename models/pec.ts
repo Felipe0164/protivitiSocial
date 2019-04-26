@@ -42,15 +42,15 @@ export = class Pec extends Tutorial {
 		return await Tutorial.obterPorTipo(Pec.tabela, id) as Pec;
 	}
 
-	public static async criar(a: Pec, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(Pec.tabela, TipoTutorial.Pec, a, arquivo, Pec.extensaoArquivo);
-	}
+	//public static async criar(a: Pec, arquivo: any): Promise<string> {
+	//	return await Tutorial.criarPorTipo(Pec.tabela, TipoTutorial.Pec, a, arquivo, Pec.extensaoArquivo);
+	//}
 
 	public static async alterar(a: Pec): Promise<string> {
 		return await Tutorial.alterarPorTipo(Pec.tabela, a);
 	}
 
-	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(Pec.tabela, TipoTutorial.Pec, id, Pec.extensaoArquivo);
-	}
+	//public static async excluir(id: number): Promise<string> {
+	//	return await Tutorial.excluirPorTipo(Pec.tabela, TipoTutorial.Pec, id, Pec.extensaoArquivo);
+	//}
 }

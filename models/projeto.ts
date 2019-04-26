@@ -8,15 +8,19 @@ export = class Projeto {
 	public id_pursuit_team: number;
 	public problema_projeto: string;
 	public vencemos_projeto: string;
-	
+
+	public nome_cliente: string;
+	public nome_industria: string;
+	public nome_solucao: string;
+	public nome_pursuit_team: string;
+
 
 	private static validar(p: Projeto): string {
-		p.problema_projeto = (p.problema_projeto || "").trim().toUpperCase();
+		
 		if (p.problema_projeto.length < 1 || p.problema_projeto.length > 50)
 			return "Nome inválido";
 		
 
-		p.vencemos_projeto = (p.vencemos_projeto || "").trim().toUpperCase();
 		if (p.vencemos_projeto.length < 1 || p.vencemos_projeto.length > 50)
 			return "Nome inválido";
 		return null;
@@ -26,7 +30,9 @@ export = class Projeto {
 		let lista: Projeto[] = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			lista = await sql.query("select id_projeto, id_cliente, id_industria, id_solucao, id_pursuit_team, problema_projeto, vencemos_projeto from projeto") as Projeto[];
+			lista = await sql.query("select p.id_projeto, c.id_cliente, i.id_industria,i.nome_industria,c.nome_cliente, s.id_solucao,s.nome_solucao, pu.id_pursuit_team,pu.nome_pursuit_team,c.nome_cliente, p.problema_projeto, p.vencemos_projeto"+ 
+			" from projeto p, cliente c, industria i, solucao s, pursuit_team pu  where p.id_cliente = c.id_cliente and p.id_industria = i.id_industria and p.id_solucao = s.id_solucao"+
+			" and p.id_pursuit_team = pu.id_pursuit_team") as Projeto[];
 		});
 
 		return (lista || []);
@@ -36,7 +42,9 @@ export = class Projeto {
 		let lista: Projeto[] = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			lista = await sql.query("id_projeto, id_cliente, id_industria, id_solucao, id_pursuit_team, problema_projeto, vencemos_projeto from projeto where id_projeto = " + id_projeto) as Projeto[];
+			lista = await sql.query("select p.id_projeto, c.id_cliente, i.id_industria,i.nome_industria, s.id_solucao, pu.id_pursuit_team,c.nome_cliente, p.problema_projeto, p.vencemos_projeto"+ 
+			" from projeto p, cliente c, industria i, solucao s, pursuit_team pu  where p.id_cliente = c.id_cliente and p.id_industria = i.id_industria and p.id_solucao = s.id_solucao"+
+			" and p.id_pursuit_team = pu.id_pursuit_team and p.id_projeto = ?", [id_projeto]) as Projeto[];
 		});
 
 		return ((lista && lista[0]) || null);
@@ -49,7 +57,7 @@ export = class Projeto {
 
 		await Sql.conectar(async (sql: Sql) => {
 			try {
-				await sql.query("insert into projeto (problema_projeto,vencemos_projeeto) values (?,?)", [p.problema_projeto,p.vencemos_projeto]);
+				await sql.query("insert into projeto (id_projeto,id_cliente, id_industria, id_solucao, id_pursuit_team, problema_projeto, vencemos_projeto) values (?,?,?,?,?,?,?)", [p.id_projeto,p.id_cliente,p.id_industria,p.id_solucao,p.id_pursuit_team,p.problema_projeto,p.vencemos_projeto]);
 			} catch (e) {
 				if (e.code && e.code === "ER_DUP_ENTRY")
 					res = "O projeto \"" + p.id_projeto + "\" já existe";
@@ -68,7 +76,7 @@ export = class Projeto {
 
 		await Sql.conectar(async (sql: Sql) => {
 			try {
-				await sql.query("update projeto set problema_projeto = ?, vencemos_projeto where id_projeto = " + p.id_projeto, [p.problema_projeto,p.vencemos_projeto]);
+				await sql.query("update projeto set id_cliente = ?, id_industria = ?, id_solucao = ?, id_pursuit_team = ?, problema_projeto = ?, vencemos_projeto = ? where id_projeto = " + p.id_projeto, [p.id_cliente,p.id_industria,p.id_solucao,p.id_pursuit_team,p.problema_projeto,p.vencemos_projeto]);
 				res = sql.linhasAfetadas.toString();
 			} catch (e) {
 				if (e.code && e.code === "ER_DUP_ENTRY")
@@ -81,11 +89,11 @@ export = class Projeto {
 		return res;
 	}
 
-	public static async excluir(id: number): Promise<string> {
+	public static async excluir(id_projeto: number): Promise<string> {
 		let res: string = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			await sql.query("delete from curso where id = " + id);
+			await sql.query("delete from projeto where id_projeto = " + id_projeto);
 			res = sql.linhasAfetadas.toString();
 		});
 

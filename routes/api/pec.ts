@@ -25,13 +25,13 @@ router.get("/obter", wrap(async (req: express.Request, res: express.Response) =>
 	res.json(isNaN(id) ? null : await Pec.obter(id));
 }));
 
-router.post("/criar", multer().single("arquivo"), wrap(async (req: express.Request, res: express.Response) => {
-	let u = await Usuario.cookie(req, res, true);
-	if (!u)
-		return;
-	let a = req.body as Pec;
-	jsonRes(res, 400, a && req["file"] && req["file"].buffer && req["file"].size ? await Pec.criar(a, req["file"]) : "Dados inválidos!");
-}));
+//router.post("/criar", multer().single("arquivo"), wrap(async (req: express.Request, res: express.Response) => {
+//	let u = await Usuario.cookie(req, res, true);
+//	if (!u)
+//		return;
+//	let a = req.body as Pec;
+//	jsonRes(res, 400, a && req["file"] && req["file"].buffer && req["file"].size ? await Pec.criar(a, req["file"]) : "Dados inválidos!");
+//}));
 
 router.post("/alterar", wrap(async (req: express.Request, res: express.Response) => {
 	let u = await Usuario.cookie(req, res);
@@ -41,12 +41,12 @@ router.post("/alterar", wrap(async (req: express.Request, res: express.Response)
 	jsonRes(res, 400, a ? await Pec.alterar(a) : "Dados inválidos!");
 }));
 
-router.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
-	let u = await Usuario.cookie(req, res, true);
-	if (!u)
-		return;
-	let id = parseInt(req.query["id"]);
-	jsonRes(res, 400, !isNaN(id) ? await Pec.excluir(id) : "Dados inválidos");
-}));
+//router.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
+//	let u = await Usuario.cookie(req, res, true);
+//	if (!u)
+//		return;
+//	let id = parseInt(req.query["id"]);
+//	jsonRes(res, 400, !isNaN(id) ? await Pec.excluir(id) : "Dados inválidos");
+//}));
 
 export = router;
