@@ -38,8 +38,8 @@ export = class Oportunidade {
 
         await Sql.conectar(async (sql: Sql) => {
             lista = await sql.query("select id_oportunidade, empresa_oportunidade, contato_oportunidade, "
-                + "tel_oportunidade, email_oportunidade, id_solucao, descricao_oportunidade"
-                + " from oportunidade order by empresa_oportunidade asc") as Oportunidade[];
+                + "tel_oportunidade, email_oportunidade, oportunidade.id_solucao, solucao.nome_solucao, descricao_oportunidade"
+                + " from oportunidade inner join solucao on solucao.id_solucao = oportunidade.id_solucao where id_oportunidade = ? order by empresa_oportunidade asc", [id_oportunidade]) as Oportunidade[];
         });
 
         return ((lista && lista[0]) || null);
@@ -71,7 +71,7 @@ export = class Oportunidade {
 
         await Sql.conectar(async (sql: Sql) => {
             try {
-                await sql.query("update oportunidade set ?, ?, ?, ?, ?, ? where id_oportunidade = " + o.id_oportunidade, [o.empresa_oportunidade, o.contato_oportunidade, o.tel_oportunidade, o.email_oportunidade, o.id_solucao, o.descricao_oportunidade]);
+                await sql.query("update oportunidade set empresa_oportunidade = ?, contato_oportunidade = ?, tel_oportunidade = ?, email_oportunidade = ?, id_solucao = ?, descricao_oportunidade = ? where id_oportunidade = " + o.id_oportunidade, [o.empresa_oportunidade, o.contato_oportunidade, o.tel_oportunidade, o.email_oportunidade, o.id_solucao, o.descricao_oportunidade]);
                 res = sql.linhasAfetadas.toString();
             } catch (e) {
                 if (e.code && e.code === "ER_DUP_ENTRY")
