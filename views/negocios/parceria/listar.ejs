@@ -39,7 +39,7 @@
 		deferRender: true,
 		columns: [
             { title: "Nome da empresa parceira", render: encode, data: "nomeEmpresa" },
-			      { title: "Soluções", render: encode, data: "solucao" },
+			{ title: "Soluções", render: encode, data: "solucao" },
             { title: "Time responsável pela parceria", render: encode, data: "pursuitTeam" },
             { title: "Valor agregado ao negócio", render: encode, data: "valorAgregado" },
             { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
@@ -70,19 +70,19 @@
 
 		$("#modalExcluir").modal("hide");
 
-		var formato = tabela.row(trClicada).data();
+		var parceria = tabela.row(trClicada).data();
 
 		Notification.wait();
 
-		JsonWebApi.get("/api/formato/excluir", function (response) {
+		JsonWebApi.get("/api/parceria/excluir", function (response) {
 			if (response.success) {
-				Notification.success("Formato excluído com sucesso! \uD83D\uDE04");
+				Notification.success("Parceria excluída com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();
 			} else {
 				Notification.error(response.value, true);
 			}
 			trClicada = null;
-		}, "id", formato.id);
+		}, "id_parceria", parceria.id_parceria);
 	}
 
 	//]]>

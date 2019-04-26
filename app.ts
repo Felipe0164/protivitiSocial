@@ -95,7 +95,7 @@ app.use("/administrativo", require("./routes/administrativo"));
 app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
-app.use("/negocios/parcerias", require("./routes/parcerias"));
+app.use("/negocios/parceria", require("./routes/parceria"));
 app.use("/negocios/solucoes", require("./routes/solucoes"));
 app.use("/negocios/cliente", require("./routes/cliente"));
 app.use("/negocios/empresa", require("./routes/empresa"));
