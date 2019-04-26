@@ -22,13 +22,13 @@ import debug = require("debug");
 import express = require("express");
 import cookieParser = require("cookie-parser"); // https://stackoverflow.com/a/16209531/3569421
 import path = require("path");
+import config = require("./config");
 
 // @@@ Configura o cache, para armazenar as 200 últimas páginas
 // já processadas, por ordem de uso
 import ejs = require("ejs");
 import lru = require("lru-cache");
 import { NextFunction } from "express";
-import { AddressInfo } from "net";
 
 ejs.cache = lru(200);
 
@@ -160,8 +160,9 @@ app.use(function (req: express.Request, res: express.Response, next) {
 //	});
 //});
 
-app.set("port", process.env.PORT || 3000);
-
-const server = app.listen(app.get("port"), function () {
+// Vamos utilizar o NGINX para servir pela porta 80 externa, como proxy reverso.
+// Então, deixa o Node atrelado ao localhost, mesmo...
+//const server = app.listen(config.port, config.host, function () {
+const server = app.listen(config.port, function () {
     debug("Express server listening on port " + server.address()["port"]);
 });

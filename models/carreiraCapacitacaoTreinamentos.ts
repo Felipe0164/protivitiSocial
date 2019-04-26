@@ -2,7 +2,7 @@
 import Tutorial = require("./tutorial");
 
 export = class CarreiraCapacitacaoTreinamentos extends Tutorial {
-	public static readonly tabela = "carreiraCapacitacaoTreinamentos";
+	public static readonly tabela = "carreira_capacitacao_treinamentos";
 	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
