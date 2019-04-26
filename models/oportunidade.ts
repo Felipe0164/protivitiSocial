@@ -9,6 +9,8 @@ export = class Oportunidade {
     public id_solucao: number;
     public descricao_oportunidade: string;
 
+    public nome_solucao: string;
+
     private static validar(o: Oportunidade): string {
         o.empresa_oportunidade = (o.empresa_oportunidade || "").trim().toUpperCase();
         if (o.empresa_oportunidade.length < 3 || o.empresa_oportunidade.length > 150) {
