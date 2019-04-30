@@ -123,6 +123,19 @@ window.trim = (function () {
 window.trimValue = function (input) {
 	return trim(_(input).value);
 };
+window.endsWith = function (str, end) {
+	// Para simular o comportamento do endsWith() real
+	if (str === "")
+		return (end === "");
+	if (!str)
+		return false;
+	if (end === "")
+		return true;
+	if (!end || end.length > str.length)
+		return false;
+	var i = str.lastIndexOf(end);
+	return (i >= 0 && i === (str.length - end.length));
+};
 /*!
  JsonWebApi v1.0.0 is distributed under the FreeBSD License
 

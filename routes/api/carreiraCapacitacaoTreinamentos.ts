@@ -24,12 +24,20 @@ router.get("/obter", wrap(async (req: express.Request, res: express.Response) =>
 	res.json(isNaN(id) ? null : await CarreiraCapacitacaoTreinamentos.obter(id));
 }));
 
-router.post("/criar", multer().single("arquivo"), wrap(async (req: express.Request, res: express.Response) => {
+router.post("/criar", multer().single("miniatura"), wrap(async (req: express.Request, res: express.Response) => {
 	let u = await Usuario.cookie(req, res, true);
 	if (!u)
 		return;
 	let a = req.body as CarreiraCapacitacaoTreinamentos;
-	jsonRes(res, 400, a && req["file"] && req["file"].buffer && req["file"].size ? await CarreiraCapacitacaoTreinamentos.criar(a, req["file"]) : "Dados inválidos!");
+	jsonRes(res, 400, a && req["file"] && req["file"].buffer && req["file"].size && req["file"].size <= CarreiraCapacitacaoTreinamentos.tamanhoMaximoMiniaturaEmBytes ? await CarreiraCapacitacaoTreinamentos.criar(a, req["file"]) : "Dados inválidos!");
+}));
+
+router.post("/uploadVideo", multer().single("video"), wrap(async (req: express.Request, res: express.Response) => {
+	let u = await Usuario.cookie(req, res, true);
+	if (!u)
+		return;
+	let id = parseInt(req.query["id"]);
+	jsonRes(res, 400, !isNaN(id) && req["file"] && req["file"].buffer && req["file"].size ? await CarreiraCapacitacaoTreinamentos.uploadVideo(id, req["file"]) : "Dados inválidos!");
 }));
 
 router.post("/alterar", wrap(async (req: express.Request, res: express.Response) => {
