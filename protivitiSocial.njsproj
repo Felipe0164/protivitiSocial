@@ -182,6 +182,7 @@
     <TypeScriptCompile Include="routes\mentoring.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\empresa.ts" />
+    <TypeScriptCompile Include="routes\solucao.ts" />
     <TypeScriptCompile Include="routes\solucoes.ts" />
     <TypeScriptCompile Include="routes\projeto.ts" />
     <TypeScriptCompile Include="routes\parcerias.ts" />
