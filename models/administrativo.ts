@@ -3,18 +3,25 @@ import Tutorial = require("./tutorial");
 
 export = class Administrativo extends Tutorial {
 	public static readonly tabela = "administrativo";
-	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
 		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Administrativo);
 	}
 
-	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+	public static caminhoRelativoMiniatura(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Administrativo, id, Tutorial.extensaoMiniatura);
 	}
 
-	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+	public static caminhoAbsolutoMiniaturaExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Administrativo, id, Tutorial.extensaoMiniatura);
+	}
+
+	public static caminhoRelativoVideo(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Administrativo, id, Tutorial.extensaoVideo);
+	}
+
+	public static caminhoAbsolutoVideoExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Administrativo, id, Tutorial.extensaoVideo);
 	}
 
 	public static validar(a: Administrativo): string {
@@ -43,7 +50,11 @@ export = class Administrativo extends Tutorial {
 	}
 
 	public static async criar(a: Administrativo, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, a, arquivo, Administrativo.extensaoArquivo);
+		return await Tutorial.criarPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, a, arquivo);
+	}
+
+	public static async uploadVideo(id: number, arquivo: any): Promise<string> {
+		return await Tutorial.uploadVideoPorTipo(TipoTutorial.Administrativo, id, arquivo);
 	}
 
 	public static async alterar(a: Administrativo): Promise<string> {
@@ -51,6 +62,6 @@ export = class Administrativo extends Tutorial {
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, id, Administrativo.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(Administrativo.tabela, TipoTutorial.Administrativo, id);
 	}
 }

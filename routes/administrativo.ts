@@ -49,7 +49,8 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 			rota: "administrativo",
 			lista: JSON.stringify(await Administrativo.listar()),
 			caminhoAbsolutoPastaExterno: Administrativo.caminhoAbsolutoPastaExterno(),
-			extensaoArquivo: Administrativo.extensaoArquivo
+			extensaoMiniatura: Administrativo.extensaoMiniatura,
+			extensaoVideo: Administrativo.extensaoVideo
 		});
 	}
 }));
