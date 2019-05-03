@@ -49,7 +49,8 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 			rota: "inovacao",
 			lista: JSON.stringify(await Inovacao.listar()),
 			caminhoAbsolutoPastaExterno: Inovacao.caminhoAbsolutoPastaExterno(),
-			extensaoArquivo: Inovacao.extensaoArquivo
+			extensaoMiniatura: Inovacao.extensaoMiniatura,
+			extensaoVideo: Inovacao.extensaoVideo
 		});
 	}
 }));

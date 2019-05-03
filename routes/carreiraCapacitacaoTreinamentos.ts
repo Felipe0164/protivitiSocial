@@ -51,7 +51,8 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 			rota: "carreiraCapacitacaoTreinamentos",
 			lista: JSON.stringify(await CarreiraCapacitacaoTreinamentos.listar()),
 			caminhoAbsolutoPastaExterno: CarreiraCapacitacaoTreinamentos.caminhoAbsolutoPastaExterno(),
-			extensaoArquivo: CarreiraCapacitacaoTreinamentos.extensaoArquivo
+			extensaoMiniatura: CarreiraCapacitacaoTreinamentos.extensaoMiniatura,
+			extensaoVideo: CarreiraCapacitacaoTreinamentos.extensaoVideo
 		});
 	}
 }));
