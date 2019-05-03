@@ -38,14 +38,16 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Nome da empresa parceira", render: encode, data: "nomeEmpresa" },
-			{ title: "Soluções", render: encode, data: "solucao" },
-            { title: "Time responsável pela parceria", render: encode, data: "pursuitTeam" },
-            { title: "Valor agregado ao negócio", render: encode, data: "valorAgregado" },
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "Nome da empresa parceira", render: encode, data: "nome_empresa" },
+			{ title: "Soluções", render: encode, data: "nome_solucao" },
+            { title: "Time responsável pela parceria", render: encode, data: "nome_pursuit_team" },
+            { title: "Valor agregado ao negócio", render: encode, data: "valor_agregado_parceria" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id_parceria", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/negocios/parceria/alterar?id_parceria=" + row.id_parceria + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
-	data: [{nomeEmpresa:"ESPM Store", solucao:"Cultura e Comportamento Ético, Transformação digital", pursuitTeam:"Equipe 1", valorAgregado:"-", id:1}]
+	data: <%- lista %>
+
 	});
+
 	var trClicada;
 
 	$("#tabela").on("click", "tbody button", function () {

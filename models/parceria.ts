@@ -6,6 +6,10 @@ export = class Parceria {
 	public id_solucao: number;
 	public id_pursuit_team: number;
 	public valor_agregado_parceria: string;
+	public nome_empresa: string;
+	public nome_solucao: string;
+	public nome_pursuit_team: string;
+
 
 	private static validar(p: Parceria): string {
 		if (p.id_solucao < 1) {
@@ -17,7 +21,7 @@ export = class Parceria {
 		if (p.id_pursuit_team < 1) {
 			return "Escolha o responsável pela parceria"
 		}
-		return null
+		return null;
 
 
 	}
@@ -26,7 +30,10 @@ export = class Parceria {
 		let lista: Parceria[] = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			lista = await sql.query("select id_parceria, id_empresa, id_solucao, id_pursuit_team, valor_agregado_parceria") as Parceria[];
+			lista = await sql.query("select parceria.id_parceria, empresa.id_empresa, solucao.id_solucao, pursuit_team.id_pursuit_team, empresa.nome_empresa, solucao.nome_solucao, pursuit_team.nome_pursuit_team, parceria.valor_agregado_parceria"
+			+ " from parceria inner join empresa on empresa.id_empresa = parceria.id_empresa"
+			+ " inner join solucao on solucao.id_solucao = parceria.id_solucao"
+			+ " inner join pursuit_team on pursuit_team.id_pursuit_team = parceria.id_pursuit_team") as Parceria[];
 		});
 
 		return (lista || []);
@@ -36,7 +43,10 @@ export = class Parceria {
 		let lista: Parceria[] = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			lista = await sql.query("select id_parceria, id_empresa, id_solucao, id_pursuit_team, valor_agregado_parceria") as Parceria[];
+			lista = await sql.query("select parceria.id_parceria, empresa.id_empresa, solucao.id_solucao, pursuit_team.id_pursuit_team, empresa.nome_empresa, solucao.nome_solucao, pursuit_team.nome_pursuit_team, parceria.valor_agregado_parceria"
+			+ " from parceria inner join empresa on empresa.id_empresa = parceria.id_empresa"
+			+ " inner join solucao on solucao.id_solucao = parceria.id_solucao"
+			+ " inner join pursuit_team on pursuit_team.id_pursuit_team = parceria.id_pursuit_team where parceria.id_parceria = ?", [id_parceria]) as Parceria[];
 		});
 
 		return ((lista && lista[0]) || null);
@@ -62,7 +72,7 @@ export = class Parceria {
 			return res;
 		await Sql.conectar(async (sql) => {
 
-			await sql.query("update parceria set id_empresa = ?, id_solucao = ?, id_pursuit_team = ?, valor_agregado_parceria = ?, where id_parceria = ?", [p.id_empresa, p.id_solucao, p.id_pursuit_team, p.valor_agregado_parceria, p.id_empresa]);
+			await sql.query("update parceria set id_empresa = ?, id_solucao = ?, id_pursuit_team = ?, valor_agregado_parceria = ? where id_parceria = ?", [p.id_empresa, p.id_solucao, p.id_pursuit_team, p.valor_agregado_parceria, p.id_parceria]);
 			if (!sql.linhasAfetadas)
 				res = "Curso inexistente";
 		});
@@ -72,7 +82,7 @@ export = class Parceria {
 		let res: string = null;
 
 		await Sql.conectar(async (sql: Sql) => {
-			await sql.query("delete from parceria where id_parceria = ?" + id_parceria);
+			await sql.query("delete from parceria where id_parceria = ?", [id_parceria]);
 			if (!sql.linhasAfetadas)
 				res = "Parceria inexistente";
 		});

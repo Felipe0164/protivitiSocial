@@ -1,80 +1,50 @@
-"use strict";
-const express = require("express");
-const wrap = require("express-async-error-wrapper");
-const Usuario = require("../../models/usuario");
-const Parceria = require("../../models/parceria");
+import express = require("express");
+import wrap = require("express-async-error-wrapper");
+import jsonRes = require("../../utils/jsonRes");
+import Usuario = require("../../models/usuario");
+import Parceria = require("../../models/parceria");
+
 const router = express.Router();
-router.get("/listar", wrap(async (req, res) => {
+
+router.get("/listar", wrap(async (req: express.Request, res: express.Response) => {
+    let u = await Usuario.cookie(req, res);
+    if (!u)
+        return;
     res.json(await Parceria.listar());
 }));
-router.get("/obter", wrap(async (req, res) => {
-    let id = parseInt(req.query["id"]);
-    res.json(isNaN(id) ? null : await Parceria.obter(id));
+
+router.get("/obter", wrap(async (req: express.Request, res: express.Response) => {
+    let u = await Usuario.cookie(req, res);
+    if (!u)
+        return;
+    let id_parceria = parseInt(req.query["id_parceria"]);
+    res.json(isNaN(id_parceria) ? null : await Parceria.obter(id_parceria));
 }));
-router.post("/criar", wrap(async (req, res) => {
+
+router.post("/criar", wrap(async (req: express.Request, res: express.Response) => {
     let u = await Usuario.cookie(req, res, true);
     if (!u)
         return;
-    let c = req.body;
-    if (c) {
-        let erro = await Parceria.criar(c);
-        if (erro) {
-            res.statusCode = 400;
-            res.json(erro);
-        }
-        else {
-            res.sendStatus(204);
-        }
-    }
-    else {
-        res.statusCode = 400;
-        res.json("Dados inválidos");
-    }
-    // O if/else acima ficaria assim com o jsonRes: jsonRes(res, 400, c ? await Curso.criar(c) : "Dados inválidos");
+    let o = req.body as Parceria;
+    jsonRes(res, 400, o ? await Parceria.criar(o) : "Dados inválidos!");
 }));
-router.post("/alterar", wrap(async (req, res) => {
+
+router.post("/alterar", wrap(async (req: express.Request, res: express.Response) => {
     let u = await Usuario.cookie(req, res, true);
     if (!u)
         return;
-    let c = req.body;
-    if (c)
-        c.id = parseInt(req.body.id);
-    if (c && !isNaN(c.id)) {
-        let erro = await Parceria.alterar(c);
-        if (erro) {
-            res.statusCode = 400;
-            res.json(erro);
-        }
-        else {
-            res.sendStatus(204);
-        }
-    }
-    else {
-        res.statusCode = 400;
-        res.json("Dados inválidos");
-    }
-    // O if/else acima ficaria assim com o jsonRes: jsonRes(res, 400, (c && !isNaN(c.id)) ? await Curso.alterar(c) : "Dados inválidos");
+    let o = req.body as Parceria;
+    if (o)
+        o.id_parceria = parseInt(req.body.id_parceria);
+    jsonRes(res, 400, (o && !isNaN(o.id_parceria)) ? await Parceria.alterar(o) : "Dados inválidos!");
 }));
-router.get("/excluir", wrap(async (req, res) => {
+
+router.get("/excluir", wrap(async (req: express.Request, res: express.Response) => {
     let u = await Usuario.cookie(req, res, true);
     if (!u)
         return;
-    let id = parseInt(req.query["id"]);
-    if (!isNaN(id)) {
-        let erro = await Parceria.excluir(id);
-        if (erro) {
-            res.statusCode = 400;
-            res.json(erro);
-        }
-        else {
-            res.sendStatus(204);
-        }
-    }
-    else {
-        res.statusCode = 400;
-        res.json("Dados inválidos");
-    }
-    // O if/else acima ficaria assim com o jsonRes: jsonRes(res, 400, !isNaN(id) ? await Curso.excluir(id) : "Dados inválidos");
+    let id_parceria = parseInt(req.query["id_parceria"]);
+    jsonRes(res, 400, isNaN(id_parceria) ? "Dados inválidos!" : await Parceria.excluir(id_parceria));
 }));
-module.exports = router;
-//# sourceMappingURL=curso.js.map
+
+export = router;

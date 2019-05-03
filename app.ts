@@ -118,6 +118,7 @@ app.use("/api/alocacao", require("./routes/api/alocacao"));
 app.use("/api/carreiraCapacitacaoTreinamentos", require("./routes/api/carreiraCapacitacaoTreinamentos"));
 app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 app.use("/api/inovacao", require("./routes/api/inovacao"));
+app.use("/api/parceria", require("./routes/api/parceria"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
