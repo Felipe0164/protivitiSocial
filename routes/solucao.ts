@@ -10,7 +10,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/solucao/alterar", {
+        res.render("controle/solucao/alterar", {
             titulo: "Criar Solução",
             usuario: u,
             item: null
@@ -28,7 +28,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
         if (isNaN(id_solucao) || !(item = await Solucao.obter(id_solucao)))
             res.render("shared/nao-encontrado", { usuario: u });
         else
-            res.render("negocios/solucao/alterar", {
+            res.render("controle/solucao/alterar", {
                 titulo: "Editar Solução",
                 usuario: u,
                 item: item
@@ -41,7 +41,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/solucao/listar", {
+        res.render("controle/solucao/listar", {
             titulo: "Gerenciar Soluções",
             usuario: u,
             lista: JSON.stringify(await Solucao.listar())

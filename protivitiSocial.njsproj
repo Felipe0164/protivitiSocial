@@ -113,12 +113,12 @@
     <Content Include="views\negocios\projeto\listar.ejs" />
     <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
     <Content Include="views\negocios\pursuitTeam\listar.ejs" />
-    <Content Include="views\negocios\solucao\alterar.ejs" />
-    <Content Include="views\negocios\solucao\listar.ejs" />
+    <Content Include="views\controle\solucao\alterar.ejs" />
     <Content Include="views\negocios\parceria\alterar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
+    <Content Include="views\controle\solucao\listar.ejs" />
     <Content Include="views\shared\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
     <Content Include="views\layout-vazio.ejs" />
@@ -266,7 +266,7 @@
     <Folder Include="views\negocios\empresa\" />
     <Folder Include="views\negocios\pursuitTeam\" />
     <Folder Include="views\negocios\projeto\" />
-    <Folder Include="views\negocios\solucao\" />
+    <Folder Include="views\controle\solucao\" />
     <Folder Include="views\negocios\parceria\" />
     <Folder Include="views\carreira\" />
     <Folder Include="views\controle\" />
