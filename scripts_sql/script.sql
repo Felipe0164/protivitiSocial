@@ -125,11 +125,11 @@ CREATE TABLE pursuit_team (
   INDEX pursuit_team_nome_pursuit_team_IX (nome_pursuit_team ASC)
 );
 
-CREATE TABLE industria (
-  id_industria INT NOT NULL AUTO_INCREMENT,
-  nome_industria VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id_industria ),
-  INDEX industria_nome_industria_IX (nome_industria ASC)
+CREATE TABLE segmento (
+  id_segmento INT NOT NULL AUTO_INCREMENT,
+  nome_segmento VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_segmento ),
+  INDEX segmento_nome_segmento_IX (nome_segmento ASC)
 );
 
 CREATE TABLE cliente (
@@ -153,6 +153,42 @@ CREATE TABLE solucao (
   INDEX Solucao_nome_solucao_IX (nome_solucao ASC)
 );
 
+CREATE TABLE responsavel_proposta (
+  id_responsavel_proposta INT NOT NULL AUTO_INCREMENT,
+  nome_responsavel_proposta VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_responsavel_proposta),
+  INDEX responsavel_proposta_nome_responsavel_proposta_IX (nome_responsavel_proposta ASC)
+);
+
+CREATE TABLE escritorio_lider (
+  id_escritorio_lider INT NOT NULL AUTO_INCREMENT,
+  nome_escritorio_lider VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_escritorio_lider),
+  INDEX escritorio_nome_escritorio_lider_IX (nome_escritorio_lider ASC)
+);
+
+CREATE TABLE cc_lider (
+  id_cc_lider INT NOT NULL AUTO_INCREMENT,
+  nome_cc_lider VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_cc_lider),
+  INDEX cc_lider_nome_cc_lider_IX (nome_cc_lider ASC)
+);
+
+CREATE TABLE matriz_servico (
+  id_matriz_servico INT NOT NULL AUTO_INCREMENT,
+  nome_matriz_servico VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_matriz_servico),
+  INDEX matriz_servico_nome_matriz_servico_IX (nome_matriz_servico ASC)
+);
+
+CREATE TABLE origem_lead (
+  id_origem_lead INT NOT NULL AUTO_INCREMENT,
+  nome_origem_lead VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_origem_lead),
+  INDEX origem_lead_origem_lead_servico_IX (nome_origem_lead ASC)
+);
+
+
 CREATE TABLE oportunidade (
   id_oportunidade INT NOT NULL AUTO_INCREMENT,
   empresa_oportunidade VARCHAR(150) NOT NULL,
@@ -169,18 +205,27 @@ ALTER TABLE oportunidade ADD CONSTRAINT fk_oportunidade_id_solucao FOREIGN KEY (
 CREATE TABLE projeto (
   id_projeto INT NOT NULL AUTO_INCREMENT,
   id_cliente INT NOT NULL,
-  id_industria INT NULL,
-  id_solucao INT NULL,
+  id_segmento INT NULL,
+  id_matriz_servico INT NULL,
+  id_origem_lead INT NULL,
+  id_responsavel_proposta INT NULL,
   id_pursuit_team INT NULL,
-  problema_projeto VARCHAR(250) NULL,
-  vencemos_projeto VARCHAR(250) NULL,
+  id_escritorio_lider INT NULL,
+  id_cc_lider INT NULL,
+  valor_projeto FLOAT NULL,
+  descricao_projeto VARCHAR(250) NULL,
   PRIMARY KEY (id_projeto)
 );
 
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_cliente FOREIGN KEY (id_cliente) REFERENCES cliente (id_cliente);
-ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_industria FOREIGN KEY (id_industria) REFERENCES industria (id_industria);
-ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_solucao FOREIGN KEY (id_solucao) REFERENCES solucao (id_solucao);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_segmento FOREIGN KEY (id_segmento) REFERENCES segmento (id_segmento);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_matriz_servico FOREIGN KEY (id_matriz_servico) REFERENCES matriz_servico (id_matriz_servico);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_origem_lead FOREIGN KEY (id_origem_lead) REFERENCES origem_lead (id_origem_lead);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_responsavel_proposta FOREIGN KEY (id_responsavel_proposta) REFERENCES responsavel_proposta (id_responsavel_proposta);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_pursuit_team FOREIGN KEY (id_pursuit_team) REFERENCES pursuit_team (id_pursuit_team);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_escritorio_lider FOREIGN KEY (id_escritorio_lider) REFERENCES escritorio_lider (id_escritorio_lider);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_cc_lider FOREIGN KEY (id_cc_lider) REFERENCES cc_lider (id_cc_lider);
+
 
 CREATE TABLE parceria (
   id_parceria INT NOT NULL AUTO_INCREMENT,
@@ -204,6 +249,7 @@ CREATE TABLE tipo_local (
 
 CREATE TABLE localizacao (
   id_localizacao INT NOT NULL AUTO_INCREMENT,
+  nome_localizacao INT NOT NULL,
   id_tipo_local INT NULL,
   dia_semana_localizacao INT NULL,
   horario_abertura_localizacao TIME(0) NULL,

@@ -9,7 +9,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("negocios/cliente/alterar", { titulo: "Criar Cliente", usuario:u});
+		res.render("controle/cliente/alterar", { titulo: "Criar Cliente", usuario:u});
 	}
 }));
 
@@ -23,7 +23,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 		if (isNaN(id) || !(item = await Usuario.obter(id)))
 			res.render("shared/nao-encontrado");
 		else
-            res.render("negocios/cliente/alterar", { titulo: "Editar Cliente", usuario:u});
+            res.render("controle/cliente/alterar", { titulo: "Editar Cliente", usuario:u});
 	}
 }));
 
@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-        res.render("negocios/cliente/listar", { titulo: "Visualizar Cliente", usuario:u});
+        res.render("controle/cliente/listar", { titulo: "Visualizar Cliente", usuario:u});
 	}
 }));
 
