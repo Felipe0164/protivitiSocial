@@ -96,7 +96,7 @@ app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
 app.use("/negocios/parceria", require("./routes/parceria"));
-app.use("/negocios/solucoes", require("./routes/solucoes"));
+app.use("/negocios/solucao", require("./routes/solucao"));
 app.use("/negocios/cliente", require("./routes/cliente"));
 app.use("/negocios/empresa", require("./routes/empresa"));
 app.use("/negocios/industria", require("./routes/industria"));
@@ -119,6 +119,7 @@ app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 app.use("/api/inovacao", require("./routes/api/inovacao"));
 app.use("/api/oportunidade", require("./routes/api/oportunidade"));
 app.use("/api/parceria", require("./routes/api/parceria"));
+app.use("/api/solucao", require("./routes/api/solucao"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
