@@ -3,19 +3,25 @@ import Tutorial = require("./tutorial");
 
 export = class Alocacao extends Tutorial {
 	public static readonly tabela = "alocacao";
-	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
 		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.Alocacao);
 	}
 
-	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Alocacao, id, Alocacao.extensaoArquivo);
+	public static caminhoRelativoMiniatura(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Alocacao, id, Tutorial.extensaoMiniatura);
 	}
 
+	public static caminhoAbsolutoMiniaturaExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Alocacao, id, Tutorial.extensaoMiniatura);
+	}
 
-	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Alocacao, id, Alocacao.extensaoArquivo);
+	public static caminhoRelativoVideo(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.Alocacao, id, Tutorial.extensaoVideo);
+	}
+
+	public static caminhoAbsolutoVideoExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Alocacao, id, Tutorial.extensaoVideo);
 	}
 
 	public static validar(a: Alocacao): string {
@@ -44,7 +50,11 @@ export = class Alocacao extends Tutorial {
 	}
 
 	public static async criar(a: Alocacao, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(Alocacao.tabela, TipoTutorial.Alocacao, a, arquivo, Alocacao.extensaoArquivo);
+		return await Tutorial.criarPorTipo(Alocacao.tabela, TipoTutorial.Alocacao, a, arquivo);
+	}
+
+	public static async uploadVideo(id: number, arquivo: any): Promise<string> {
+		return await Tutorial.uploadVideoPorTipo(TipoTutorial.Alocacao, id, arquivo);
 	}
 
 	public static async alterar(a: Alocacao): Promise<string> {
@@ -52,6 +62,6 @@ export = class Alocacao extends Tutorial {
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(Alocacao.tabela, TipoTutorial.Alocacao, id, Alocacao.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(Alocacao.tabela, TipoTutorial.Alocacao, id);
 	}
 }
