@@ -111,6 +111,7 @@ app.use("/controle/cliente", require("./routes/cliente"));
 app.use("/controle/empresa", require("./routes/empresa"));
 app.use("/controle/segmento", require("./routes/segmento"));
 app.use("/controle/pursuitTeam", require("./routes/pursuitTeam"));
+app.use("/controle/escritorioLider", require("./routes/escritorioLider"));
 
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
