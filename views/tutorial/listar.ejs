@@ -35,10 +35,11 @@
 	"use strict";
 
 	var tabela = prepareDataTable("#tabela", {
-		order: [[1, "asc"]],
+		order: [[2, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Vídeo", "class": "col-min text-center", searchable: false, orderable: false, searchable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Video" href="<%- caminhoAbsolutoPastaExterno %>/' + row.id + '.<%- extensaoArquivo %>" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-play"></i>'; } },
+            { title: " ", "class": "col-min text-center", searchable: false, orderable: false, searchable: false, data: "id", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Video" href="<%- caminhoAbsolutoPastaExterno %>/' + row.id + '.<%- extensaoVideo %>" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-play"></i>'; } },
+            { title: "Vídeo", "class": "col-min text-center", searchable: false, orderable: false, searchable: false, data: "id", render: function (v, type, row) { return '<img alt="Miniatura" style="max-width: 64px; max-height: 64px;" src="<%- caminhoAbsolutoPastaExterno %>/' + row.id + '.<%- extensaoMiniatura %>" />'; } },
             { title: "Nome", render: encode, data: "nome" },
             { title: "Link", "class": "col-min text-center", render: encode, orderable: false, searchable: false, data: "link", render: function (v, type, row) { return '<a target="_blank" title="Visualizar Link" class="btn btn-outline btn-primary" href="' + v + '"><i class="fa fa-nomargin fa-external-link"></i></a>'; }},
             { title: "Descrição", render: encode, data: "descricao" },

@@ -4,8 +4,13 @@ import FS = require("../infra/fs");
 import Upload = require("../infra/upload");
 
 abstract class Tutorial {
-	public static readonly tamanhoMaximoArquivoEmMiB = 10;
-	public static readonly tamanhoMaximoArquivoEmBytes = Tutorial.tamanhoMaximoArquivoEmMiB * 1024 * 1024;
+	public static readonly tamanhoMaximoMiniaturaEmKiB = 256;
+	public static readonly tamanhoMaximoMiniaturaEmBytes = Tutorial.tamanhoMaximoMiniaturaEmKiB << 10;
+	public static readonly tamanhoMaximoVideoEmMiB = 128;
+	public static readonly tamanhoMaximoVideoEmBytes = Tutorial.tamanhoMaximoVideoEmMiB << 20;
+
+	public static readonly extensaoMiniatura = "jpg";
+	public static readonly extensaoVideo = "mp4";
 
 	public id: number;
 	public nome: string;
@@ -40,7 +45,7 @@ abstract class Tutorial {
 
 		t.descricao = (t.descricao || "").trim();
 		if (t.descricao.length > 150)
-			return "Link inválido";
+			return "Descrição inválida";
 
 		return null;
 	}
@@ -65,7 +70,7 @@ abstract class Tutorial {
 		return ((lista && lista[0]) || null);
 	}
 
-	protected static async criarPorTipo(tabela: string, tipo: TipoTutorial, t: Tutorial, arquivo: any, extensaoArquivo: string): Promise<string> {
+	protected static async criarPorTipo(tabela: string, tipo: TipoTutorial, t: Tutorial, arquivo: any): Promise<string> {
 		let res: string;
 		if ((res = Tutorial.validarPorTipo(t)))
 			return res;
@@ -83,10 +88,26 @@ abstract class Tutorial {
 			// arquivo não funcionar, uma exceção ocorrerá, e a transação será
 			// desfeita, já que o método commit() não executará, e nossa classe
 			// Sql já executa um rollback() por nós nesses casos.
-			await Upload.gravarArquivo(arquivo, Tutorial.caminhoRelativoPastaPorTipo(tipo), t.id + "." + extensaoArquivo);
+			await Upload.gravarArquivo(arquivo, Tutorial.caminhoRelativoPastaPorTipo(tipo), t.id + "." + this.extensaoMiniatura);
+
+			await Upload.criarArquivoVazio(Tutorial.caminhoRelativoPastaPorTipo(tipo), t.id + "." + this.extensaoVideo);
 
 			await sql.commit();
+
+			res = t.id.toString();
 		});
+
+		return res;
+	}
+
+	protected static async uploadVideoPorTipo(tipo: TipoTutorial, id: number, arquivo: any): Promise<string> {
+		let res: string = null;
+
+		try {
+			await Upload.adicionarAoFinalDoArquivo(arquivo, Tutorial.caminhoRelativoPastaPorTipo(tipo), id + "." + this.extensaoVideo);
+		} catch (e) {
+			res = (e.message || e.toString());
+		}
 
 		return res;
 	}
@@ -104,7 +125,7 @@ abstract class Tutorial {
 		return res;
 	}
 
-	protected static async excluirPorTipo(tabela: string, tipo: TipoTutorial, id: number, extensaoArquivo: string): Promise<string> {
+	protected static async excluirPorTipo(tabela: string, tipo: TipoTutorial, id: number): Promise<string> {
 		let res: string = null;
 
 		await Sql.conectar(async (sql: Sql) => {
@@ -118,7 +139,11 @@ abstract class Tutorial {
 			// arquivo não funcionar, uma exceção ocorrerá, e a transação será
 			// desfeita, já que o método commit() não executará, e nossa classe
 			// Sql já executa um rollback() por nós nesses casos.
-			let caminho = Tutorial.caminhoRelativoArquivoPorTipo(tipo, id, extensaoArquivo);
+			let caminho = Tutorial.caminhoRelativoArquivoPorTipo(tipo, id, this.extensaoMiniatura);
+			if (await FS.existeArquivo(caminho))
+				await FS.excluirArquivo(caminho);
+
+			caminho = Tutorial.caminhoRelativoArquivoPorTipo(tipo, id, this.extensaoVideo);
 			if (await FS.existeArquivo(caminho))
 				await FS.excluirArquivo(caminho);
 

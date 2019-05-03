@@ -50,7 +50,8 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 			rota: "alocacao",
 			lista: JSON.stringify(await Alocacao.listar()),
 			caminhoAbsolutoPastaExterno: Alocacao.caminhoAbsolutoPastaExterno(),
-			extensaoArquivo: Alocacao.extensaoArquivo
+			extensaoMiniatura: Alocacao.extensaoMiniatura,
+			extensaoVideo: Alocacao.extensaoVideo
 		});
 	}
 }));
