@@ -28,6 +28,9 @@
                     <label for="id_solucao">Soluções</label>
                     <select id="id_solucao" name="id_solucao" class="form-control" size="1">
                         <option value="">SELECIONE...</option>
+                        <!--<% for(var i = 0; i < item.length; i++) { %>
+                            <option value="i" <%=(item && item.id_solucao == i ? 'selected="selected"' : '')%>>item.nome_solucao</option>
+                        <% } %>-->
                         <option value="1" <%=(item && item.id_solucao == 1 ? 'selected="selected"' : '')%>>Transformação digital</option>
                         <option value="2" <%=(item && item.id_solucao == 2 ? 'selected="selected"' : '')%>>Cultura e Comportamento Ético</option>
                         <option value="3" <%=(item && item.id_solucao == 3 ? 'selected="selected"' : '')%>>LGPD/ GDPR</option>

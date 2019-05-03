@@ -179,6 +179,10 @@ insert into oportunidade (empresa_oportunidade, contato_oportunidade, tel_oportu
 
 select * from oportunidade;
 
+select id_oportunidade, empresa_oportunidade, contato_oportunidade, "
+                + "tel_oportunidade, email_oportunidade, oportunidade.id_solucao, solucao.nome_solucao, descricao_oportunidade"
+                + " from oportunidade inner join solucao on solucao.id_solucao = oportunidade.id_solucao where id_oportunidade = 8 order by empresa_oportunidade asc ;
+
 insert into solucao (nome_solucao) values ('Transformação digital');
 
 ALTER TABLE oportunidade ADD CONSTRAINT fk_oportunidade_id_solucao FOREIGN KEY (id_solucao) REFERENCES solucao (id_solucao);

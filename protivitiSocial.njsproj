@@ -166,6 +166,9 @@
     <TypeScriptCompile Include="models\parceria.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="models\solucao.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\tutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
