@@ -1,0 +1,256 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <form id="form" class="panel panel-default" action="#">
+            <div class="panel-heading">Informações Básicas da Localização</div>
+            <div class="panel-body no-bottom">
+                <input type="hidden" id="id" name="id_localizacao" value="<%=(item ? item.id_localizacao : 0) %>" />
+                <input type="hidden" id="lat" name="latitude_localizacao" value="<%=(item ? item.latitude_localizacao : lat) %>" />
+                <input type="hidden" id="lng" name="longitude_localizacao" value="<%=(item ? item.longitude_localizacao : lng) %>" />
+                <div class="form-group">
+                    <label for="nome">Nome do local</label>
+                    <input id="nome" name="nome_localizacao" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+                </div>
+                  <div class="form-group">
+                    <label for="id_tipo_local">Tipo de local</label>
+                    <select id="id_tipo_local" name="id_tipo_local" class="form-control" size="1">
+                        <% if (!item) { %>
+                        <option value="" selected="selected">Selecione...</option>
+                        <% } %>
+                        <% for (var i = 0; i < tipoLocal.length; i++) { %>
+                        <option value="<%= tipoLocal[i].id_tipo_local %>" <%=(item && item.id_tipo_local == tipoLocal[i].id_tipo_local ? 'selected="selected"' : "") %>><%= tipoLocal[i].nome_tipo_local %></option>
+                        <% } %>
+                     </select>
+                  </div>
+                <div class="form-group">
+                    <input type="hidden" id="dia_semana_localizacao" name="dia_semana_localizacao" value="<%=(item ? item.dia_semana_localizacao : 0) %>" />
+                    <label>Dias de Funcionamento</label><br />
+                    <label>Seg <input name="segunda" id="segunda" type="checkbox" <%=(item && (item.dia_semana_localizacao & 1) ? 'checked="checked"' : '') %> /></label>
+                    <label>Ter <input name="terca" id="terca" type="checkbox" value="terca" <%=(item && (item.dia_semana_localizacao & 2) ? 'checked="checked"' : '') %> /></label>
+                    <label>Qua <input name="quarta" id="quarta" type="checkbox" value="quarta" <%=(item && (item.dia_semana_localizacao & 4) ? 'checked="checked"' : '') %> /></label>
+                    <label>Qui <input name="quinta" id="quinta" type="checkbox" value="quinta" <%=(item && (item.dia_semana_localizacao & 8) ? 'checked="checked"' : '') %> /></label>
+                    <label>Sex <input name="sexta" id="sexta" type="checkbox" value="sexta" <%=(item && (item.dia_semana_localizacao & 16) ? 'checked="checked"' : '') %> /></label>
+                    <label>Sab <input name="sabado" id="sabado" type="checkbox" value="sabado" <%=(item && (item.dia_semana_localizacao & 32) ? 'checked="checked"' : '') %> /></label>
+                    <label>Dom <input name="domingo" id="domingo" type="checkbox" value="domingo" <%=(item && (item.dia_semana_localizacao & 64) ? 'checked="checked"' : '') %> /></label>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="abertura">Horario de abertura</label>
+                            <input id="abertura" name="horario_abertura_localizacao" maxlength="5" placeholder="00:00" class="form-control upper" type="text" spellcheck="false" value="<%=(item ? item.id : '') %>" />
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label for="abertura">Horario de fechamento</label>
+                            <input id="fechamento" name="horario_fechamento_localizacao" maxlength="5" placeholder="00:00" class="form-control upper" type="text" spellcheck="false" value="<%=(item ? item.id : 0) %>" />
+                        </div>
+                    </div>
+                    </div>
+                    <div class="form-group">                        
+                        <label for="preco">Preço</label>
+                        <div class="cash">
+                            <input type="radio" id="cash5" name="preco_localizacao" value="5" <%=(item && item.preco_localizacao == 5 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="cash5"></label>
+                            <input type="radio" id="cash4half" name="preco_localizacao" value="4.5" <%=(item && item.preco_localizacao == 4.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="cash4half"></label>
+                            <input type="radio" id="cash4" name="preco_localizacao" value="4" <%=(item && item.preco_localizacao == 4 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="cash4"></label>
+                            <input type="radio" id="cash3half" name="preco_localizacao" value="3.5" <%=(item && item.preco_localizacao == 3.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="cash3half"></label>
+                            <input type="radio" id="cash3" name="preco_localizacao" value="3" <%=(item && item.preco_localizacao == 3 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="cash3"></label>
+                            <input type="radio" id="cash2half" name="preco_localizacao" value="2.5" <%=(item && item.preco_localizacao == 2.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="cash2half"></label>
+                            <input type="radio" id="cash2" name="preco_localizacao" value="2" <%=(item && item.preco_localizacao == 2 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="cash2"></label>
+                            <input type="radio" id="cash1half" name="preco_localizacao" value="1.5" <%=(item && item.preco_localizacao == 1.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="cash1half"></label>
+                            <input type="radio" id="cash1" name="preco_localizacao" value="1" <%=(item && item.preco_localizacao == 1 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="cash1"></label>
+                            <input type="radio" id="cashhalf" name="preco_localizacao" value="0.5" <%=(item && item.preco_localizacao == 0.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="cashhalf"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ambiente">Ambiente</label>
+                        <div class="stars1">
+                            <input type="radio" id="star15" name="ambiente_localizacao" value="5" <%=(item && item.ambiente_localizacao == 5 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star15"></label>
+                            <input type="radio" id="star14half" name="ambiente_localizacao" value="4.5" <%=(item && item.ambiente_localizacao == 4.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star14half"></label>
+                            <input type="radio" id="star14" name="ambiente_localizacao" value="4" <%=(item && item.ambiente_localizacao == 4 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star14"></label>
+                            <input type="radio" id="star13half" name="ambiente_localizacao" value="3.5" <%=(item && item.ambiente_localizacao == 3.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star13half"></label>
+                            <input type="radio" id="star13" name="ambiente_localizacao" value="3" <%=(item && item.ambiente_localizacao == 3 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star13"></label>
+                            <input type="radio" id="star12half" name="ambiente_localizacao" value="2.5" <%=(item && item.ambiente_localizacao == 2.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star12half"></label>
+                            <input type="radio" id="star12" name="ambiente_localizacao" value="2" <%=(item && item.ambiente_localizacao == 2 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star12"></label>
+                            <input type="radio" id="star11half" name="ambiente_localizacao" value="1.5" <%=(item && item.ambiente_localizacao == 1.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star11half"></label>
+                            <input type="radio" id="star11" name="ambiente_localizacao" value="1" <%=(item && item.ambiente_localizacao == 1 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star11"></label>
+                            <input type="radio" id="star1half" name="ambiente_localizacao" value="0.5" <%=(item && item.ambiente_localizacao == 0.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star1half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="atendimento">Atendimento</label>
+                        <div class="stars2">
+                            <input type="radio" id="star25" name="atendimento_localizacao" value="5" <%=(item && item.atendimento_localizacao == 5 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star25"></label>
+                            <input type="radio" id="star24half" name="atendimento_localizacao" value="4.5" <%=(item && item.atendimento_localizacao == 4.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star24half"></label>
+                            <input type="radio" id="star24" name="atendimento_localizacao" value="4" <%=(item && item.atendimento_localizacao == 4 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star24"></label>
+                            <input type="radio" id="star23half" name="atendimento_localizacao" value="3.5" <%=(item && item.atendimento_localizacao == 3.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star23half"></label>
+                            <input type="radio" id="star23" name="atendimento_localizacao" value="3" <%=(item && item.atendimento_localizacao == 3 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star23"></label>
+                            <input type="radio" id="star22half" name="atendimento_localizacao" value="2.5" <%=(item && item.atendimento_localizacao == 2.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star22half"></label>
+                            <input type="radio" id="star22" name="atendimento_localizacao" value="2" <%=(item && item.atendimento_localizacao == 2 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star22"></label>
+                            <input type="radio" id="star21half" name="atendimento_localizacao" value="1.5" <%=(item && item.atendimento_localizacao == 1.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star21half"></label>
+                            <input type="radio" id="star21" name="atendimento_localizacao" value="1" <%=(item && item.atendimento_localizacao == 1 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star21"></label>
+                            <input type="radio" id="star2half" name="atendimento_localizacao" value="0.5" <%=(item && item.atendimento_localizacao == 0.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star2half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bebidas">Bebidas</label>
+                        <div class="stars3">
+                            <input type="radio" id="star35" name="bebida_localizacao" value="5" <%=(item && item.bebida_localizacao == 5 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star35"></label>
+                            <input type="radio" id="star34half" name="bebida_localizacao" value="4.5" <%=(item && item.bebida_localizacao == 4.5 ? 'checked="checked"' : '') %>  />
+                            <label class="half" for="star34half"></label>
+                            <input type="radio" id="star34" name="bebida_localizacao" value="4" <%=(item && item.bebida_localizacao == 4 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star34"></label>
+                            <input type="radio" id="star33half" name="bebida_localizacao" value="3.5" <%=(item && item.bebida_localizacao == 3.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star33half"></label>
+                            <input type="radio" id="star33" name="bebida_localizacao" value="3" <%=(item && item.bebida_localizacao == 3 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star33"></label>
+                            <input type="radio" id="star32half" name="bebida_localizacao" value="2.5" <%=(item && item.bebida_localizacao == 2.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star32half"></label>
+                            <input type="radio" id="star32" name="bebida_localizacao" value="2" <%=(item && item.bebida_localizacao == 2 ? 'checked="checked"' : '') %>  />
+                            <label class="full" for="star32"></label>
+                            <input type="radio" id="star31half" name="bebida_localizacao" value="1.5" <%=(item && item.bebida_localizacao == 1.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star31half"></label>
+                            <input type="radio" id="star31" name="bebida_localizacao" value="1" <%=(item && item.bebida_localizacao == 1 ? 'checked="checked"' : '') %> /> 
+                            <label class="full" for="star31"></label>
+                            <input type="radio" id="star3half" name="bebida_localizacao" value="0.5" <%=(item && item.bebida_localizacao == 0.5 ? 'checked="checked"' : '') %> />
+                            <label class="half" for="star3half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tiragosto">Tira gosto</label>
+                        <div class="stars4">
+                            <input type="radio" id="star45" name="tira_gosto_localizacao" value="5" <%=(item && item.tira_gosto_localizacao == 5 ? 'checked="checked"' : '') %> />
+                            <label class="full" for="star45"></label>
+                            <input type="radio" id="star44half" name="tira_gosto_localizacao" value="4.5"  <%=(item && item.tira_gosto_localizacao == 4.5 ? 'checked="checked"' : '') %>/>
+                            <label class="half" for="star44half"></label>
+                            <input type="radio" id="star44" name="tira_gosto_localizacao" value="4" <%=(item && item.tira_gosto_localizacao == 4 ? 'checked="checked"' : '') %>/>
+                            <label class="full" for="star44"></label>
+                            <input type="radio" id="star43half" name="tira_gosto_localizacao" value="4.5" <%=(item && item.tira_gosto_localizacao == 3.5 ? 'checked="checked"' : '') %>/>
+                            <label class="half" for="star43half"></label>
+                            <input type="radio" id="star43" name="tira_gosto_localizacao" value="3" <%=(item && item.tira_gosto_localizacao == 3 ? 'checked="checked"' : '') %>/>
+                            <label class="full" for="star43"></label>
+                            <input type="radio" id="star42half" name="tira_gosto_localizacao" value="2.5" <%=(item && item.tira_gosto_localizacao == 2.5 ? 'checked="checked"' : '') %>/>
+                            <label class="half" for="star42half"></label>
+                            <input type="radio" id="star42" name="tira_gosto_localizacao" value="2" <%=(item && item.tira_gosto_localizacao == 2 ? 'checked="checked"' : '') %>/>
+                            <label class="full" for="star42"></label>
+                            <input type="radio" id="star41half" name="tira_gosto_localizacao" value="1.5" <%=(item && item.tira_gosto_localizacao == 1.5 ? 'checked="checked"' : '') %>/>
+                            <label class="half" for="star41half"></label>
+                            <input type="radio" id="star41" name="tira_gosto_localizacao" value="1" <%=(item && item.tira_gosto_localizacao == 1 ? 'checked="checked"' : '') %>/>
+                            <label class="full" for="star41"></label>
+                            <input type="radio" id="star4half" name="tira_gosto_localizacao" value="0.5" <%=(item && item.tira_gosto_localizacao == 0.5 ? 'checked="checked"' : '') %>/>
+                            <label class="half" for="star4half"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentario">Comentário</label>
+                        <textarea class="form-control" rows="5" id="porqueVencemos" name="comentario_localizacao" spellcheck="true"><%=(item ? item.comentario_localizacao : '') %></textarea>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <input value="<%=(item ? 'Salvar Alterações' : 'Criar') %>" class="btn btn-primary btn-lg btn-block" type="submit" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+    $("#abertura, #fechamento").mask("00:00");
+    $.validator.addMethod("horario", function(value, element) {
+      return this.optional(element) || /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/.test(value);
+    }, "Por favor forneça um horário válido!");
+    $("#form").validate({
+        rules: {
+            nome: {
+                required: true,
+				minlength: 3,
+				maxlength: 50
+            },
+            preco_localizacao: {
+                required:true
+            },
+            ambiente_localizacao: {
+                required:true
+            },
+            atendimento_localizacao: {
+                required:true
+            },
+            bebida_localizacao: {
+                required:true
+            },
+            tira_gosto_localizacao: {
+                required:true
+            }
+            
+        },
+    	submitHandler: function (form) {
+			if (JsonWebApi.active)
+				return;
+
+            var v = 0;
+            if (document.getElementById("segunda").checked) v |= 1;
+            if (document.getElementById("terca").checked) v |= 2;
+            if (document.getElementById("quarta").checked) v |= 4;
+            if (document.getElementById("quinta").checked) v |= 8;
+            if (document.getElementById("sexta").checked) v |= 16;
+            if (document.getElementById("sabado").checked) v |= 32;
+            if (document.getElementById("domingo").checked) v |= 64;
+            document.getElementById("dia_semana_localizacao").value = v;
+
+			Notification.wait();
+
+			//<% if (item) { %>
+
+			JsonWebApi.postFormData("/api/timeout/alterar", form, function (response) {
+				if (response.success)
+					Notification.success("Tutorial alterado com sucesso! \uD83D\uDE04");
+				else
+					Notification.error(response.value, true);
+			});
+
+			//<% } else { %>
+
+			JsonWebApi.postFormData("/api/timeout/criar", form, function (response) {
+				if (response.success) {
+					form.reset();
+					$("#form").validate().resetForm();
+					Notification.success("Tutorial criado com sucesso! \uD83D\uDE04");
+				} else {
+					Notification.error(response.value, true);
+				}
+			});
+
+			//<% } %>
+		}
+	});
+</script>

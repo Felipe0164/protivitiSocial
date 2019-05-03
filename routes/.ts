@@ -1,7 +1,6 @@
 ﻿import express = require("express");
 import wrap = require("express-async-error-wrapper");
 import Usuario = require("../models/usuario");
-import TipoLocal = require("../models/tipoLocal");
 
 const router = express.Router();
 
@@ -25,9 +24,8 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
         let lng = parseFloat(req.query['lng']);
         if (isNaN(lat) || isNaN(lng)) {
             res.render("timeout/mapa", { titulo: "Mapa de Time-Out", usuario: u, msg: null });
-        } else {
-            res.render("timeout/alterar", { titulo: "Criar Timeout", usuario: u, lat: lat, lng: lng, item: null, tipoLocal: await TipoLocal.listar() });
         }
+        res.render("timeout/alterar", { titulo: "Criar Timeout", usuario: u, item: null });
     }
 }));
 
@@ -46,7 +44,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
             lng < -53.170575) {
             res.render("timeout/mapa", { titulo: "Mapa de Time-Out", usuario: u, msg: "Por favor, especifique um ponto dentro do Estado de SP." });
         } else {
-            res.render("timeout/alterar", { titulo: "Criar Time-Out", usuario: u, lat: lat, lng: lng, item: null, tipoLocal: await TipoLocal.listar() });
+            res.render("timeout/alterar", { titulo: "Criar Time-Out", usuario: u, lat: lat, lng: lng, item: null });
         }
 	}
 }));

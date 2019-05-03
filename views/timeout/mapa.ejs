@@ -31,7 +31,7 @@
         map.on('click', function (e) {
             var popup = L.popup()
                 .setLatLng([e.latlng.lat, e.latlng.lng])
-                .setContent('<p><a href="/timeout/criar?lat=' + encodeURIComponent(e.latlng.lat) + '&lng=' + encodeURIComponent(e.latlng.lng) + '">Adicionar localização</a></p>')
+                .setContent('<p><a href="/timeout/alterar?lat=' + encodeURIComponent(e.latlng.lat) + '&lng=' + encodeURIComponent(e.latlng.lng) + '">Adicionar localização</a></p>')
                 .openOn(map);
         });
     });
