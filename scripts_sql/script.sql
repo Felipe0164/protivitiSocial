@@ -153,11 +153,11 @@ CREATE TABLE solucao (
   INDEX Solucao_nome_solucao_IX (nome_solucao ASC)
 );
 
-CREATE TABLE owner (
-  id_owner INT NOT NULL AUTO_INCREMENT,
-  nome_owner VARCHAR(255) NOT NULL,
-  PRIMARY KEY (id_owner),
-  INDEX owner_nome_owner_IX (nome_owner ASC)
+CREATE TABLE responsavel_proposta (
+  id_responsavel_proposta INT NOT NULL AUTO_INCREMENT,
+  nome_responsavel_proposta VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id_responsavel_proposta),
+  INDEX responsavel_proposta_nome_responsavel_proposta_IX (nome_responsavel_proposta ASC)
 );
 
 CREATE TABLE escritorio_lider (
@@ -208,7 +208,7 @@ CREATE TABLE projeto (
   id_segmento INT NULL,
   id_matriz_servico INT NULL,
   id_origem_lead INT NULL,
-  id_owner INT NULL,
+  id_responsavel_proposta INT NULL,
   id_pursuit_team INT NULL,
   id_escritorio_lider INT NULL,
   id_cc_lider INT NULL,
@@ -221,7 +221,7 @@ ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_cliente FOREIGN KEY (id_cliente
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_segmento FOREIGN KEY (id_segmento) REFERENCES segmento (id_segmento);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_matriz_servico FOREIGN KEY (id_matriz_servico) REFERENCES matriz_servico (id_matriz_servico);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_origem_lead FOREIGN KEY (id_origem_lead) REFERENCES origem_lead (id_origem_lead);
-ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_owner FOREIGN KEY (id_owner) REFERENCES owner (id_owner);
+ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_responsavel_proposta FOREIGN KEY (id_responsavel_proposta) REFERENCES responsavel_proposta (id_responsavel_proposta);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_id_pursuit_team FOREIGN KEY (id_pursuit_team) REFERENCES pursuit_team (id_pursuit_team);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_escritorio_lider FOREIGN KEY (id_escritorio_lider) REFERENCES escritorio_lider (id_escritorio_lider);
 ALTER TABLE projeto ADD CONSTRAINT fk_projeto_cc_lider FOREIGN KEY (id_cc_lider) REFERENCES cc_lider (id_cc_lider);
