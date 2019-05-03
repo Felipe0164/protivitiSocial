@@ -10,7 +10,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/cliente/alterar", {
+        res.render("controle/cliente/alterar", {
             titulo: "Criar Cliente",
             usuario: u,
             item: null
@@ -28,7 +28,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
         if (isNaN(id_cliente) || !(item = await Cliente.obter(id_cliente)))
             res.render("shared/nao-encontrado", { usuario: u });
         else
-            res.render("negocios/cliente/alterar", {
+            res.render("controle/cliente/alterar", {
                 titulo: "Editar Cliente",
                 usuario: u,
                 item: item
@@ -41,7 +41,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/cliente/listar", {
+        res.render("controle/cliente/listar", {
             titulo: "Gerenciar Cliente",
             usuario: u,
             lista: JSON.stringify(await Cliente.listar())
