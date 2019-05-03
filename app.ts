@@ -96,11 +96,6 @@ app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
 app.use("/negocios/parcerias", require("./routes/parcerias"));
-app.use("/negocios/solucoes", require("./routes/solucoes"));
-app.use("/negocios/cliente", require("./routes/cliente"));
-app.use("/negocios/empresa", require("./routes/empresa"));
-app.use("/negocios/industria", require("./routes/industria"));
-app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
 app.use("/timeout", require("./routes/timeout"));
 app.use("/carreira/mentoring", require("./routes/mentoring"));
@@ -109,6 +104,12 @@ app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
 app.use("/alocacao", require("./routes/alocacao"));
 app.use("/carreira/curriculo", require("./routes/carreiraCurriculo"));
 app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinamentos"));
+app.use("/controle/solucoes", require("./routes/solucoes"));
+app.use("/controle/cliente", require("./routes/cliente"));
+app.use("/controle/empresa", require("./routes/empresa"));
+app.use("/controle/segmento", require("./routes/segmento"));
+app.use("/controle/pursuitTeam", require("./routes/pursuitTeam"));
+
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
 app.use("/api/administrativo", require("./routes/api/administrativo"));
