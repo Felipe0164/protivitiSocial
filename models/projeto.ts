@@ -18,11 +18,11 @@ export = class Projeto {
 	private static validar(p: Projeto): string {
 		
 		if (p.problema_projeto.length < 1 || p.problema_projeto.length > 50)
-			return "Nome inválido";
+			return "Problema inválido";
 		
 
 		if (p.vencemos_projeto.length < 1 || p.vencemos_projeto.length > 50)
-			return "Nome inválido";
+			return "Porque vencemos inválido";
 		return null;
 	}
 
