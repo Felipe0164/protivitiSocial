@@ -16,8 +16,8 @@
 				</div>
         
 				<div class="form-group">
-					<label for="industria">Indústria</label>
-          <select id="industria" name="industria" class="form-control" size="1">
+					<label for="segmento">Segmento</label>
+          <select id="segmento" name="segmento" class="form-control" size="1">
             <option value="">SELECIONE...</option>
             <option value="">Bens de Consumo e Varejo</option>
             <option value="">Saúde e Biomédicas</option>
@@ -34,7 +34,27 @@
               <option value="">LGPD/ GDPR</option>
             </select>
 				</div>
-        
+
+        <div class="form-group">
+          <label for="origemLead">Origem do Lead</label>
+          <select id="origemLead" name="origemLead" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Telefone</option>
+            <option value="">E-mail</option>
+            <option value="">Indicação</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="responsavelProposta">Responsável pela proposta</label>
+          <select id="responsavelProposta" name="responsavelProposta" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">João</option>
+            <option value="">Alfredo</option>
+            <option value="">Maria</option>
+          </select>
+        </div>
+
         <div class="form-group">
           <label for="pursuitTeam">Pursuit Team</label>
           <select id="pursuitTeam" name="pursuitTeam" class="form-control" size="1">
@@ -46,14 +66,23 @@
         </div>
 
         <div class="form-group">
-          <label for="problemaCliente">Problema do cliente</label>
-          <input id="problemaCliente" name="problemaCliente" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+          <label for="escritorioLider">Escritório Líder</label>
+          <select id="escritorioLider" name="escritorioLider" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Escritório 1</option>
+            <option value="">Escritório 2</option>
+            <option value="">Escritório 3</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="porqueVencemos">Por que vencemos?</label>
-          <textarea class="form-control" rows="5"  id="porqueVencemos" name="porqueVencemos" spellcheck="true"></textarea>
-          
+          <label for="valorBrutoVenda">Valor bruto da renda</label>
+          <input id="valorBrutoVenda" name="valorBrutoVenda" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+        </div>
+        
+        <div class="form-group">
+          <label for="descricaoProjeto">Descrição do projeto</label>
+          <textarea class="form-control" rows="5"  id="descricaoProjeto" name="descricaoProjeto" spellcheck="true"></textarea>        
         </div>
         
       </div>
