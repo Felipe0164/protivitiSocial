@@ -9,7 +9,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-		res.render("negocios/empresa/alterar", { titulo: "Criar Empresa", usuario:u});
+		res.render("controle/empresa/alterar", { titulo: "Criar Empresa", usuario:u});
 	}
 }));
 
@@ -23,7 +23,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 		if (isNaN(id) || !(item = await Usuario.obter(id)))
 			res.render("shared/nao-encontrado");
 		else
-            res.render("negocios/empresa/alterar", { titulo: "Editar Empresa", usuario:u});
+            res.render("controle/empresa/alterar", { titulo: "Editar Empresa", usuario:u});
 	}
 }));
 
@@ -32,7 +32,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 	if (!u || !u.admin) {
 		res.redirect("/acesso");
 	} else {
-        res.render("negocios/empresa/listar", { titulo: "Visualizar Empresa", usuario:u});
+        res.render("controle/empresa/listar", { titulo: "Visualizar Empresa", usuario:u});
 	}
 }));
 

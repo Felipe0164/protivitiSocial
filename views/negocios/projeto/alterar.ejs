@@ -4,56 +4,81 @@
 		<form id="form" class="panel panel-default" action="#">
 			<div class="panel-heading">Criar Novo Projeto</div>
 			<div class="panel-body no-bottom">
-				
+        <input type="hidden" id="id_projeto" name="id_projeto" value="<%=(item ? item.id_projeto : 0) %>" />
 				<div class="form-group">
-					<label for="cliente">Nome do cliente</label>
-          <select id="cliente" name="cliente" class="form-control" size="1">
+					<label for="id_cliente">Nome do cliente</label>
+          <select id="id_cliente" name="id_cliente" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Cliente 1</option>
-            <option value="">Cliente 2</option>
-            <option value="">Cliente 3</option>
+            <option value="1" <%=(item && item.id_cliente == 1 ? 'selected="selected"' : '')%>>Cliente 1</option>
+            
           </select>
 				</div>
         
 				<div class="form-group">
-					<label for="industria">Indústria</label>
-          <select id="industria" name="industria" class="form-control" size="1">
+					<label for="segmento">Segmento</label>
+          <select id="segmento" name="segmento" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Bens de Consumo e Varejo</option>
-            <option value="">Saúde e Biomédicas</option>
-            <option value="">Serviços e Ensino</option>
+            <option value="1" <%=(item && item.id_industria == 1 ? 'selected="selected"' : '')%>>Bens de Consumo e Varejo</option>
+            
           </select>
 				</div>
 				
 				<div class="form-group">
-					<label for="solucao">Soluções</label>
-            <select id="solucao" name="solucao" class="form-control" size="1">
+					<label for="id_solucao">Soluções</label>
+            <select id="id_solucao" name="id_solucao" class="form-control" size="1">
               <option value="">SELECIONE...</option>
-              <option value="">Transformação digital</option>
-              <option value="">Cultura e Comportamento Ético</option>
-              <option value="">LGPD/ GDPR</option>
+              <option value="100" <%=(item && item.id_solucao == 100 ? 'selected="selected"' : '')%>>Transformação digital</option>
+              
             </select>
 				</div>
-        
+
         <div class="form-group">
-          <label for="pursuitTeam">Pursuit Team</label>
-          <select id="pursuitTeam" name="pursuitTeam" class="form-control" size="1">
+          <label for="origemLead">Origem do Lead</label>
+          <select id="origemLead" name="origemLead" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Equipe 1</option>
-            <option value="">Equipe 2</option>
-            <option value="">Equipe 3</option>
+            <option value="">Telefone</option>
+            <option value="">E-mail</option>
+            <option value="">Indicação</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="problemaCliente">Problema do cliente</label>
-          <input id="problemaCliente" name="problemaCliente" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+          <label for="responsavelProposta">Responsável pela proposta</label>
+          <select id="responsavelProposta" name="responsavelProposta" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">João</option>
+            <option value="">Alfredo</option>
+            <option value="">Maria</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="porqueVencemos">Por que vencemos?</label>
-          <textarea class="form-control" rows="5"  id="porqueVencemos" name="porqueVencemos" spellcheck="true"></textarea>
-          
+          <label for="id_pursuit_team">Pursuit Team</label>
+          <select id="id_pursuit_team" name="id_pursuit_team" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="100" <%=(item && item.id_pursuit_team == 1 ? 'selected="selected"' : '')%>>Equipe 1</option>
+            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="escritorioLider">Escritório Líder</label>
+          <select id="escritorioLider" name="escritorioLider" class="form-control" size="1">
+            <option value="">SELECIONE...</option>
+            <option value="">Escritório 1</option>
+            <option value="">Escritório 2</option>
+            <option value="">Escritório 3</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="valorBrutoVenda">Valor bruto da renda</label>
+          <input id="valorBrutoVenda" name="valorBrutoVenda" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="" />
+        </div>
+        
+        <div class="form-group">
+          <label for="descricaoProjeto">Descrição do projeto</label>
+          <textarea class="form-control" rows="5"  id="descricaoProjeto" name="descricaoProjeto" spellcheck="true"></textarea>        
         </div>
         
       </div>
@@ -65,4 +90,58 @@
 	</div>
 </div>
 
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+
+    //<![CDATA[
+    "use strict";
+
+    $("#form").validate({
+        rules: {
+            
+            problema_projeto: {
+                maxlength: 250
+            },
+
+            vencemos_projeto: {
+                maxlength: 250
+            },
+
+            
+        },
+
+        submitHandler: function (form) {
+            if (JsonWebApi.active)
+                return;
+
+            Notification.wait();
+
+            //<% if (item) { %>
+
+            JsonWebApi.postFormData("/api/projeto/alterar", form, function (response) {
+				if (response.success)
+					Notification.success("Projeto alterado com sucesso! \uD83D\uDE04");
+				else
+					Notification.error(response.value, true);
+            });
+
+            //<% } else { %>
+
+            JsonWebApi.postFormData("/api/projeto/criar", form, function (response) {
+				if (response.success) {
+					form.reset();
+					$("#form").validate().resetForm();
+					Notification.success("Projeto criado com sucesso! \uD83D\uDE04");
+				} else {
+					Notification.error(response.value, true);
+				}
+            });
+
+            //<% } %>
+        }
+
+    });
+    //]]>
+  </script>
 

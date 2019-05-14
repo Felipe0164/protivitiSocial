@@ -1,0 +1,67 @@
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+		<form id="form" class="panel panel-default" action="#">
+			<div class="panel-heading">Adicionar Nova Solução</div>
+			<div class="panel-body no-bottom">
+                <input type="hidden" id="id_solucao" name="id_solucao" value="<%=(item ? item.id_solucao : 0) %>" />
+				<div class="form-group">
+					<label for="nome_solucao">Nome da solução</label>
+					<input id="nome_solucao" name="nome_solucao" maxlength="50" class="form-control upper" type="text" spellcheck="false" value="<%=(item ? item.nome_solucao : '') %>" />
+				</div>
+      </div>
+			<div class="panel-footer">
+				<input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
+			</div>
+
+		</form>
+	</div>
+</div>
+
+<%- contentFor("scripts") %>
+<script type="text/javascript">
+    //<![CDATA[
+    "use strict";
+
+    $("#form").validate({
+        rules: {
+            nome_solucao: {
+                required: true,
+                minlength: 3,
+                maxlength: 255
+            },
+        },
+
+        submitHandler: function (form) {
+            if (JsonWebApi.active)
+                return;
+
+            Notification.wait();
+
+            //<% if (item) { %>
+
+            JsonWebApi.postFormData("/api/solucao/alterar", form, function (response) {
+				if (response.success)
+					Notification.success("Solução alterada com sucesso! \uD83D\uDE04");
+				else
+					Notification.error(response.value, true);
+            });
+
+            //<% } else { %>
+
+            JsonWebApi.postFormData("/api/solucao/criar", form, function (response) {
+				if (response.success) {
+					form.reset();
+					$("#form").validate().resetForm();
+					Notification.success("Solução criada com sucesso! \uD83D\uDE04");
+				} else {
+					Notification.error(response.value, true);
+				}
+            });
+
+            //<% } %>
+        }
+    });
+    //]]>
+</script>
+
