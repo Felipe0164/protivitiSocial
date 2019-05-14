@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>deployLocal</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
@@ -97,6 +97,7 @@
     <Content Include="views\carreira\mentoring\mentorado\listar.ejs" />
     <Content Include="views\carreira\mentoring\mentor\alterar.ejs" />
     <Content Include="views\carreira\mentoring\mentor\listar.ejs" />
+    <Content Include="views\construindo\construindo.ejs" />
     <Content Include="views\inovacao\alterar.ejs" />
     <Content Include="views\inovacao\listar.ejs" />
     <Content Include="views\layout-index.ejs" />
@@ -191,7 +192,6 @@
     <TypeScriptCompile Include="routes\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />
-    <TypeScriptCompile Include="routes\industria.ts" />
     <TypeScriptCompile Include="routes\oportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
     <TypeScriptCompile Include="routes\mentorado.ts" />
@@ -270,6 +270,7 @@
     <Folder Include="views\negocios\parceria\" />
     <Folder Include="views\carreira\" />
     <Folder Include="views\controle\" />
+    <Folder Include="views\construindo\" />
     <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
