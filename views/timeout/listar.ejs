@@ -49,49 +49,9 @@
 			{ title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/timeout/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
 	
-		data: [
-    {nome:"Teste",localizacao:"R. Joaquim Távora, 1235 - Vila Mariana",preco:"3.5",ambiente:"2",atendimento:"5",bebidas:"2.5",tiraGosto:"1",comentario:"Muito ruim",id:1},
-    ]
+		data: <%- lista %>
 	});
 
-	var trClicada;
-
-	$("#tabela").on("click", "tbody button", function () {
-		if (JsonWebApi.active)
-			return;
-
-		var formato = tabela.row(trClicada = this.parentNode.parentNode).data();
-
-		if (this.getAttribute("data-excluir")) {
-			$("#lblNome").text(formato.nome);
-
-			$("#modalExcluir").modal({
-				backdrop: "static",
-				keyboard: true
-			});
-		}
-	});
-
-	function excluir() {
-		if (JsonWebApi.active || !trClicada)
-			return;
-
-		$("#modalExcluir").modal("hide");
-
-		var formato = tabela.row(trClicada).data();
-
-		Notification.wait();
-
-		JsonWebApi.get("/api/formato/excluir", function (response) {
-			if (response.success) {
-				Notification.success("Formato excluído com sucesso! \uD83D\uDE04");
-				tabela.row(trClicada).remove().draw();
-			} else {
-				Notification.error(response.value, true);
-			}
-			trClicada = null;
-		}, "id", formato.id);
-	}
 
 	//]]>
 </script>

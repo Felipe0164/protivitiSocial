@@ -132,7 +132,7 @@
     <Content Include="views\pec\listar.ejs" />
     <Content Include="views\rodape.ejs" />
     <Content Include="views\shared\erro.ejs" />
-    <Content Include="views\timeout\criar.ejs" />
+    <Content Include="views\timeout\alterar.ejs" />
     <Content Include="views\timeout\listar.ejs" />
     <Content Include="views\timeout\mapa.ejs" />
     <Content Include="views\tutorial\alterar.ejs" />
@@ -160,6 +160,8 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\inovacao.ts" />
+    <TypeScriptCompile Include="models\timeout.ts" />
+    <TypeScriptCompile Include="models\tipoLocal.ts" />
     <TypeScriptCompile Include="models\tutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -170,6 +172,7 @@
     <TypeScriptCompile Include="routes\api\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\api\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\api\inovacao.ts" />
+    <TypeScriptCompile Include="routes\api\timeout.ts" />
     <TypeScriptCompile Include="routes\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />

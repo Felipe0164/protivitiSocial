@@ -34,5 +34,11 @@
                 .setContent('<p><a href="/timeout/alterar?lat=' + encodeURIComponent(e.latlng.lat) + '&lng=' + encodeURIComponent(e.latlng.lng) + '">Adicionar localização</a></p>')
                 .openOn(map);
         });
+
+        for (int i = 0; i <= lista.length ; i++){
+        var lng = lista.longitude_localizacao;
+        var lat = lista.latitude_localizacao;
+        var markers = L.marker(lat, lng).addTo(map);
+    }
     });
 </script>

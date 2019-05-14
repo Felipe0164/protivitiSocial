@@ -28,7 +28,7 @@ router.post("/criar", wrap(async (req: express.Request, res: express.Response) =
     let u = await Usuario.cookie(req, res, true);
     if (!u)
         return;
-    let a = req.body as Timeout;
+    let a = Timeout.converter(req.body);
     jsonRes(res, 400, a ? await Timeout.criar(a) : "Dados inválidos");
 }));
 
@@ -37,7 +37,7 @@ router.post("/alterar", wrap(async (req: express.Request, res: express.Response)
     let u = await Usuario.cookie(req, res);
     if (!u)
         return;
-    let a = req.body as Timeout;
+    let a = Timeout.converter(req.body);
     jsonRes(res, 400, a ? await Timeout.alterar(a) : "Dados inválidos!");
 }));
 
