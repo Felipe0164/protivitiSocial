@@ -1,52 +1,109 @@
-
 <div class="row">
-	<div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-		<form id="form" class="panel panel-default" action="#">
-			<div class="panel-heading">Criar Nova Parceria</div>
-			<div class="panel-body no-bottom">
-				
-				<div class="form-group">
-					<label for="empresa">Nome da empresa parceira</label>
-          <select id="empresa" name="empresa" class="form-control" size="1">
+    <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        <form id="form" class="panel panel-default" action="#">
+            <div class="panel-heading">Criar Nova Parceria</div>
+            <div class="panel-body no-bottom">
+                <input type="hidden" id="id_parceria" name="id_parceria" value="<%=(item ? item.id_parceria : 0) %>" />
+
+                <div class="form-group">
+                    <label for="id_empresa">Nome da empresa parceira</label>
+                    <select id="id_empresa" name="id_empresa" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Empresa 1</option>
-            <option value="">Empresa 2</option>
-            <option value="">Empresa 3</option>
-          </select>
-				</div>
+            <option value="1" <%=(item && item.id_empresa == 1 ? 'selected="selected"' : '')%>>Empresa 1</option>
+            <option value="2" <%=(item && item.id_empresa == 2 ? 'selected="selected"' : '')%>>Empresa 2</option>
+            <option value="3" <%=(item && item.id_empresa == 3 ? 'selected="selected"' : '')%>>Empresa 3</option>
+            </select>
+                    </select>
+                </div>
 
-        <div class="form-group">
-          <label for="solucao">Soluções</label>
-          <select id="solucao" name="solucao" class="form-control" size="1">
+                <div class="form-group">
+                    <label for="id_solucao">Soluções</label>
+                    <select id="id_solucao" name="id_solucao" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Transformação digital</option>
-            <option value="">Cultura e Comportamento Ético</option>
-            <option value="">LGPD/ GDPR</option>
-          </select>
-        </div>
+            <option value="1" <%=(item && item.id_solucao == 1 ? 'selected="selected"' : '')%>>Transformação digital</option>
+            <option value="2" <%=(item && item.id_solucao == 2 ? 'selected="selected"' : '')%>>Cultura e Comportamento Ético</option>
+            <option value="3" <%=(item && item.id_solucao == 3 ? 'selected="selected"' : '')%>>LGPD/ GDPR</option>
+            </select>
+                </div>
 
-        <div class="form-group">
-          <label for="pursuitTeam">Time responsável pela parceria</label>
-          <select id="pursuitTeam" name="pursuitTeam" class="form-control" size="1">
+                <div class="form-group">
+                    <label for="id_pursuit_team">Time responsável pela parceria</label>
+                    <select id="id_pursuit_team" name="id_pursuit_team" class="form-control" size="1">
             <option value="">SELECIONE...</option>
-            <option value="">Equipe 1</option>
-            <option value="">Equipe 2</option>
-            <option value="">Equipe 3</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="valorAgregado">Valor agregado ao negócio</label>
-          <textarea class="form-control" rows="5"  id="porqueVencemos" name="porqueVencemos" spellcheck="true"></textarea>
-        </div>
+            <option value="1" <%=(item && item.id_pursuit_team == 1 ? 'selected="selected"' : '')%>>Equipe 1</option>
+            <option value="2" <%=(item && item.id_pursuit_team == 2 ? 'selected="selected"' : '')%>>Equipe 2</option>
+            <option value="3" <%=(item && item.id_pursuit_team == 3 ? 'selected="selected"' : '')%>>Equipe 3</option>
+            </select>
+                </div>
 
-      </div>
-			<div class="panel-footer">
-				<input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
-			</div>
+                <div class="form-group">
+                    <label for="valorAgregado">Valor agregado ao negócio</label>
+                    <textarea class="form-control" rows="5" id="valor_agregado_parceria" name="valor_agregado_parceria" spellcheck="true"><%=(item ? item.valor_agregado_parceria : '') %></textarea>
+                </div>
 
-		</form>
-	</div>
+            </div>
+            <div class="panel-footer">
+                <input value="Criar" class="btn btn-primary btn-lg btn-block" type="submit" />
+            </div>
+
+        </form>
+    </div>
 </div>
 
+<%- contentFor("scripts") %>
+    <script type="text/javascript">
+        //<![CDATA[
+        "use strict";
 
+        $("#form").validate({
+            rules: {
+                empresa: {
+                    require: true
+                },
+
+                solucao: {
+                    required: true
+                },
+
+                pursuitTeam: {
+                    required: true
+                },
+
+                valorAgregado: {
+                    maxlength: 250
+                },
+            },
+
+
+            submitHandler: function(form) {
+                if (JsonWebApi.active)
+                    return;
+
+                Notification.wait();
+
+                //<% if(item) { %>
+
+                JsonWebApi.postFormData("/api/parceria/alterar", form, function(response) {
+                    if (response.success)
+                        Notification.success("Parceria alterado com sucesso! \uD83D\uDE04");
+                    else
+                        Notification.error(response.value, true);
+                });
+
+                //<% } else { %>
+
+                JsonWebApi.postFormData("/api/parceria/criar", form, function(response) {
+                    if (response.success) {
+                        form.reset();
+                        $("#form").validate().resetForm();
+                        Notification.success("Parceria criada com sucesso! \uD83D\uDE04");
+                    } else {
+                        Notification.error(response.value, true);
+                    }
+                });
+
+                //<% } %>
+            }
+        });
+        //]]>
+    </script>
