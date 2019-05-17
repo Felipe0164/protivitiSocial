@@ -96,8 +96,6 @@ app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
 app.use("/negocios/parceria", require("./routes/parceria"));
-app.use("/negocios/industria", require("./routes/industria"));
-app.use("/negocios/pursuitTeam", require("./routes/pursuitTeam"));
 app.use("/negocios/oportunidade", require("./routes/oportunidade"));
 app.use("/timeout", require("./routes/timeout"));
 app.use("/carreira/mentoring", require("./routes/mentoring"));
@@ -110,6 +108,7 @@ app.use("/controle/solucao", require("./routes/solucao"));
 app.use("/controle/cliente", require("./routes/cliente"));
 app.use("/controle/empresa", require("./routes/empresa"));
 app.use("/controle/segmento", require("./routes/segmento"));
+app.use("/controle/pursuitTeam", require("./routes/pursuitTeam"));
 
 // API
 app.use("/api/usuario", require("./routes/api/usuario"));
