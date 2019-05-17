@@ -1,7 +1,7 @@
 ﻿import express = require("express");
 import wrap = require("express-async-error-wrapper");
 import Usuario = require("../models/usuario");
-import Projeto = require("../models/projeto");
+import Solucao = require("../models/solucao");
 
 const router = express.Router();
 
@@ -10,8 +10,8 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/projeto/alterar", {
-            titulo: "Criar Projeto",
+        res.render("controle/solucao/alterar", {
+            titulo: "Criar Solução",
             usuario: u,
             item: null
         });
@@ -23,13 +23,13 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        let id_projeto = parseInt(req.query["id_projeto"]);
-        let item: Projeto = null;
-        if (isNaN(id_projeto) || !(item = await Projeto.obter(id_projeto)))
+        let id_solucao = parseInt(req.query["id_solucao"]);
+        let item: Solucao = null;
+        if (isNaN(id_solucao) || !(item = await Solucao.obter(id_solucao)))
             res.render("shared/nao-encontrado", { usuario: u });
         else
-            res.render("negocios/projeto/alterar", {
-                titulo: "Editar Projeto",
+            res.render("controle/solucao/alterar", {
+                titulo: "Editar Solução",
                 usuario: u,
                 item: item
             });
@@ -41,10 +41,10 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/projeto/listar", {
-            titulo: "Gerenciar Projeto",
+        res.render("controle/solucao/listar", {
+            titulo: "Gerenciar Soluções",
             usuario: u,
-            lista: JSON.stringify(await Projeto.listar())
+            lista: JSON.stringify(await Solucao.listar())
         });
     }
 }));

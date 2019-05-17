@@ -11,7 +11,7 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
 		res.redirect("/acesso");
 	} else {
 		res.render("tutorial/alterar", {
-			titulo: "Criar Tutorial PEC",
+			titulo: "Criar Tutorial do PEC",
 			usuario: u,
 			rota: "pec",
 			item: null
@@ -30,7 +30,7 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
 			res.render("shared/nao-encontrado");
 		else
 			res.render("tutorial/alterar", {
-				titulo: "Editar Tutorial PEC",
+				titulo: "Editar Tutorial do PEC",
 				usuario: u,
 				rota: "pec",
 				item: item
@@ -44,7 +44,7 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
 		res.redirect("/acesso");
 	} else {
 		res.render("tutorial/listar", {
-			titulo: "Visualizar Tutoriais PEC",
+			titulo: "Visualizar Tutoriais do PEC",
 			usuario: u,
 			rota: "pec",
 			lista: JSON.stringify(await Pec.listar()),

@@ -38,6 +38,7 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
+<<<<<<< HEAD:views/negocios/parceria/listar.ejs
             { title: "Nome da empresa parceira", render: encode, data: "nome_empresa" },
 			{ title: "Soluções", render: encode, data: "nome_solucao" },
             { title: "Time responsável pela parceria", render: encode, data: "nome_pursuit_team" },
@@ -46,6 +47,15 @@
 		],
 	data: <%- lista %>
 
+=======
+            { title: "Nome da empresa parceira", render: encode, data: "id_empresa" },
+			      { title: "Soluções", render: encode, data: "id_solucao" },
+            { title: "Time responsável pela parceria", render: encode, data: "id_pursuit_team" },
+            { title: "Valor agregado ao negócio", render: encode, data: "valor_agregado_parceria" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id_parceria", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id_parceria=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+		],
+	    data: <%- lista %>
+>>>>>>> master:views/negocios/parceria/listar.ejs
 	});
 
 	var trClicada;
@@ -72,19 +82,32 @@
 
 		$("#modalExcluir").modal("hide");
 
+<<<<<<< HEAD:views/negocios/parceria/listar.ejs
 		var parceria = tabela.row(trClicada).data();
 
 		Notification.wait();
 
 		JsonWebApi.get("/api/parceria/excluir", function (response) {
+=======
+		var item = tabela.row(trClicada).data();
+
+		Notification.wait();
+
+		JsonWebApi.get("/api/<%- rota %>/excluir", function (response) {
+>>>>>>> master:views/negocios/parceria/listar.ejs
 			if (response.success) {
 				Notification.success("Parceria excluída com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();
 			} else {
 				Notification.error(response.value, true);
 			}
+<<<<<<< HEAD:views/negocios/parceria/listar.ejs
 			trClicada = null;
 		}, "id_parceria", parceria.id_parceria);
+=======
+            trClicada = null;
+        }, "id_parceria", item.id);
+>>>>>>> master:views/negocios/parceria/listar.ejs
 	}
 
 	//]]>

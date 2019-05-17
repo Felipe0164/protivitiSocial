@@ -18,7 +18,7 @@
 			</div>
 			<div class="modal-body">
 				<p>
-					Tem certeza que deseja excluir o formato <span id="lblNome"></span>? Essa operação NÃO pode ser desfeita!
+					Tem certeza que deseja excluir a oportunidade? Essa operação NÃO pode ser desfeita!
 				</p>
 			</div>
 			<div class="modal-footer">
@@ -35,18 +35,18 @@
 	"use strict";
 
 	var tabela = prepareDataTable("#tabela", {
-		order: [[0, "asc"]],
+		order: [[1, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Nome do cliente", render: encode, data: "nome_cliente" },
-            { title: "Indústria", render: encode, data: "nome_industria" },
-			{ title: "Soluções", render: encode, data: "nome_solucao" },
-            { title: "Pursuit Team", render: encode, data: "nome_pursuit_team" },
-            { title: "Problema do cliente", render: encode, data: "problema_projeto" },
-            { title: "Por que vencemos?", render: encode, data: "vencemos_projeto" },
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id_projeto", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/negocios/projeto/alterar?id_projeto=" + row.id_projeto + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "Empresa", render: encode, data: "empresa_oportunidade" },
+            { title: "Contato", render: encode, data: "contato_oportunidade" },
+			{ title: "Telefone", render: encode, data: "tel_oportunidade" },
+            { title: "E-mail", render: encode, data: "email_oportunidade" },
+            { title: "Soluções", render: encode, data: "nome_solucao" },
+            { title: "Descrição da oportunidade", render: encode, data: "descricao_oportunidade" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id_oportunidade", render: function (v, type, row) { return '<a target="_blank" title="Editar" href="/negocios/oportunidade/alterar?id_oportunidade=' + row.id_oportunidade + '" class="btn btn-outline btn-primary"><i class="fa fa-nomargin fa-edit"></i></a> <button title="Excluir" type="button" data-excluir="1" class="btn btn-outline btn-danger"><i class="fa fa-nomargin fa-times"></i></button>'; } },
 		],
-	data: <%- lista %>
+	    data: <%- lista %>
 	});
 
 	var trClicada;
@@ -55,10 +55,9 @@
 		if (JsonWebApi.active)
 			return;
 
-		var formato = tabela.row(trClicada = this.parentNode.parentNode).data();
+		var oportunidade = tabela.row(trClicada = this.parentNode.parentNode).data();
 
-		if (this.getAttribute("data-excluir")) {
-			$("#lblNome").text(formato.nome);
+        if (this.getAttribute("data-excluir")) {
 
 			$("#modalExcluir").modal({
 				backdrop: "static",
@@ -73,19 +72,19 @@
 
 		$("#modalExcluir").modal("hide");
 
-		var formato = tabela.row(trClicada).data();
+		var oportunidade = tabela.row(trClicada).data();
 
 		Notification.wait();
 
-		JsonWebApi.get("/api/projeto/excluir", function (response) {
+		JsonWebApi.get("/api/oportunidade/excluir", function (response) {
 			if (response.success) {
-				Notification.success("Projeto excluído com sucesso! \uD83D\uDE04");
+				Notification.success("Oportunidade excluída com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();
 			} else {
 				Notification.error(response.value, true);
 			}
-			trClicada = null;
-		}, "id_projeto", formato.id_projeto);
+            trClicada = null;
+        }, "id_oportunidade", oportunidade.id_oportunidade);
 	}
 
 	//]]>

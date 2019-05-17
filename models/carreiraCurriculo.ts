@@ -3,19 +3,25 @@ import Tutorial = require("./tutorial");
 
 export = class CarreiraCurriculo extends Tutorial {
 	public static readonly tabela = "carreira_curriculo";
-	public static readonly extensaoArquivo = "mp4";
 
 	public static caminhoAbsolutoPastaExterno(): string {
 		return Tutorial.caminhoAbsolutoPastaExternoPorTipo(TipoTutorial.CarreiraCurriculo);
 	}
 
-	public static caminhoRelativoArquivo(id: number): string {
-		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCurriculo, id, CarreiraCurriculo.extensaoArquivo);
+	public static caminhoRelativoMiniatura(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCurriculo, id, Tutorial.extensaoMiniatura);
 	}
 
+	public static caminhoAbsolutoMiniaturaExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.CarreiraCurriculo, id, Tutorial.extensaoMiniatura);
+	}
 
-	public static caminhoAbsolutoArquivoExterno(id: number): string {
-		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.Alocacao, id, CarreiraCurriculo.extensaoArquivo);
+	public static caminhoRelativoVideo(id: number): string {
+		return Tutorial.caminhoRelativoArquivoPorTipo(TipoTutorial.CarreiraCurriculo, id, Tutorial.extensaoVideo);
+	}
+
+	public static caminhoAbsolutoVideoExterno(id: number): string {
+		return Tutorial.caminhoAbsolutoArquivoExternoPorTipo(TipoTutorial.CarreiraCurriculo, id, Tutorial.extensaoVideo);
 	}
 
 	public static validar(a: CarreiraCurriculo): string {
@@ -44,7 +50,11 @@ export = class CarreiraCurriculo extends Tutorial {
 	}
 
 	public static async criar(a: CarreiraCurriculo, arquivo: any): Promise<string> {
-		return await Tutorial.criarPorTipo(CarreiraCurriculo.tabela, TipoTutorial.Alocacao, a, arquivo, CarreiraCurriculo.extensaoArquivo);
+		return await Tutorial.criarPorTipo(CarreiraCurriculo.tabela, TipoTutorial.CarreiraCurriculo, a, arquivo);
+	}
+
+	public static async uploadVideo(id: number, arquivo: any): Promise<string> {
+		return await Tutorial.uploadVideoPorTipo(TipoTutorial.CarreiraCurriculo, id, arquivo);
 	}
 
 	public static async alterar(a: CarreiraCurriculo): Promise<string> {
@@ -52,6 +62,6 @@ export = class CarreiraCurriculo extends Tutorial {
 	}
 
 	public static async excluir(id: number): Promise<string> {
-		return await Tutorial.excluirPorTipo(CarreiraCurriculo.tabela, TipoTutorial.Alocacao, id, CarreiraCurriculo.extensaoArquivo);
+		return await Tutorial.excluirPorTipo(CarreiraCurriculo.tabela, TipoTutorial.CarreiraCurriculo, id);
 	}
 }
