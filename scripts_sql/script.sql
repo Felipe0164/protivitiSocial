@@ -249,7 +249,7 @@ CREATE TABLE tipo_local (
 
 CREATE TABLE localizacao (
   id_localizacao INT NOT NULL AUTO_INCREMENT,
-  nome_localizacao VARCHAR(250) NOT NULL,
+  nome_localizacao INT NOT NULL,
   id_tipo_local INT NULL,
   dia_semana_localizacao INT NULL,
   horario_abertura_localizacao TIME(0) NULL,
