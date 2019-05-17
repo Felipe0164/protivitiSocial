@@ -1,7 +1,7 @@
 ﻿import express = require("express");
 import wrap = require("express-async-error-wrapper");
 import Usuario = require("../models/usuario");
-import Projeto = require("../models/projeto");
+import Oportunidade = require("../models/oportunidade");
 
 const router = express.Router();
 
@@ -10,8 +10,8 @@ router.all("/criar", wrap(async (req: express.Request, res: express.Response) =>
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/projeto/alterar", {
-            titulo: "Criar Projeto",
+        res.render("negocios/oportunidade/alterar", {
+            titulo: "Criar Oportunidade",
             usuario: u,
             item: null
         });
@@ -23,13 +23,13 @@ router.all("/alterar", wrap(async (req: express.Request, res: express.Response) 
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        let id_projeto = parseInt(req.query["id_projeto"]);
-        let item: Projeto = null;
-        if (isNaN(id_projeto) || !(item = await Projeto.obter(id_projeto)))
+        let id_oportunidade = parseInt(req.query["id_oportunidade"]);
+        let item: Oportunidade = null;
+        if (isNaN(id_oportunidade) || !(item = await Oportunidade.obter(id_oportunidade)))
             res.render("shared/nao-encontrado", { usuario: u });
         else
-            res.render("negocios/projeto/alterar", {
-                titulo: "Editar Projeto",
+            res.render("negocios/oportunidade/alterar", {
+                titulo: "Editar Oportunidade",
                 usuario: u,
                 item: item
             });
@@ -41,10 +41,10 @@ router.get("/listar", wrap(async (req: express.Request, res: express.Response) =
     if (!u || !u.admin) {
         res.redirect("/acesso");
     } else {
-        res.render("negocios/projeto/listar", {
-            titulo: "Gerenciar Projeto",
+        res.render("negocios/oportunidade/listar", {
+            titulo: "Gerenciar Oportunidades",
             usuario: u,
-            lista: JSON.stringify(await Projeto.listar())
+            lista: JSON.stringify(await Oportunidade.listar())
         });
     }
 }));

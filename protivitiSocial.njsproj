@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>protivitiSocial</Name>
     <RootNamespace>protivitiSocial</RootNamespace>
-    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
     <NameOfLastUsedPublishProfile>deployLocal</NameOfLastUsedPublishProfile>
     <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
     <ToolsVersionPromptShown>3.1</ToolsVersionPromptShown>
@@ -97,6 +97,7 @@
     <Content Include="views\carreira\mentoring\mentorado\listar.ejs" />
     <Content Include="views\carreira\mentoring\mentor\alterar.ejs" />
     <Content Include="views\carreira\mentoring\mentor\listar.ejs" />
+    <Content Include="views\construindo\construindo.ejs" />
     <Content Include="views\inovacao\alterar.ejs" />
     <Content Include="views\inovacao\listar.ejs" />
     <Content Include="views\layout-index.ejs" />
@@ -104,21 +105,21 @@
     <Content Include="views\negocios\cliente\listar.ejs" />
     <Content Include="views\negocios\empresa\alterar.ejs" />
     <Content Include="views\negocios\empresa\listar.ejs" />
-    <Content Include="views\negocios\indicacaoOportunidade\alterar.ejs" />
-    <Content Include="views\negocios\indicacaoOportunidade\listar.ejs" />
+    <Content Include="views\negocios\oportunidade\alterar.ejs" />
+    <Content Include="views\negocios\oportunidade\listar.ejs" />
     <Content Include="views\negocios\industria\alterar.ejs" />
     <Content Include="views\negocios\industria\listar.ejs" />
-    <Content Include="views\negocios\parcerias\listar.ejs" />
+    <Content Include="views\negocios\parceria\listar.ejs" />
     <Content Include="views\negocios\projeto\alterar.ejs" />
     <Content Include="views\negocios\projeto\listar.ejs" />
     <Content Include="views\negocios\pursuitTeam\alterar.ejs" />
     <Content Include="views\negocios\pursuitTeam\listar.ejs" />
-    <Content Include="views\negocios\solucoes\alterar.ejs" />
-    <Content Include="views\negocios\solucoes\listar.ejs" />
-    <Content Include="views\negocios\parcerias\alterar.ejs" />
+    <Content Include="views\controle\solucao\alterar.ejs" />
+    <Content Include="views\negocios\parceria\alterar.ejs" />
     <Content Include="views\administrativo\alterar.ejs" />
     <Content Include="views\administrativo\listar.ejs" />
     <Content Include="views\home\perfil.ejs" />
+    <Content Include="views\controle\solucao\listar.ejs" />
     <Content Include="views\shared\nao-encontrado.ejs" />
     <Content Include="views\home\acesso.ejs" />
     <Content Include="views\layout-vazio.ejs" />
@@ -160,6 +161,15 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="models\inovacao.ts" />
+    <TypeScriptCompile Include="models\oportunidade.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\parceria.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="models\solucao.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="models\tutorial.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
@@ -170,11 +180,19 @@
     <TypeScriptCompile Include="routes\api\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\api\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\api\inovacao.ts" />
+    <TypeScriptCompile Include="routes\api\oportunidade.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\api\parceria.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="routes\api\solucao.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\carreiraCapacitacaoTreinamentos.ts" />
     <TypeScriptCompile Include="routes\carreiraCurriculo.ts" />
     <TypeScriptCompile Include="routes\cliente.ts" />
-    <TypeScriptCompile Include="routes\industria.ts" />
-    <TypeScriptCompile Include="routes\indicacaoOportunidade.ts" />
+    <TypeScriptCompile Include="routes\oportunidade.ts" />
     <TypeScriptCompile Include="routes\inovacao.ts" />
     <TypeScriptCompile Include="routes\mentorado.ts" />
     <TypeScriptCompile Include="routes\mentor.ts" />
@@ -182,9 +200,11 @@
     <TypeScriptCompile Include="routes\mentoring.ts" />
     <TypeScriptCompile Include="routes\pursuitTeam.ts" />
     <TypeScriptCompile Include="routes\empresa.ts" />
-    <TypeScriptCompile Include="routes\solucoes.ts" />
+    <TypeScriptCompile Include="routes\solucao.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="routes\projeto.ts" />
-    <TypeScriptCompile Include="routes\parcerias.ts" />
+    <TypeScriptCompile Include="routes\parceria.ts" />
     <TypeScriptCompile Include="routes\administrativo.ts" />
     <TypeScriptCompile Include="routes\api\usuario.ts" />
     <TypeScriptCompile Include="routes\timeout.ts" />
@@ -241,15 +261,16 @@
     <Folder Include="views\administrativo\" />
     <Folder Include="views\home\" />
     <Folder Include="views\negocios\industria\" />
-    <Folder Include="views\negocios\indicacaoOportunidade\" />
+    <Folder Include="views\negocios\oportunidade\" />
     <Folder Include="views\negocios\cliente\" />
     <Folder Include="views\negocios\empresa\" />
     <Folder Include="views\negocios\pursuitTeam\" />
     <Folder Include="views\negocios\projeto\" />
-    <Folder Include="views\negocios\solucoes\" />
-    <Folder Include="views\negocios\parcerias\" />
+    <Folder Include="views\controle\solucao\" />
+    <Folder Include="views\negocios\parceria\" />
     <Folder Include="views\carreira\" />
     <Folder Include="views\controle\" />
+    <Folder Include="views\construindo\" />
     <Folder Include="views\tutorial\" />
     <Folder Include="views\pec\" />
     <Folder Include="views\shared\" />
