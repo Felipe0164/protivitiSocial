@@ -41,7 +41,7 @@ window.parseQueryString = function () {
 window.encode = (function () {
 	var lt = /</g, gt = />/g;
 	return function (x) {
-		return x.replace(lt, "&lt;").replace(gt, "&gt;");
+		return (x ? x.replace(lt, "&lt;").replace(gt, "&gt;") : "");
 	};
 })();
 window.format2 = function (x) {

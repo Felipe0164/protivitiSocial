@@ -38,15 +38,15 @@
 		order: [[0, "asc"]],
 		deferRender: true,
 		columns: [
-            { title: "Nome do cliente", render: encode, data: "nomeCliente" },
-            { title: "Indústria", render: encode, data: "industria" },
-			      { title: "Soluções", render: encode, data: "solucao" },
-            { title: "Pursuit Team", render: encode, data: "pursuitTeam" },
-            { title: "Problema do cliente", render: encode, data: "problemaCliente" },
-            { title: "Por que vencemos?", render: encode, data: "porqueVencemos" },
-            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/formato/alterar?id=" + row.id + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
+            { title: "Nome do cliente", render: encode, data: "nome_cliente" },
+            { title: "Indústria", render: encode, data: "nome_industria" },
+			{ title: "Soluções", render: encode, data: "nome_solucao" },
+            { title: "Pursuit Team", render: encode, data: "nome_pursuit_team" },
+            { title: "Problema do cliente", render: encode, data: "problema_projeto" },
+            { title: "Por que vencemos?", render: encode, data: "vencemos_projeto" },
+            { title: "", "class": "col-min", searchable: false, orderable: false, data: "id_projeto", render: function (v, type, row) { return "<a target=\"_blank\" title=\"Editar\" href=\"/negocios/projeto/alterar?id_projeto=" + row.id_projeto + "\" class=\"btn btn-outline btn-primary\"><i class=\"fa fa-nomargin fa-edit\"></i></a> <button title=\"Excluir\" type=\"button\" data-excluir=\"1\" class=\"btn btn-outline btn-danger\"><i class=\"fa fa-nomargin fa-times\"></i></button>"; } },
 		],
-	data: [{nomeCliente:"ESPM Store", industria:"Bens de Consumo e Varejo", solucao:"Cultura e Comportamento Ético, Transformação digital", pursuitTeam:"Equipe 1", problemaCliente:"Dificuldades ao efetuar vendar presenciais", porqueVencemos:"-", id:1}]
+	data: <%- lista %>
 	});
 
 	var trClicada;
@@ -77,15 +77,15 @@
 
 		Notification.wait();
 
-		JsonWebApi.get("/api/formato/excluir", function (response) {
+		JsonWebApi.get("/api/projeto/excluir", function (response) {
 			if (response.success) {
-				Notification.success("Formato excluído com sucesso! \uD83D\uDE04");
+				Notification.success("Projeto excluído com sucesso! \uD83D\uDE04");
 				tabela.row(trClicada).remove().draw();
 			} else {
 				Notification.error(response.value, true);
 			}
 			trClicada = null;
-		}, "id", formato.id);
+		}, "id_projeto", formato.id_projeto);
 	}
 
 	//]]>
