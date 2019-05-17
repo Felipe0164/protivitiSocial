@@ -120,6 +120,7 @@ app.use("/api/inovacao", require("./routes/api/inovacao"));
 app.use("/api/oportunidade", require("./routes/api/oportunidade"));
 app.use("/api/parceria", require("./routes/api/parceria"));
 app.use("/api/solucao", require("./routes/api/solucao"));
+app.use("/api/timeout", require("./routes/api/timeout"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
