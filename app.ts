@@ -95,8 +95,8 @@ app.use("/administrativo", require("./routes/administrativo"));
 app.use("/inovacao", require("./routes/inovacao"));
 app.use("/pec", require("./routes/pec"));
 app.use("/negocios/projeto", require("./routes/projeto"));
-app.use("/negocios/parcerias", require("./routes/parcerias"));
-app.use("/negocios/indicacaoOportunidade", require("./routes/indicacaoOportunidade"));
+app.use("/negocios/parceria", require("./routes/parceria"));
+app.use("/negocios/oportunidade", require("./routes/oportunidade"));
 app.use("/timeout", require("./routes/timeout"));
 app.use("/carreira/mentoring", require("./routes/mentoring"));
 app.use("/carreira/mentoring/mentor", require("./routes/mentor"));
@@ -104,7 +104,7 @@ app.use("/carreira/mentoring/mentorado", require("./routes/mentorado"));
 app.use("/alocacao", require("./routes/alocacao"));
 app.use("/carreira/curriculo", require("./routes/carreiraCurriculo"));
 app.use("/carreira/capacitacao", require("./routes/carreiraCapacitacaoTreinamentos"));
-app.use("/controle/solucoes", require("./routes/solucoes"));
+app.use("/controle/solucao", require("./routes/solucao"));
 app.use("/controle/cliente", require("./routes/cliente"));
 app.use("/controle/empresa", require("./routes/empresa"));
 app.use("/controle/segmento", require("./routes/segmento"));
@@ -117,6 +117,9 @@ app.use("/api/alocacao", require("./routes/api/alocacao"));
 app.use("/api/carreiraCapacitacaoTreinamentos", require("./routes/api/carreiraCapacitacaoTreinamentos"));
 app.use("/api/carreiraCurriculo", require("./routes/api/carreiraCurriculo"));
 app.use("/api/inovacao", require("./routes/api/inovacao"));
+app.use("/api/oportunidade", require("./routes/api/oportunidade"));
+app.use("/api/parceria", require("./routes/api/parceria"));
+app.use("/api/solucao", require("./routes/api/solucao"));
 // Depois de registrados todos os caminhos das rotas e seus
 // tratadores, registramos os tratadores que serão chamados
 // caso nenhum dos tratadores anteriores tenha devolvido alguma
